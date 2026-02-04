@@ -3,28 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>Susana Vighi - Sistema de Gestión Integral</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="/css/animate.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/linecons.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css?v=3" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<div class="col-xs-12 col-md-8 col-lg-5">
-    <div class="ibox">
-      <div class="ibox-title"><h2>Inicio de sesión</h2></div>
+
+<script>
+		$(document).ready(function () {
+			$("#navbar").load("navbar.html");
+			$("#footer").load("footer.html");
+		});
+		document.addEventListener("DOMContentLoaded", function () {
+		const elements = document.querySelectorAll('.fade-in-up, .fade-in-right, .fade-in-left');
+		const observer = new IntersectionObserver(entries => {entries.forEach(entry => {
+			if (entry.isIntersecting) {entry.target.classList.add('visible');observer.unobserve(entry.target); // solo una vez
+			}});
+		}, 
+		{threshold: 0.15});
+		elements.forEach(el => observer.observe(el));
+		});
+
+	</script>
+
+<div><nav class="navbar navbar-default navbar-fixed-top navbar-login">
+  <img src="IMG/logo.png" alt="Logo Sistema de Gestión" class="navbar-img">
+  <p class="text-center navbar-login-text">Susana Vighi - Sistema de Gestión Integral</p>
+</nav></div>
+
+<div class="container">
+    <div class="col-sm-8 ibox ibox-shadow">
+      <div class="ibox-title text-center"><h2>INICIO DE SESIÓN</h2></div>
 
       <div class="ibox-content">
-        <p>Complete sus datos para ingresar.</p>
+        <p class="text-center">Complete sus datos para ingresar.</p>
 
-        <div class="form-group">
+        <div class="form-group mt-2">
           <label>E-mail</label>
           <input id="email" type="email" class="form-control" placeholder="E-mail..." autocomplete="email">
         </div>
-
-        <div class="form-group">
+        <div class="form-group mt-2">
           <label>Contraseña</label>
           <input id="password" type="password" class="form-control" placeholder="Contraseña..." autocomplete="current-password">
         </div>
 
-        <div id="status"></div>
+        <div id="status" ></div>
 
         <button id="btnLogin" class="btn btn-primary w-100" type="button">
-          Continuar
+          CONTINUAR
         </button>
       </div>
     </div>
