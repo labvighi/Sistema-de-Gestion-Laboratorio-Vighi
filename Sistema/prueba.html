@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Susana Vighi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .user-info {
+      background-color: #e8f5e9;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .btn-logout {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-logout:hover {
+      background-color: #da190b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>¡Bienvenido al Sistema!</h1>
+    
+    <div class="user-info">
+      <p><strong>Usuario:</strong> <span id="userEmail">Cargando...</span></p>
+    </div>
+
+    <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
+    
+    <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+  </div>
+
+  <script>
+    // Verificar si hay sesión activa
+    const usuario = sessionStorage.getItem("usuario");
+    
+    if (!usuario) {
+      // Si no hay sesión, redirigir al login
+      window.location.href = "index.html";
+    } else {
+      // Mostrar información del usuario
+      const userData = JSON.parse(usuario);
+      document.getElementById("userEmail").textContent = userData.mail;
+    }
+
+    // Función para cerrar sesión
+    function logout() {
+      sessionStorage.removeItem("usuario");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
