@@ -1,0 +1,14 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "mail": "pruebamail@susanavighi.com.ar",
+      "clave": "Clave1234"
+    },
+    {
+      "id": 2,
+      "mail": "mailprueba@susanavighi.com.ar",
+      "clave": "Clave1234"
+    }
+  ]
+}

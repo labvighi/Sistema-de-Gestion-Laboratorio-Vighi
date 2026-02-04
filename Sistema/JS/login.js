@@ -1,5 +1,5 @@
 // login.js
-// Lógica de autenticación con archivo CSV
+// Lógica de autenticación con archivo JSON
 
 // Referencias a los elementos del DOM
 const emailInput = document.getElementById("email");
@@ -7,7 +7,7 @@ const passInput = document.getElementById("password");
 const btnLogin = document.getElementById("btnLogin");
 const statusDiv = document.getElementById("status");
 
-// Variable para almacenar los usuarios cargados desde el CSV
+// Variable para almacenar los usuarios
 let usuarios = [];
 
 // Función para mostrar mensajes de estado
@@ -30,43 +30,55 @@ function clearStatus() {
   statusDiv.className = "";
 }
 
-// Función para cargar y parsear el archivo CSV
+// Función para cargar usuarios desde JSON o localStorage
 async function cargarUsuarios() {
   try {
-    const response = await fetch('usuarios.csv');
+    // Primero intentar cargar desde JSON
+    const response = await fetch('usuarios.json');
     
-    if (!response.ok) {
-      throw new Error('No se pudo cargar el archivo de usuarios');
-    }
-    
-    const texto = await response.text();
-    
-    // Parsear el CSV (usa ; como separador)
-    const lineas = texto.split('\n');
-    
-    // Saltar la primera línea (encabezados)
-    for (let i = 1; i < lineas.length; i++) {
-      const linea = lineas[i].trim();
+    if (response.ok) {
+      const data = await response.json();
+      usuarios = data.usuarios;
       
-      if (linea) {
-        const [id, mail, clave] = linea.split(';');
-        
-        if (mail && clave) {
-          usuarios.push({
-            id: id,
-            mail: mail.trim(),
-            clave: clave.trim()
-          });
-        }
-      }
+      // Guardar en localStorage como backup
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      
+      console.log(`✅ ${usuarios.length} usuarios cargados desde JSON`, usuarios);
+      return true;
     }
-    
-    console.log(`✅ ${usuarios.length} usuarios cargados correctamente`);
-    return true;
-    
   } catch (error) {
-    console.error('Error cargando usuarios:', error);
-    setStatus('Error al cargar la base de datos de usuarios.', true);
+    console.log('⚠️ No se pudo cargar usuarios.json, intentando localStorage...');
+  }
+  
+  // Si falla el JSON, usar localStorage
+  try {
+    const usuariosLocal = localStorage.getItem('usuarios');
+    
+    if (usuariosLocal) {
+      usuarios = JSON.parse(usuariosLocal);
+      console.log(`✅ ${usuarios.length} usuarios cargados desde localStorage`, usuarios);
+      return true;
+    } else {
+      // Si tampoco hay en localStorage, usar usuarios por defecto
+      usuarios = [
+        {
+          id: 1,
+          mail: "pruebamail@susanavighi.com.ar",
+          clave: "Clave1234"
+        },
+        {
+          id: 2,
+          mail: "mailprueba@susanavighi.com.ar",
+          clave: "Clave1234"
+        }
+      ];
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      console.log('✅ Usuarios por defecto cargados', usuarios);
+      return true;
+    }
+  } catch (error) {
+    console.error('❌ Error cargando usuarios:', error);
+    setStatus('Error al cargar la base de datos.', true);
     return false;
   }
 }
@@ -95,33 +107,36 @@ btnLogin.addEventListener("click", async () => {
 
   // Validación de campos vacíos
   if (!email || !password) {
-    setStatus("Por favor, completá el email y la contraseña.", true);
+    setStatus("Completá mail y clave.", true);
     return;
   }
 
   // Validación básica de email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    setStatus("Por favor, ingresá un email válido.", true);
+    setStatus("Ingresá un email válido.", true);
     return;
   }
 
   // Deshabilitar el botón mientras se procesa
   btnLogin.disabled = true;
-  setStatus("Validando credenciales...");
+  btnLogin.textContent = "Validando...";
+  setStatus("Validando...");
 
   try {
     // Validar credenciales
     const usuario = validarCredenciales(email, password);
 
     if (!usuario) {
-      setStatus("Email o contraseña incorrectos.", true);
+      setStatus("Mail o clave incorrectos.", true);
       btnLogin.disabled = false;
+      btnLogin.textContent = "Continuar";
       return;
     }
 
     // Login exitoso
-    setStatus("¡Acceso concedido! Redirigiendo...", false, true);
+    setStatus("Acceso concedido ✅", false, true);
+    btnLogin.textContent = "Redirigiendo...";
     
     // Guardar información del usuario en sessionStorage
     sessionStorage.setItem("usuario", JSON.stringify({
@@ -129,21 +144,35 @@ btnLogin.addEventListener("click", async () => {
       mail: usuario.mail
     }));
 
-    // Redirigir después de 1 segundo
+    // Redirigir después de 800ms
     setTimeout(() => {
       window.location.href = "prueba.html";
-    }, 1000);
+    }, 800);
 
   } catch (err) {
     console.error("Error inesperado:", err);
-    setStatus("Ocurrió un error inesperado. Intentá nuevamente.", true);
+    setStatus("Error inesperado. Intentá de nuevo.", true);
     btnLogin.disabled = false;
+    btnLogin.textContent = "Continuar";
   }
 });
 
 // Limpiar estado al escribir
-emailInput.addEventListener("input", clearStatus);
-passInput.addEventListener("input", clearStatus);
+emailInput.addEventListener("input", () => {
+  clearStatus();
+  if (btnLogin.disabled && usuarios.length > 0) {
+    btnLogin.disabled = false;
+    btnLogin.textContent = "Continuar";
+  }
+});
+
+passInput.addEventListener("input", () => {
+  clearStatus();
+  if (btnLogin.disabled && usuarios.length > 0) {
+    btnLogin.disabled = false;
+    btnLogin.textContent = "Continuar";
+  }
+});
 
 // Cargar usuarios al iniciar la página
 window.addEventListener('DOMContentLoaded', async () => {
@@ -151,5 +180,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   
   if (!cargado) {
     btnLogin.disabled = true;
+    btnLogin.textContent = "Error al cargar";
   }
 });

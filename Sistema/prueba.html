@@ -30,7 +30,7 @@
       border-radius: 4px;
       margin-bottom: 20px;
     }
-    .btn-logout {
+    .btn-logout, .btn-crearUsuario {
       background-color: #f44336;
       color: white;
       padding: 10px 20px;
@@ -39,9 +39,10 @@
       cursor: pointer;
       font-size: 14px;
     }
-    .btn-logout:hover {
+    .btn-logout:hover, .btn-crearUsuario:hover {
       background-color: #da190b;
     }
+
   </style>
 </head>
 <body>
@@ -56,6 +57,9 @@
     <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
     
     <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+
+   <button class="btn-crearUsuario" onclick="crearUsuario()">Crear usuario</button>
+
   </div>
 
   <script>
@@ -75,6 +79,11 @@
     function logout() {
       sessionStorage.removeItem("usuario");
       window.location.href = "index.html";
+    }
+
+     // Función para crear usuario
+    function crearUsuario() {
+      window.location.href = "crearUsuario.html";
     }
   </script>
 

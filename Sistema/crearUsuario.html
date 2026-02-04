@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susana Vighi - Sistema de Gestión Integral</title>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="ibox">
+      <div class="ibox-title"><h2>Nuevo usuario</h2></div>
+      <div class="ibox-content">
+        
+        <div id="status"></div>
+
+        <form id="formRegistro">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Nombre..." required>
+            <span id="errorNombre" class="label-danger" style="display:none;">Requerido</span>
+          </div>
+
+          <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" id="apellido" class="form-control" placeholder="Apellido..." required>
+            <span id="errorApellido" class="label-danger" style="display:none;">Requerido</span>
+          </div>
+
+          <div class="form-group">
+            <label>Dirección</label>
+            <select id="direccion" class="form-control">
+              <option value="1">Av. Santa Fe</option>
+              <option value="2">CM Monserrat</option>
+              <option value="3">CM Otamendi</option>
+              <option value="4">Medrano</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" id="telefono" class="form-control" placeholder="Teléfono..." required>
+            <span id="errorTelefono" class="label-danger" style="display:none;">Requerido</span>
+          </div>
+
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" id="email" class="form-control" placeholder="E-mail..." required>
+            <span id="errorEmail" class="label-danger" style="display:none;">E-mail inválido</span>
+          </div>
+
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" id="clave" class="form-control" placeholder="Contraseña..." required minlength="6">
+            <span id="errorClave" class="label-danger" style="display:none;">Mínimo 6 caracteres</span>
+          </div>
+
+          <div class="form-group">
+            <label>Confirmar Contraseña</label>
+            <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseña..." required>
+            <span id="errorConfirmar" class="label-danger" style="display:none;">Las contraseñas no coinciden</span>
+          </div>
+
+          <div class="form-group">
+            <label>Perfil</label>
+            <select id="perfil" class="form-control">
+              <option value="1">Administración</option>
+              <option value="2">Citotécnico</option>
+              <option value="3">Dirección</option>
+              <option value="4">Externo</option>
+              <option value="5">Gerencial</option>
+              <option value="6">Patólogo</option>
+              <option value="7">Técnico</option>
+            </select>
+          </div>
+
+          <hr>
+
+          <div class="btn-group">
+            
+            <a href="index.html" class="btn btn-white">Cancelar</a>
+            <button type="submit" id="btnCrear" class="btn btn-primary">
+              <i class="fa fa-plus-circle"></i> Crear usuario
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/registro.js"></script>
+</body>
+</html>
