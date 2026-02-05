@@ -19,6 +19,7 @@
 <script>
 		$(document).ready(function () {
 			$("#navbar").load("navbar.html");
+      $("#side-navbar").load("side-navbar.html");
 			$("#footer").load("footer.html");
 		});
 		document.addEventListener("DOMContentLoaded", function () {
@@ -39,10 +40,10 @@
 </nav></div>
 
 <div class="container">
-    <div class="col-sm-8 ibox ibox-shadow">
+    <div class="col-sm-8 ibox-login ibox-shadow">
       <div class="ibox-title text-center"><h2>INICIO DE SESIÓN</h2></div>
 
-      <div class="ibox-content">
+      <div class="ibox-content-form">
         <p class="text-center">Complete sus datos para ingresar.</p>
 
         <div class="form-group mt-2">
@@ -56,12 +57,14 @@
 
         <div id="status" ></div>
 
-        <button id="btnLogin" class="btn btn-primary w-100" type="button">
+        <button id="btnLogin" class="btn btn-primary w-100 bg-btn" type="button">
           CONTINUAR
         </button>
       </div>
     </div>
   </div>
+
+  <div id="footer"></div>
 
   <script src="js/login.js"></script>
 

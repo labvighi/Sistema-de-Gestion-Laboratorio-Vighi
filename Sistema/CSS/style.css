@@ -3,7 +3,9 @@
         Built with Blocs
 -----------------------------------------------------------------------------------*/
 
-body { font-size: 16px; color: #222222; margin: 0; padding: 0; background: #FFF; overflow-x: hidden; padding-top: 50px; } 
+html, body {height: 100%; margin: 0;}
+
+body { font-size: 16px; color: #222222; margin: 0; padding: 0; background: #fdfdfd; overflow-x: hidden; padding-top: 50px;display: flex;flex-direction: column; } 
 
 a:hover{text-decoration: none; cursor:pointer;}
 a,button{outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
@@ -1345,8 +1347,11 @@ small{color: #999999;}
 		#2d0c4d 90%, 
 		#2f0d4d 100%); 
 	text-align: -webkit-center; 
+	padding-top:10px;
 	padding-bottom:10px; 
 	margin-top:-1px;
+	bottom: 0;
+	color: white;
 }
 
 .footer-row {
@@ -1413,11 +1418,30 @@ small{color: #999999;}
 
 .ibox{
 	position: relative;
-    justify-items: center;
-	margin: 15%;
+	margin: 0.5%;
+	margin-top: 1%;
 	padding: 10px;
 }
-.ibox-content{
+
+.ibox-usuario{
+	position: relative;
+    justify-items: center;
+	margin: 10%;
+	margin-top: 5%;
+	margin-bottom: 7.8%;
+	padding: 10px;
+}
+
+.ibox-login{
+	position: relative;
+    justify-items: center;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 30%;
+	padding: 10px;
+}
+
+.ibox-content-form{
 margin: 0 auto;
 width: 70%;
 }
@@ -1431,12 +1455,12 @@ width: 70%;
 	font-size: 10px;
 }
 
-.show{
+.error{
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
-	font-size: 13px;
+	font-size: 14px;
 	font-style: italic;
 	text-align: center;
 	justify-self: center;
@@ -1445,10 +1469,129 @@ width: 70%;
 	border-top-right-radius: 1% 50%;
 	border-bottom-right-radius: 1% 50%;
 	width: 98%;
-}
-.error{
-	background: linear-gradient(to right, #f86d6f, #ffb5b5);
+	background: linear-gradient(to bottom, #f86d6f, #ffb5b5);
 }
 .success{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 14px;
+	font-style: italic;
+	text-align: center;
+	justify-self: center;
+	border-top-left-radius: 1% 50%;
+	border-bottom-left-radius: 1% 50%;
+	border-top-right-radius: 1% 50%;
+	border-bottom-right-radius: 1% 50%;
+	width: 98%;
 	background: linear-gradient(to right, #008000, #15a815);
+}
+
+.navbar-web {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-left: calc(-35%) !important;
+  margin-right: calc(-35%) !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.navbar-icon {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.navbar-icon span {
+  height: 3px;
+  background: #ffffff;
+  margin: 6px 0;
+  border-radius: 2px;
+}
+
+.logobox-navbar-web {
+  padding: 5px !important;
+  
+}
+
+.logo-navbar-web {
+  width: 2.5vw;
+}
+
+.buscar-protocolo {
+  color: white !important;
+  background-color: #6a3092;
+
+}
+
+#side-navbar {
+  position: fixed !important;
+  top: 50px !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: 220px !important; /* ajusta el ancho que necesites */
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  z-index: 1000 !important;
+}
+
+
+
+.nav-header-usuario ul {
+  display: flex !important;
+  align-items: flex-start !important;
+  padding: 0px !important;
+  padding-inline-start: 20px !important;
+  background-color: #6c00aa !important;
+  flex-direction: column;
+}
+
+.nav-header-usuario li {
+  list-style: none !important;
+  margin-bottom: 10px !important;
+  font-size: 14px;
+}
+
+.navbar-static-side {
+  position: static !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border: none !important;
+  background-color: #6a3092;
+  padding-top: 15px !important;
+}
+
+.sidebar-collapse {
+  height: 100vh !important;
+  overflow-y: auto !important;
+}
+
+body {
+  margin-left: 220px !important;
+}
+
+.main-content, 
+#page-wrapper,
+.container-fluid {
+  margin-left: 220px !important;
+}
+
+.bg-btn {
+  background: linear-gradient(to right, #341255 0%, #6a3092 25%, #481f67 50%, #6a3092 75%, #2f0d4d 100%);
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.btn-group {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.wrapper {
+  flex: 1; /* Esto hace que el contenido empuje el footer hacia abajo */
+}
+
+#footer {
+  flex-shrink: 0; /* Evita que el footer se comprima */
 }
