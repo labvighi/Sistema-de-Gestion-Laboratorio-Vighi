@@ -19,7 +19,7 @@
 <script>
 		$(document).ready(function () {
 			$("#navbar").load("navbar.html");
-      $("#side-navbar").load("side-navbar.html");
+            $("#side-navbar").load("side-navbar.html");
 			$("#footer").load("footer.html");
 		});
 		document.addEventListener("DOMContentLoaded", function () {
@@ -41,7 +41,7 @@
   <div class="wrapper">
     <div id="side-navbar"></div>
     <div class="ibox ibox-shadow">
-      <div class="ibox-title">
+      <div class="ibox-title" style="padding-left: 10px;">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <div class="form form-inline mt-0">
@@ -60,43 +60,38 @@
                         <div class="form-group hidden-xs"><span id="ContentPlaceHolder1_header1_lbl_Status" class="label label-light d-block"><i class="fas fa-flag-checkered"></i>Informado</span></div>
                         <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_clave_diagnostico" title="Sospechoso" class="label label-warning d-block">SP</span></div>
                         
-                        <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_urgente" class="label label-danger d-block"><i class="fa fa-exclamation-circle"></i>URGENTE</span></div>
-                        <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_UrgenteFlagToggle" class="btn btn-danger btn-sm" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_UrgenteFlagToggle&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-running"></i> Prioridad alta</a></div>
+                        <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_urgente" class="label label-danger d-block"><i class="fa fa-exclamation-circle"></i> URGENTE </span></div>
+                        <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_UrgenteFlagToggle" class="btn btn-danger btn-sm" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_UrgenteFlagToggle&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="padding: 2px;margin: 0;padding-left: 5px;padding-right: 5px;"><i class="fa fa-running"></i> Prioridad alta</a></div>
                     </div>
                 </div>
             </div>
-            <hr class="mb-1">
+            
             <div class="row">
-                <div class="col-lg-5">  
-                    <div class="ibox-content hidden-hover-container mb-1" style="padding: 10px 0px 0px 10px; ">
-                      <h4><i class="fas fa-id-card"></i> Paciente <a id="ContentPlaceHolder1_header1_hl_protocolos_paciente" title="El paciente cuenta con estudios anteriores" href="../../pacientes/paciente/?id=671105" target="_blank"><i class="far fa-copy"></i></a></h4><hr class="mt-1 mb-1">
-                            <div class="form-group mb-0">
+                <div class="col-lg-5" style="width: 35%;">  
+                    <div class="ibox-content hidden-hover-container mb-1">
+                      <h4><i class="fas fa-id-card"></i> Paciente <a id="ContentPlaceHolder1_header1_hl_protocolos_paciente" title="El paciente cuenta con estudios anteriores" href="../../pacientes/paciente/?id=671105" target="_blank"><i class="fa fa-arrow-right"></i></a></h4><hr class="mt-1 mb-1">
+                            <div class="form form-inline">
                                 <a id="ContentPlaceHolder1_header1_hl_paciente" href="../../pacientes/paciente/?id=671105">GIANNINI, MARTA DOMINGA</a>&nbsp;
                                 <span id="ContentPlaceHolder1_header1_lbl_paciente_edad" title="Año de nacimiento: 1947 Edad actual: 79 Edad al momento del estudio: 79">79 (1947)</span>
-                                <div class="btn">
-                                    <a id="ContentPlaceHolder1_header1_btn_paciente_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_paciente_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a>
-                                </div>
+                                <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_paciente_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_paciente_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a></div>
                             </div>
                             <div><span id="ContentPlaceHolder1_header1_lbl_dni"></span></div>
                             <div id="ContentPlaceHolder1_header1_pnl_cobertura_show">
-                                <div>
+                                <div class="form form-inline">
                                     <span id="ContentPlaceHolder1_header1_lbl_cobertura">GALENO (ORO/PLA)</span>
                                     <a id="ContentPlaceHolder1_header1_btn_cobertura_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_cobertura_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a>
                                 </div>
                             </div><div id="ContentPlaceHolder1_header1_pnl_elegibilidad">
-                                <div>
+                                <div class="form form-inline">
                                     <span id="ContentPlaceHolder1_header1_lbl_nro_credencial">#011596330014</span>
                                     <span id="ContentPlaceHolder1_header1_lbl_nro_elegibilidad" title="Elegibilidad autorizada #157664859" class="text-muted"><i class="fa fa-check"></i></span>
-                                    
-                                    <div class="btn">
-                                        <a id="ContentPlaceHolder1_header1_btn_elegibilidad_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_elegibilidad_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>modificar</a>
-                                    </div>
+                                    <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_elegibilidad_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_elegibilidad_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>modificar</a></div>
                                 </div>
                             </div>                
                     </div>
                 </div>
                 <div class="col-lg-3">  
-                    <div class="ibox-content hidden-hover-container mb-1" style="padding: 10px 0px 0px 0px;">
+                    <div class="ibox-content hidden-hover-container mb-1">
                         <h4 class="mb-0"><i class="fas fa-user-md"></i> Médico</h4><hr class="mt-1 mb-1">
                         <div class="form form-inline">
                             <div class="form-group"><a id="ContentPlaceHolder1_header1_hl_medico" href="../../medicos/medico/?id=4724">AGUIAR, ANA M.</a></div>
@@ -109,15 +104,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="ibox-content hidden-hover-container mb-1" style="padding: 10px 0px 0px 0px;">
+                <div class="col-lg-3" style="width: 24%;">
+                    <div class="ibox-content hidden-hover-container mb-1">
                       <h4 class="mb-0"><i class="fas fa-truck"></i> Recorrido</h4><hr class="mt-1 mb-1"> 
                         <div><a id="ContentPlaceHolder1_header1_hl_ubicacion_entrega" title="LU (M), MA (M), MI (M), JU (M), VI (M)" href="../../ubicaciones/ubicacion/?id=843">TRINIPALERMO</a> <a id="ContentPlaceHolder1_header1_hl_ubicacion_entrega_recorrido" title="LU (M), MA (M), MI (M), JU (M), VI (M)" href="../../ubicaciones/ubicacion/?id=843"></a></div>
                         <div><span id="ContentPlaceHolder1_header1_lbl_ubicacion_entrega_recorrido">LU (M), MA (M), MI (M), JU (M), VI (M)</span></div>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="ibox-content hidden-hover-container mb-1" style="padding: 10px 0px 0px 0px;">
+                <div class="col-lg-2" style="width: 14%;">
+                    <div class="ibox-content hidden-hover-container mb-1">
                     <h4 class="mb-0"><i class="fas fa-id-card"></i> Lote</h4><hr class="mt-1 mb-1">
                             <div class="form form-inline">
                                 <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_sede">ONCO</span></div>
@@ -130,8 +125,6 @@
                     </div>
                 </div>
             </div>
-
-            
         </div>
       <div class="ibox-content">
 

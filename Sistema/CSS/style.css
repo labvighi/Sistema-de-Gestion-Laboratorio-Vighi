@@ -45,7 +45,7 @@ a,button{outline: none!important;} /* Prevent ugly blue glow on chrome and safar
 #navbar > ul > li > a { color:#3D0054; }
 .navbar-brand img { height: 35px; }
 .navbar-brand { padding:8px 15px; }
-.bg-navbar{ background-color: #3D0055;border-color: #852aa1;border-bottom-width: 4px;}
+.bg-navbar{ background: linear-gradient(to right, #341255 0%, #3b165a 10%, #431a60 20%, #471e67 30%, #482065 35%, #4b2067 40%, #481f67 50%, #441d64 60%, #3b165c 70%, #320f52 80%, #2d0c4d 90%, #2f0d4d 100%) !important;border-color: #852aa1;border-bottom-width: 4px;}
 .dropdown-menu > li > span { color: #3D0054; display: block; padding: 3px 20px; clear: both; font-weight: normal; line-height: 1.42857143; white-space: nowrap; }
 .dropdown-menu > li > a {color: #3D0054;}
 .dropdown-menu > li > a:hover,.dropdown-menu > li > a:focus { color: #3D0054; text-decoration: none; background-color: #f5f5f5;}
@@ -1491,7 +1491,6 @@ width: 70%;
 .navbar-web {
   display: flex !important;
   justify-content: space-between !important;
-  align-items: center !important;
   margin-left: calc(-35%) !important;
   margin-right: calc(-35%) !important;
   padding-left: 15px !important;
@@ -1542,8 +1541,10 @@ width: 70%;
   display: flex !important;
   align-items: flex-start !important;
   padding: 0px !important;
+  padding-top: 10px !important;
+  margin: 0px !important;
   padding-inline-start: 20px !important;
-  background-color: #6c00aa !important;
+  background: linear-gradient(to right, #341255 0%, #3b165a 10%, #431a60 20%, #471e67 30%, #482065 35%, #4b2067 40%, #481f67 50%, #441d64 60%, #3b165c 70%, #320f52 80%, #2d0c4d 90%, #2f0d4d 100%); 
   flex-direction: column;
 }
 
@@ -1559,7 +1560,7 @@ width: 70%;
   margin: 0 !important;
   border: none !important;
   background-color: #6a3092;
-  padding-top: 15px !important;
+  margin-top: 5px !important;
 }
 
 .sidebar-collapse {
