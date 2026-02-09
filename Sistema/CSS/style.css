@@ -1584,7 +1584,7 @@ body {
   font-weight: 600 !important;
 }
 
-.btn-group {
+.btn-group-crearusuario {
   display: flex !important;
   justify-content: space-between;
 }
@@ -1595,4 +1595,26 @@ body {
 
 #footer {
   flex-shrink: 0; /* Evita que el footer se comprima */
+}
+
+.td {
+  padding: 0px !important;
+}
+
+.tablita td {
+    padding-right: 10px;
+}
+
+.fa {
+  margin-right: 7px !important;
+}
+
+.btn-border {
+  border: 2px solid #6a3092 !important;
+  color: #6a3092 !important;
+  background-color: transparent !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
