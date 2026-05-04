@@ -137,12 +137,14 @@ btnLogin.addEventListener("click", async () => {
     // Login exitoso
     setStatus("Acceso concedido ✅", false, true);
     btnLogin.textContent = "Redirigiendo...";
-    
-    // Guardar información del usuario en sessionStorage
-    sessionStorage.setItem("usuario", JSON.stringify({
+
+    // Guardar información del usuario en sessionStorage y localStorage
+    const userData = {
       id: usuario.id,
       mail: usuario.mail
-    }));
+    };
+    sessionStorage.setItem("usuario", JSON.stringify(userData));
+    localStorage.setItem("usuario", JSON.stringify(userData));
 
     // Redirigir después de 800ms
     setTimeout(() => {

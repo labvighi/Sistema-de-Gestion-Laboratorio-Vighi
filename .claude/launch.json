@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vighi",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "C:\\Sistema-de-Gestion-Laboratorio-Vighi\\Sistema"],
+      "port": 3000
+    }
+  ]
+}

@@ -5,9 +5,9 @@
 			<div id="pnl_nav_left">
 				<div class="nav-header-usuario">
 					<ul>
-						<li><a class="text-white" id="hl_usuario" href="../../misdatos/"><i class="fas fa-user"></i> TIAGO</a></li>
-						<li><a class="text-white" id="hl_exit" href="../../../usuarios/salir/"><i class="fa fa-sign-out-alt"></i> Cerrar sesión</a></li>
-						<li class="item_boton_perfil active"><a class="text-white" id="rp_perfiles_btn_CambiarPerfil_0" href="javascript:__doPostBack('ctl00$rp_perfiles$ctl00$btn_CambiarPerfil','')"><i class="far fa-address-card"></i> Gerencial</a></li>     
+						<li><a class="text-white" id="sidebar-username"><i class="fas fa-user"></i> USUARIO</a></li>
+						<li><a class="text-white" id="hl_exit" href="index.html" onclick="sessionStorage.removeItem('usuario');localStorage.removeItem('usuario');"><i class="fa fa-sign-out-alt"></i> <span class="nav-label">Cerrar sesión</span></a></li>
+						<li class="item_boton_perfil active"><a class="text-white" id="sidebar-perfil"><i class="far fa-address-card"></i> Gerencial</a></li>     
 					</ul>
 				</div>
 				
@@ -64,3 +64,14 @@
         </div>
     </div>
 </nav>
+
+<script>
+(function() {
+    var usuario = sessionStorage.getItem("usuario") || localStorage.getItem("usuario");
+    if (usuario) {
+        var data = JSON.parse(usuario);
+        var el = document.getElementById("sidebar-username");
+        if (el) el.textContent = (data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO");
+    }
+})();
+</script>
