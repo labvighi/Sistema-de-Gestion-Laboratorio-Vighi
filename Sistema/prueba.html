@@ -1,65 +1,84 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Susana Vighi - Sistema de Gestión Integral</title>
-    <link rel="shortcut icon" href="IMG/favicon.png">
-    <link rel="stylesheet" href="CSS/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="CSS/animate.min.css">
-    <link rel="stylesheet" href="CSS/inspinia.css">
-    <link rel="stylesheet" href="CSS/navbar.css">
-    <link rel="stylesheet" href="CSS/style_mobile.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=5" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body class="pace-done">
 
-    <div id="navbar"></div>
+<script>
+	$(document).ready(function () {
+		$("#navbar").load("navbar.html");
+		$("#side-navbar").load("side-navbar.html");
+		$("#footer").load("footer.html");
+	});
+</script>
 
-    <div id="wrapper">
-        <div id="side-navbar"></div>
+<body>
 
-        <div id="page-wrapper">
-            <div class="wrapper wrapper-content">
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
 
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <h5>Dashboard</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <h2>¡Bienvenido al Sistema!</h2>
-                        <div class="alert alert-light-outline">
-                            <p><strong>Usuario:</strong> <span id="userEmail">Cargando...</span></p>
-                        </div>
-                        <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
-                        <a href="crearUsuario.html" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Crear usuario</a>
-                    </div>
-                </div>
-
-            </div>
-            <div id="footer"></div>
+  <div class="container">
+    <div class="col-sm-8 ibox-login ibox-shadow">
+      <div class="ibox-title text-center"><h2>¡Bienvenido al Sistema!</h2></div>
+      <div class="ibox-content-form">
+        <div class="user-info">
+          <p><strong>Usuario:</strong> <span id="userEmail">Cargando...</span></p>
         </div>
+
+        <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
+
+        <button class="btn btn-danger w-100" onclick="logout()">Cerrar Sesión</button>
+        <button class="btn btn-primary w-100 mt-2" onclick="crearUsuario()">Crear usuario</button>
+      </div>
     </div>
+  </div>
 
-    <script>
-        $(document).ready(function () {
-            $("#navbar").load("navbar.html");
-            $("#side-navbar").load("side-navbar.html");
-            $("#footer").load("footer.html");
-        });
+  <div id="footer"></div>
 
-        var usuario = sessionStorage.getItem("usuario");
-        if (!usuario) {
-            window.location.href = "index.html";
-        } else {
-            var userData = JSON.parse(usuario);
-            document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById("userEmail").textContent = userData.mail;
-            });
-        }
-    </script>
+  <script>
+    // Verificar si hay sesión activa
+    let usuario = sessionStorage.getItem("usuario");
+
+    if (!usuario) {
+      // Si no hay sesión en sessionStorage, intentar cargar desde localStorage
+      usuario = localStorage.getItem("usuario");
+      if (usuario) {
+        // Restaurar la sesión en sessionStorage desde localStorage
+        sessionStorage.setItem("usuario", usuario);
+      } else {
+        // Sin sesión activa, redirigir al login
+        window.location.href = "index.html";
+      }
+    }
+
+    // Mostrar información del usuario
+    const userData = JSON.parse(usuario);
+    document.getElementById("userEmail").textContent = userData.mail;
+
+    // Función para cerrar sesión
+    function logout() {
+      sessionStorage.removeItem("usuario");
+      localStorage.removeItem("usuario");
+      window.location.href = "index.html";
+    }
+
+     // Función para crear usuario
+    function crearUsuario() {
+      window.location.href = "crearUsuario.html";
+    }
+  </script>
+
 </body>
 </html>

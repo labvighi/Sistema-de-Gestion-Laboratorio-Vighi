@@ -10,7 +10,6 @@ const apellidoInput = document.getElementById('apellido');
 const emailInput = document.getElementById('email');
 const claveInput = document.getElementById('clave');
 const confirmarClaveInput = document.getElementById('confirmarClave');
-const direccionSelect = document.getElementById('direccion');
 const perfilSelect = document.getElementById('perfil');
 const btnCrear = document.getElementById('btnCrear');
 
@@ -130,7 +129,6 @@ form.addEventListener('submit', async (e) => {
       id: nuevoId,
       nombre: nombre,
       apellido: apellido,
-      direccion: direccionSelect ? direccionSelect.value : '',
       mail: email,
       clave: clave,
       perfil: perfil

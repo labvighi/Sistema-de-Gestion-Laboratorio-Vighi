@@ -1,140 +1,124 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Susana Vighi - Sistema de Gestión Integral</title>
-    <link rel="shortcut icon" href="IMG/favicon.png">
-    <link rel="stylesheet" href="CSS/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="CSS/animate.min.css">
-    <link rel="stylesheet" href="CSS/inspinia.css">
-    <link rel="stylesheet" href="CSS/navbar.css">
-    <link rel="stylesheet" href="CSS/style_mobile.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Susana Vighi - Sistema de Gestión Integral</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="CSS/style.css?v=5" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body class="pace-done">
 
-    <div id="navbar"></div>
+<script>
+		$(document).ready(function () {
+			$("#navbar").load("navbar.html");
+      $("#side-navbar").load("side-navbar.html");
+			$("#footer").load("footer.html");
+		});
+		document.addEventListener("DOMContentLoaded", function () {
+		const elements = document.querySelectorAll('.fade-in-up, .fade-in-right, .fade-in-left');
+		const observer = new IntersectionObserver(entries => {entries.forEach(entry => {
+			if (entry.isIntersecting) {entry.target.classList.add('visible');observer.unobserve(entry.target); // solo una vez
+			}});
+		}, 
+		{threshold: 0.15});
+		elements.forEach(el => observer.observe(el));
+		});
 
-    <div id="wrapper">
-        <div id="side-navbar"></div>
+	</script>
 
-        <div id="page-wrapper">
-            <div class="wrapper wrapper-content">
+<body>
+    
+  <div id="navbar"></div>
 
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <h5>Nuevo usuario</h5>
-                    </div>
-                    <div class="ibox-content">
+  <div class="wrapper">
+    <div id="side-navbar"></div>
+    <div class="ibox-usuario ibox-shadow">
+      <div class="ibox-title"><h2>Nuevo usuario</h2></div>
+      <div class="ibox-content-form">
+        
+        <div id="status"></div>
 
-                        <div id="status"></div>
+        <form id="formRegistro">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Nombre..." required>
+            <span id="errorNombre" class="label-danger" style="display:none;">Requerido</span>
+          </div>
 
-                        <form id="formRegistro">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Nombre</label>
-                                        <input type="text" id="nombre" class="form-control" placeholder="Nombre..." required>
-                                        <span id="errorNombre" class="label label-danger" style="display:none;">Requerido</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Apellido</label>
-                                        <input type="text" id="apellido" class="form-control" placeholder="Apellido..." required>
-                                        <span id="errorApellido" class="label label-danger" style="display:none;">Requerido</span>
-                                    </div>
-                                </div>
-                            </div>
+          <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" id="apellido" class="form-control" placeholder="Apellido..." required>
+            <span id="errorApellido" class="label-danger" style="display:none;">Requerido</span>
+          </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Dirección</label>
-                                        <select id="direccion" class="form-control">
-                                            <option value="1">Av. Santa Fe</option>
-                                            <option value="2">CM Monserrat</option>
-                                            <option value="3">CM Otamendi</option>
-                                            <option value="4">Medrano</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Teléfono</label>
-                                        <input type="text" id="telefono" class="form-control" placeholder="Teléfono..." required>
-                                        <span id="errorTelefono" class="label label-danger" style="display:none;">Requerido</span>
-                                    </div>
-                                </div>
-                            </div>
+          <div class="form-group">
+            <label>Dirección</label>
+            <select id="direccion" class="form-control">
+              <option value="1">Av. Santa Fe</option>
+              <option value="2">CM Monserrat</option>
+              <option value="3">CM Otamendi</option>
+              <option value="4">Medrano</option>
+            </select>
+          </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>E-mail</label>
-                                        <input type="email" id="email" class="form-control" placeholder="E-mail..." required>
-                                        <span id="errorEmail" class="label label-danger" style="display:none;">E-mail inválido</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Perfil</label>
-                                        <select id="perfil" class="form-control">
-                                            <option value="1">Administración</option>
-                                            <option value="2">Citotécnico</option>
-                                            <option value="3">Dirección</option>
-                                            <option value="4">Externo</option>
-                                            <option value="5">Gerencial</option>
-                                            <option value="6">Patólogo</option>
-                                            <option value="7">Técnico</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="text" id="telefono" class="form-control" placeholder="Teléfono..." required>
+            <span id="errorTelefono" class="label-danger error" style="display:none;">Requerido</span>
+          </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Contraseña</label>
-                                        <input type="password" id="clave" class="form-control" placeholder="Contraseña..." required minlength="6">
-                                        <span id="errorClave" class="label label-danger" style="display:none;">Mínimo 6 caracteres</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Confirmar Contraseña</label>
-                                        <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseña..." required>
-                                        <span id="errorConfirmar" class="label label-danger" style="display:none;">Las contraseñas no coinciden</span>
-                                    </div>
-                                </div>
-                            </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" id="email" class="form-control" placeholder="E-mail..." required>
+            <span id="errorEmail" class="label-danger error" style="display:none;">E-mail inválido</span>
+          </div>
 
-                            <hr>
-                            <div>
-                                <a href="prueba.html" class="btn btn-white">Cancelar</a>
-                                <button type="submit" id="btnCrear" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Crear usuario</button>
-                            </div>
-                        </form>
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" id="clave" class="form-control" placeholder="Contraseña..." required minlength="6">
+            <span id="errorClave" class="label-danger error" style="display:none;">Mínimo 6 caracteres</span>
+          </div>
 
-                    </div>
-                </div>
+          <div class="form-group">
+            <label>Confirmar Contraseña</label>
+            <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseña..." required>
+            <span id="errorConfirmar" class="label-danger error" style="display:none;">Las contraseñas no coinciden</span>
+          </div>
 
-            </div>
-            <div id="footer"></div>
-        </div>
+          <div class="form-group">
+            <label>Perfil</label>
+            <select id="perfil" class="form-control">
+              <option value="1">Administración</option>
+              <option value="2">Citotécnico</option>
+              <option value="3">Dirección</option>
+              <option value="4">Externo</option>
+              <option value="5">Gerencial</option>
+              <option value="6">Patólogo</option>
+              <option value="7">Técnico</option>
+            </select>
+          </div>
+
+          <hr>
+
+          <div class="btn-group">
+            <a href="index.html" class="btn btn-white">Cancelar</a>
+            <button type="submit" id="btnCrear" class="btn btn-primary bg-btn"><i class="fa fa-plus-circle"></i> Crear usuario</button>
+          </div>
+        </form>
+
+      </div>
     </div>
+  </div>
 
-    <script>
-        $(document).ready(function () {
-            $("#navbar").load("navbar.html");
-            $("#side-navbar").load("side-navbar.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
-    <script src="JS/registro.js"></script>
+  <div id="footer"></div>
+
+  <script src="JS/registro.js"></script>
 </body>
 </html>

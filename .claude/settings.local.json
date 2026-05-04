@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"C:\\\\Users\\\\maximo.pita\\\\Downloads\\\\Susana Vighi - Sistema de Gestión Integral_files\\\\logo.png\" \"C:\\\\Sistema-de-Gestion-Laboratorio-Vighi\\\\Sistema\\\\IMG\\\\logo_inspinia.png\")",
+      "Bash(cp \"C:\\\\Users\\\\maximo.pita\\\\Downloads\\\\Susana Vighi - Sistema de Gestión Integral_files\\\\logo_sv_blanco.png\" \"C:\\\\Sistema-de-Gestion-Laboratorio-Vighi\\\\Sistema\\\\IMG\\\\logo_sv_blanco.png\")",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
