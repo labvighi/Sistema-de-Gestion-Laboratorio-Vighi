@@ -2,11 +2,16 @@
   "usuarios": [
     {
       "id": 1,
+      "mail": "admin@example.com",
+      "clave": "admin"
+    },
+    {
+      "id": 2,
       "mail": "pruebamail@susanavighi.com.ar",
       "clave": "Clave1234"
     },
     {
-      "id": 2,
+      "id": 3,
       "mail": "mailprueba@susanavighi.com.ar",
       "clave": "Clave1234"
     }

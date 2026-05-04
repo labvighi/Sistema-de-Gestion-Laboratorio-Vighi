@@ -178,8 +178,11 @@ passInput.addEventListener("input", () => {
 
 // Cargar usuarios al iniciar la página
 window.addEventListener('DOMContentLoaded', async () => {
+  // Limpiar localStorage de usuarios viejos para asegurar que carga desde JSON
+  localStorage.removeItem('usuarios');
+
   const cargado = await cargarUsuarios();
-  
+
   if (!cargado) {
     btnLogin.disabled = true;
     btnLogin.textContent = "Error al cargar";
