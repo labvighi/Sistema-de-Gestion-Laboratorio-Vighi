@@ -85,15 +85,26 @@
 })();
 
 // Manejar menús desplegables del sidebar
-$(function() {
-    // Click en elementos que contienen .arrow (menús desplegables)
-    $('a:has(.arrow)').on('click', function(e) {
-        e.preventDefault();
-        // Buscar el submenu dentro del <li> padre
-        var submenu = $(this).closest('li').find('> .nav');
-        if (submenu.length) {
-            submenu.toggleClass('collapse');
-            submenu.slideToggle();
+document.addEventListener('DOMContentLoaded', function() {
+    // Buscar todos los links que tienen un .arrow (menús desplegables)
+    var menuItems = document.querySelectorAll('.nav a .arrow');
+    menuItems.forEach(function(arrow) {
+        var link = arrow.closest('a');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Buscar el submenu (el siguiente <ul class="nav">)
+                var li = link.closest('li');
+                var submenu = li.querySelector('> .nav');
+                if (submenu) {
+                    submenu.classList.toggle('collapse');
+                    if (submenu.style.display === 'none') {
+                        submenu.style.display = 'block';
+                    } else {
+                        submenu.style.display = 'none';
+                    }
+                }
+            });
         }
     });
 });
