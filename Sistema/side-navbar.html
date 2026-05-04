@@ -74,6 +74,7 @@
 </nav>
 
 <script>
+// Mostrar nombre del usuario en el sidebar
 (function() {
     var usuario = sessionStorage.getItem("usuario") || localStorage.getItem("usuario");
     if (usuario) {
@@ -82,4 +83,17 @@
         if (el) el.textContent = (data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO");
     }
 })();
+
+// Manejar menús desplegables del sidebar
+$(function() {
+    // Click en elementos con arrow para expandir/colapsar submenús
+    $('.nav a .arrow').parent().on('click', function(e) {
+        e.preventDefault();
+        var submenu = $(this).next('.nav');
+        if (submenu.length) {
+            submenu.toggleClass('collapse');
+            submenu.slideToggle();
+        }
+    });
+});
 </script>
