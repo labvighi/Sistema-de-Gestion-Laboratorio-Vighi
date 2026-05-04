@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Susana Vighi - Sistema de Gestión Integral</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="/css/animate.min.css" type="text/css">
-	<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
-	<link rel="stylesheet" href="/css/linecons.min.css" type="text/css">
-	<link rel="stylesheet" href="/css/style.css?v=3" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&amp;display=swap" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susana Vighi - Sistema de Gestión Integral</title>
+    <link rel="shortcut icon" href="IMG/favicon.png">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/inspinia.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #f3f3f4; font-family: 'Open Sans', sans-serif; }
+        .login-panel {
+            max-width: 420px;
+            margin: 10% auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 5px 5px 5px #d0d3d4;
+        }
+        .login-panel h3 { text-align: center; margin-bottom: 20px; font-weight: 300; }
+        .login-logo { text-align: center; margin-bottom: 20px; }
+        .login-logo img { height: 60px; }
+        .login-title { text-align: center; color: #999; margin-bottom: 25px; font-size: 13px; }
+        .btn-login {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #fff;
+            font-weight: 600;
+        }
+        .btn-login:hover { background-color: #18a689; border-color: #18a689; color: #fff; }
+        .status-msg { margin-top: 10px; padding: 8px; border-radius: 3px; font-size: 13px; text-align: center; }
+        .status-msg.error { background-color: #f2dede; color: #a94442; border: 1px solid #ebccd1; }
+        .status-msg.success { background-color: #dff0d8; color: #3c763d; border: 1px solid #d6e9c6; }
+    </style>
 </head>
+<body>
 
-<script>
-		$(document).ready(function () {
-			$("#navbar").load("navbar.html");
-			$("#footer").load("footer.html");
-		});
-		document.addEventListener("DOMContentLoaded", function () {
-		const elements = document.querySelectorAll('.fade-in-up, .fade-in-right, .fade-in-left');
-		const observer = new IntersectionObserver(entries => {entries.forEach(entry => {
-			if (entry.isIntersecting) {entry.target.classList.add('visible');observer.unobserve(entry.target); // solo una vez
-			}});
-		}, 
-		{threshold: 0.15});
-		elements.forEach(el => observer.observe(el));
-		});
-
-	</script>
-
-<div><nav class="navbar navbar-default navbar-fixed-top navbar-login">
-  <img src="IMG/logo.png" alt="Logo Sistema de Gestión" class="navbar-img">
-  <p class="text-center navbar-login-text">Susana Vighi - Sistema de Gestión Integral</p>
-</nav></div>
-
-<div class="container">
-    <div class="col-sm-8 ibox ibox-shadow">
-      <div class="ibox-title text-center"><h2>INICIO DE SESIÓN</h2></div>
-
-      <div class="ibox-content">
-        <p class="text-center">Complete sus datos para ingresar.</p>
-
-        <div class="form-group mt-2">
-          <label>E-mail</label>
-          <input id="email" type="email" class="form-control" placeholder="E-mail..." autocomplete="email">
+    <div class="login-panel">
+        <div class="login-logo">
+            <img src="IMG/logo_inspinia.png" alt="Logo">
         </div>
-        <div class="form-group mt-2">
-          <label>Contraseña</label>
-          <input id="password" type="password" class="form-control" placeholder="Contraseña..." autocomplete="current-password">
+        <h3>Susana Vighi - Sistema de Gestión Integral</h3>
+        <p class="login-title">Complete sus datos para ingresar.</p>
+
+        <div class="form-group">
+            <label>E-mail</label>
+            <input id="email" type="email" class="form-control" placeholder="E-mail..." autocomplete="email">
+        </div>
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input id="password" type="password" class="form-control" placeholder="Contraseña..." autocomplete="current-password">
         </div>
 
-        <div id="status" ></div>
+        <div id="status"></div>
 
-        <button id="btnLogin" class="btn btn-primary w-100" type="button">
-          CONTINUAR
-        </button>
-      </div>
+        <button id="btnLogin" class="btn btn-login btn-block" type="button">CONTINUAR</button>
     </div>
-  </div>
 
-  <script src="js/login.js"></script>
-
+    <script src="JS/login.js"></script>
 </body>
 </html>

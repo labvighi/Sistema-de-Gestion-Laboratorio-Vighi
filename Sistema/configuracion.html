@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susana Vighi - Sistema de Gestión Integral</title>
+    <link rel="shortcut icon" href="IMG/favicon.png">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/animate.min.css">
+    <link rel="stylesheet" href="CSS/inspinia.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/style_mobile.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body class="pace-done">
+
+<div id="navbar"></div>
+
+<div id="wrapper">
+<div id="side-navbar"></div>
+
+<div id="page-wrapper">
+<div class="wrapper wrapper-content">
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="wrapper wrapper-content animated fadeInRight">             
+
+        <div class="ibox float-e-margins">
+            <div class="ibox-title"><h2><i class="fas fa-sliders-h"></i>Configuraciones</h2></div>
+            <div class="ibox-content">
+                <div class="row">
+                    
+                        <div class="col-sm-3 mb-2">
+                            
+                            <div class="btn-group btn-group-vertical w-100">
+                                <a id="ContentPlaceHolder1_hl_usuarios" class="btn btn-white" href="usuarios/"><i class="fa fa-user"></i> Usuarios</a>
+                                <a id="ContentPlaceHolder1_hl_citotecnicos" class="btn btn-white" href="usuarios/asignaciones/"><i class="fas fa-user-check"></i> Asignaciones</a>
+                                <a id="ContentPlaceHolder1_hl_tareas" class="btn btn-white" href="usuarios/tareas/"><i class="fa fa-comments"></i> Responsables de tareas</a>
+                                <a id="ContentPlaceHolder1_hl_congelaciones" class="btn btn-white" href="congelaciones/"><i class="far fa-hospital"></i> Congelaciones</a>
+                            </div>
+
+                            
+                                <div class="mb-2 mt-2">
+                                    <h3>Insumos</h3>
+                                    <div class="btn-group btn-group-vertical w-100">
+                                        <a id="ContentPlaceHolder1_hl_insumos" class="btn btn-white" href="../insumos/"><i class="fas fa-flask">
+                                        </i>Insumos</a>
+                                    </div>
+                                </div>
+                            
+
+                        </div>
+                    
+
+
+                    
+                        <div class="col-sm-3 mb-2">
+                            <h3>Reportes</h3>
+                            
+                                <div class="form">
+                                    <div class="form-group">
+                                        <select name="ctl00$ContentPlaceHolder1$DD_ReporteCito_Mes" id="ContentPlaceHolder1_DD_ReporteCito_Mes" class="form-control">
+                                        <option value="1">Enero</option>
+                                        <option value="2">Febrero</option>
+                                        <option value="3">Marzo</option>
+                                        <option value="4">Abril</option>
+                                        <option selected="selected" value="5">Mayo</option>
+                                        <option value="6">Junio</option>
+                                        <option value="7">Julio</option>
+                                        <option value="8">Agosto</option>
+                                        <option value="9">Septiembre</option>
+                                        <option value="10">Octubre</option>
+                                        <option value="11">Noviembre</option>
+                                        <option value="12">Diciembre</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <select name="ctl00$ContentPlaceHolder1$DD_ReporteCito_Año" id="ContentPlaceHolder1_DD_ReporteCito_Año" class="form-control">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option selected="selected" value="2026">2026</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="btn-group btn-group-vertical w-100">
+                                            <a id="ContentPlaceHolder1_btn_ExportReporteCitos" class="btn btn-white" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$btn_ExportReporteCitos','')"><i class="fas fa-download"></i> Reporte Citotécnicos</a>
+                                            <a id="ContentPlaceHolder1_btn_ExportReporte_Facturacion" class="btn btn-white" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$btn_ExportReporte_Facturacion','')"><i class="fas fa-download"></i> Reporte facturación</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <a id="ContentPlaceHolder1_hl_analytics" class="btn btn-white w-100" href="../reportes/analytics/"><i class="fas fa-chart-line"></i> Analytics</a>
+                        </div>
+                    
+                    
+                    <div class="col-sm-3 mb-2">
+                        <h3>Recorridos</h3>
+                        <div class="btn-group btn-group-vertical w-100">
+                            <a id="ContentPlaceHolder1_hl_ubicaciones" class="btn btn-white" href="../ubicaciones/"><i class="fas fa-hospital"></i>Ubicaciones</a><a id="ContentPlaceHolder1_hl_recorridos" class="btn btn-white" href="../ubicaciones/recorridos/"><i class="fa fa-motorcycle"></i>Recorridos</a><a id="ContentPlaceHolder1_hl_Calendario" class="btn btn-white" href="calendario/"><i class="fa fa-calendar"></i>Calendario</a>
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="col-sm-3 mb-2">
+                            <h3>Coberturas, estudios y flujos</h3>
+                            <div class="btn-group btn-group-vertical w-100">
+                                <a id="ContentPlaceHolder1_hl_nomencladores" class="btn btn-white" href="nomencladores/"><i class="fas fa-tag"></i>Nomencladores</a>
+                                <a id="ContentPlaceHolder1_hl_coberturas" class="btn btn-white" href="coberturas/"><i class="fas fa-hospital"></i>Coberturas</a>
+                                <a id="ContentPlaceHolder1_hl_estudios" class="btn btn-white" href="estudios/"><i class="fas fa-medkit"></i>Tipos de estudios</a>
+                                <a id="ContentPlaceHolder1_hl_organos" class="btn btn-white" href="estudios/organos/"><i class="fa fa-heartbeat"></i>Organos</a>
+                                <a id="ContentPlaceHolder1_hl_flujos" class="btn btn-white" href="flujos/"><i class="fa fa-sitemap"></i>Flujos</a>
+                            </div>
+                        </div>
+                    
+                </div>
+                <div class="row">
+                    
+                    <div class="col-sm-3 mb-2">
+                        <h3><i class="far fa-copy"></i>Templates</h3>
+                        <div class="btn-group btn-group-vertical w-100">
+                            <a id="ContentPlaceHolder1_hl_templates" class="btn btn-white" href="diagnosticos/templates/"><i class="fa fa-list"></i> Templates</a>
+                            <a id="ContentPlaceHolder1_hl_abreviaturas" class="btn btn-white" href="diagnosticos/abrevs/"><i class="fa fa-list"></i> Abreviaturas</a>
+                        </div>
+                    </div>
+                    
+                        <div class="col-sm-3 mb-2">
+                            <h3><i class="fas fa-project-diagram"></i>Integraciones</h3>
+                            <div class="btn-group btn-group-vertical w-100">
+                                <a id="ContentPlaceHolder1_hl_iadt" class="btn btn-white" href="iadt/"><i class="fa fa-wifi"></i>IADT</a>
+                                <a id="ContentPlaceHolder1_btn_iadt_exportar_reporte_ejecutivo" class="btn btn-white" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$btn_iadt_exportar_reporte_ejecutivo','')"><i class="fas fa-download"></i> Reporte ejecutivo</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+        <div id="footer"></div>
+</div>
+</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#navbar").load("navbar.html");
+            $("#side-navbar").load("side-navbar.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <script src="JS/registro.js"></script>
+</body>
+</html>

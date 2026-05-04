@@ -1,82 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Susana Vighi</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .user-info {
-      background-color: #e8f5e9;
-      padding: 15px;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-    .btn-logout {
-      background-color: #f44336;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .btn-logout:hover {
-      background-color: #da190b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Susana Vighi - Sistema de Gestión Integral</title>
+    <link rel="shortcut icon" href="IMG/favicon.png">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/animate.min.css">
+    <link rel="stylesheet" href="CSS/inspinia.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/style_mobile.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="pace-done">
 
-  <div class="container">
-    <h1>¡Bienvenido al Sistema!</h1>
-    
-    <div class="user-info">
-      <p><strong>Usuario:</strong> <span id="userEmail">Cargando...</span></p>
+    <div id="navbar"></div>
+
+    <div id="wrapper">
+        <div id="side-navbar"></div>
+
+        <div id="page-wrapper">
+            <div class="wrapper wrapper-content">
+
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Dashboard</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <h2>¡Bienvenido al Sistema!</h2>
+                        <div class="alert alert-light-outline">
+                            <p><strong>Usuario:</strong> <span id="userEmail">Cargando...</span></p>
+                        </div>
+                        <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
+                        <a href="crearUsuario.html" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Crear usuario</a>
+                    </div>
+                </div>
+
+            </div>
+            <div id="footer"></div>
+        </div>
     </div>
 
-    <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
-    
-    <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
-  </div>
+    <script>
+        $(document).ready(function () {
+            $("#navbar").load("navbar.html");
+            $("#side-navbar").load("side-navbar.html");
+            $("#footer").load("footer.html");
+        });
 
-  <script>
-    // Verificar si hay sesión activa
-    const usuario = sessionStorage.getItem("usuario");
-    
-    if (!usuario) {
-      // Si no hay sesión, redirigir al login
-      window.location.href = "index.html";
-    } else {
-      // Mostrar información del usuario
-      const userData = JSON.parse(usuario);
-      document.getElementById("userEmail").textContent = userData.mail;
-    }
-
-    // Función para cerrar sesión
-    function logout() {
-      sessionStorage.removeItem("usuario");
-      window.location.href = "index.html";
-    }
-  </script>
-
+        var usuario = sessionStorage.getItem("usuario");
+        if (!usuario) {
+            window.location.href = "index.html";
+        } else {
+            var userData = JSON.parse(usuario);
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("userEmail").textContent = userData.mail;
+            });
+        }
+    </script>
 </body>
 </html>

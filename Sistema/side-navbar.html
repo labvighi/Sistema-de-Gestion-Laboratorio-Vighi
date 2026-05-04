@@ -1,0 +1,73 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <div class="nav-header-usuario">
+            <ul>
+                <li><a id="hl_usuario" href="#"><i class="fas fa-user"></i> <span class="nav-label" id="sidebar-username">USUARIO</span></a></li>
+                <li><a id="hl_exit" href="index.html" onclick="sessionStorage.removeItem('usuario')"><i class="fa fa-sign-out-alt"></i> <span class="nav-label">Cerrar sesión</span></a></li>
+                <li class="item_boton_perfil active"><a href="#"><i class="far fa-address-card"></i> <span class="nav-label" id="sidebar-perfil">Gerencial</span></a></li>
+            </ul>
+        </div>
+        <ul class="nav metismenu" id="side-menu">
+            <hr style="margin:0;">
+            <li><a href="#"><i class="fa fa-plus-circle"></i> <span class="nav-label">RECEPCIÓN</span></a></li>
+            <hr style="margin:0;">
+            <li>
+                <a href="#"><i class="fa fa-motorcycle"></i> <span class="nav-label">TRASLADOS</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" style="padding-top:0;">
+                    <li class="titulo">LABORATORIO</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Lab > Informar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Lab > Colorear</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Lab > Revisar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Lab > Archivar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Lab Ext > Procesar</a></li>
+                    <li class="titulo">CITOTÉCNICOS</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Cito > Informar</a></li>
+                    <li class="titulo">DEVOLUCIÓN</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Cons > Entregar</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">LABORATORIO</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" style="padding-top:0;">
+                    <li class="titulo">PROCESAMIENTO</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> IHQ > Procesar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Histo > Procesar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Liq > Centrifugar</a></li>
+                    <li class="titulo">INCLUSIÓN</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Cassette > Incluir</a></li>
+                    <li class="titulo">CORTE PH</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Taco > Cortar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Taco IHQ > Cortar</a></li>
+                    <li class="titulo">COLOREADO</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Porta > Colorear</a></li>
+                    <li class="titulo">ARCHIVO</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Porta > Archivar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Taco > Archivar</a></li>
+                    <li class="titulo">RESERVA</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Reserva > Tirar</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-stethoscope"></i> <span class="nav-label">DIAGNÓSTICOS</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" style="padding-top:0;">
+                    <li class="titulo">MACROSCOPÍA</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Macro > Informar</a></li>
+                    <li class="titulo">MICROSCOPÍA</li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Micro > Informar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Micro > Interpretar</a></li>
+                    <li class="item"><a href="#"><i class="fa fa-caret-right"></i> Micro > Revisar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+(function() {
+    var usuario = sessionStorage.getItem("usuario");
+    if (usuario) {
+        var data = JSON.parse(usuario);
+        var el = document.getElementById("sidebar-username");
+        if (el) el.textContent = data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO";
+    }
+})();
+</script>
