@@ -137,12 +137,14 @@ btnLogin.addEventListener("click", async () => {
     // Login exitoso
     setStatus("Acceso concedido ✅", false, true);
     btnLogin.textContent = "Redirigiendo...";
-    
-    // Guardar información del usuario en sessionStorage
-    sessionStorage.setItem("usuario", JSON.stringify({
+
+    // Guardar información del usuario en sessionStorage y localStorage
+    const userData = {
       id: usuario.id,
       mail: usuario.mail
-    }));
+    };
+    sessionStorage.setItem("usuario", JSON.stringify(userData));
+    localStorage.setItem("usuario", JSON.stringify(userData));
 
     // Redirigir después de 800ms
     setTimeout(() => {
@@ -176,8 +178,11 @@ passInput.addEventListener("input", () => {
 
 // Cargar usuarios al iniciar la página
 window.addEventListener('DOMContentLoaded', async () => {
+  // Limpiar localStorage de usuarios viejos para asegurar que carga desde JSON
+  localStorage.removeItem('usuarios');
+
   const cargado = await cargarUsuarios();
-  
+
   if (!cargado) {
     btnLogin.disabled = true;
     btnLogin.textContent = "Error al cargar";

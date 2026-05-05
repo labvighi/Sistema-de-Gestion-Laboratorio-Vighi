@@ -1,3 +1,14 @@
 <div class="footer bg-footer">
-    <div class="text-center">Dra. Susana Vighi | Centro de Anatomía Patológica | <span id="lbl_FechaHoy">5/2/2026 15:17:39</span></div>
-</div>
+    <div class="text-center">Dra. Susana Vighi | Centro de Anatomía Patológica |<span id="fecha-hora"></span>
+<script>
+  const ahora = new Date();
+  const dia = String(ahora.getDate()).padStart(2, '0');
+  const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+  const anio = ahora.getFullYear();
+  const hora = String(ahora.getHours()).padStart(2, '0');
+  const min = String(ahora.getMinutes()).padStart(2, '0');
+  const seg = String(ahora.getSeconds()).padStart(2, '0');
+
+  document.getElementById("fecha-hora").textContent = 
+    `${dia}/${mes}/${anio} ${hora}:${min}:${seg}`;
+</script>

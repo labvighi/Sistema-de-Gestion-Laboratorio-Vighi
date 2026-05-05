@@ -1,29 +1,30 @@
+<div id="side-navbar">
 <nav class="navbar-default navbar-static-side" role="navigation" style="margin-top:12px;">
 	<div class="sidebar-collapse">
 		<div class="nav-header-left">
 			<div id="pnl_nav_left">
 				<div class="nav-header-usuario">
 					<ul>
-						<li><a class="text-white" id="hl_usuario" href="../../misdatos/"><i class="fas fa-user"></i> TIAGO</a></li>
-						<li><a class="text-white" id="hl_exit" href="../../../usuarios/salir/"><i class="fa fa-sign-out-alt"></i> Cerrar sesión</a></li>
-						<li class="item_boton_perfil active"><a class="text-white" id="rp_perfiles_btn_CambiarPerfil_0" href="javascript:__doPostBack('ctl00$rp_perfiles$ctl00$btn_CambiarPerfil','')"><i class="far fa-address-card"></i> Gerencial</a></li>     
+						<li><a class="text-white" id="sidebar-username"><i class="fas fa-user"></i> USUARIO</a></li>
+						<li><a class="text-white" id="hl_exit" href="index.html" onclick="sessionStorage.removeItem('usuario');localStorage.removeItem('usuario');"><i class="fa fa-sign-out-alt"></i> <span class="nav-label">Cerrar sesión</span></a></li>
+						<li class="item_boton_perfil active"><a class="text-white" id="sidebar-perfil"><i class="far fa-address-card"></i> Gerencial</a></li>     
 					</ul>
 				</div>
 				
-				<ul class="nav metismenu" id="side-menu"><hr style="margin-top: 0px; margin-bottom: 0px;">
-					<li><a class="text-white" id="hl_recepcion" href="../../protocolos/ordenes/recepcion/"><i class="fa fa-plus-circle"></i> RECEPCIÓN</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
+				<ul class="nav metismenu" id="side-menu" style="font-size: 12px"><hr style="margin-top: 0px; margin-bottom: 0px;">
+					<li><a class="text-white" id="hl_recepcion" href="recepcion.html"><i class="fa fa-plus-circle"></i> RECEPCIÓN</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
 					<li><a class="text-white" href="#"><i class="fa fa-motorcycle"></i> <span class="nav-label">TRASLADOS</span><span class="fa arrow"></span></a><hr style="margin-top: 0px; margin-bottom: 0px;">
 						<ul class="nav nav-second-level collapse" style="padding-top:0px;">
 							<li class="titulo">LABORATORIO</li>
 							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=14"><i class="fa fa-caret-right"></i>Lab &gt; Informar (1)</a></li>
-							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=40"><i class="fa fa-caret-right"></i>Lab &gt; Colorear (20)</a></li>
-							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=102"><i class="fa fa-caret-right"></i>Lab &gt; Revisar (1)</a></li>
+							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=40"><i class="fa fa-caret-right"></i>Lab &gt; Colorear (15)</a></li>
+							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=102"><i class="fa fa-caret-right"></i>Lab &gt; Revisar (4)</a></li>
 							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=120"><i class="fa fa-caret-right"></i>Lab &gt; Archivar (68793)</a></li>
-							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=105"><i class="fa fa-caret-right"></i>Lab Ext &gt; Procesar (7)</a></li>
+							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=105"><i class="fa fa-caret-right"></i>Lab Ext &gt; Procesar (10)</a></li>
 							<li class="titulo">CITOTÉCNICOS</li>
-							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=90"><i class="fa fa-caret-right"></i>Cito &gt; Informar (301)</a></li>
+							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=90"><i class="fa fa-caret-right"></i>Cito &gt; Informar (546)</a></li>
 							<li class="titulo">DEVOLUCIÓN</li>
-							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=110"><i class="fa fa-caret-right"></i>Cons &gt; Entregar (114)</a></li>
+							<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=110"><i class="fa fa-caret-right"></i>Cons &gt; Entregar (196)</a></li>
 						</ul>
 					</li>
 					<li>
@@ -63,3 +64,49 @@
         </div>
     </div>
 </nav>
+
+<script>
+// Mostrar nombre del usuario en el sidebar
+(function() {
+    var usuario = sessionStorage.getItem("usuario") || localStorage.getItem("usuario");
+    if (usuario) {
+        var data = JSON.parse(usuario);
+        var el = document.getElementById("sidebar-username");
+        if (el) el.textContent = (data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO");
+    }
+})();
+
+// Manejar menús desplegables del sidebar
+// Se ejecuta directo (sin DOMContentLoaded) porque este script se inyecta dinámicamente con jQuery .load()
+(function() {
+    // Ocultar todos los submenús al inicio
+    document.querySelectorAll('.nav-second-level').forEach(function(sub) {
+        sub.style.display = 'none';
+    });
+
+    // Asignar click a cada link con flecha
+    document.querySelectorAll('#side-menu > li > a').forEach(function(link) {
+        var li = link.parentElement;
+        var submenu = li.querySelector('.nav-second-level');
+        if (!submenu) return;
+
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var isOpen = li.classList.contains('open');
+
+            // Cerrar todos los submenús abiertos
+            document.querySelectorAll('#side-menu > li').forEach(function(otherLi) {
+                otherLi.classList.remove('open');
+                var otherSub = otherLi.querySelector('.nav-second-level');
+                if (otherSub) otherSub.style.display = 'none';
+            });
+
+            // Si estaba cerrado, abrirlo
+            if (!isOpen) {
+                li.classList.add('open');
+                submenu.style.display = 'block';
+            }
+        });
+    });
+})();
+</script>

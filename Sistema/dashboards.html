@@ -13,132 +13,6 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <style>
-    .dashboard-panel {
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 4px;
-      margin: 15px;
-    }
-
-    .dashboard-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      border-bottom: 1px solid #ddd;
-      padding: 0 10px;
-    }
-
-    .dashboard-tab {
-      padding: 10px 14px;
-      cursor: pointer;
-      color: #555;
-      font-size: 13px;
-      border: 1px solid transparent;
-      margin-bottom: -1px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dashboard-tab:hover {
-      color: #333;
-      background-color: #f5f5f5;
-      text-decoration: none;
-    }
-
-    .dashboard-tab.active {
-      background-color: #e8e8e8;
-      border-color: #ddd;
-      border-bottom-color: #e8e8e8;
-      color: #333;
-      font-weight: 600;
-    }
-
-    .dashboard-filters {
-      padding: 8px 15px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .dashboard-filters select {
-      border: 1px solid #ccc;
-      padding: 4px 8px;
-      border-radius: 3px;
-      font-size: 13px;
-      margin-right: 5px;
-      background: white;
-      color: #555;
-      cursor: pointer;
-    }
-
-    .btn-actualizar {
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 4px 10px;
-      border-radius: 3px;
-      font-size: 13px;
-      cursor: pointer;
-      color: #555;
-    }
-
-    .btn-actualizar:hover {
-      background-color: #f5f5f5;
-    }
-
-    .dashboard-content {
-      padding: 15px;
-      min-height: 300px;
-    }
-
-    .tab-pane { display: none; }
-    .tab-pane.active { display: block; }
-
-    /* Tabla Validación */
-    .overflow-x-auto { overflow-x: auto; }
-
-    .table-validacion {
-      font-size: 12px;
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .table-validacion th,
-    .table-validacion td {
-      text-align: center;
-      padding: 4px 6px;
-      border: 1px solid #e8e8e8;
-      white-space: nowrap;
-    }
-
-    .table-validacion th:first-child,
-    .table-validacion td:first-child {
-      text-align: left;
-      padding-left: 10px;
-      min-width: 160px;
-    }
-
-    .table-validacion thead th {
-      font-weight: 600;
-      color: #444;
-      background-color: #fafafa;
-    }
-
-    .table-validacion thead th.weekend { color: #5b8dd9; }
-    .table-validacion td.weekend { color: #5b8dd9; }
-
-    .table-validacion tbody tr:hover { background-color: #f9f9f9; }
-
-    .table-validacion tfoot tr {
-      background-color: #f0f0f0;
-      font-weight: 600;
-    }
-
-    .dashboard-title {
-      padding: 15px 15px 5px 15px;
-      margin: 0;
-      font-size: 20px;
-      color: #444;
-      font-weight: 400;
-    }
-  </style>
 </head>
 
 <script>
@@ -155,9 +29,11 @@
 
   <div class="wrapper">
     <div>
-      <h3 class="dashboard-title">
-        <i class="fa fa-th-large"></i> Dashboards
-      </h3>
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <h3 class="recepcion-title"><i class="fas fa-tachometer-alt"></i> Dashboards</h3>
+        <hr class="mb-0 mt-1">
+      </div>
 
       <div class="dashboard-panel">
 
@@ -210,49 +86,49 @@
         <!-- MACRO -->
         <div class="tab-pane" id="tab-macro">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
         <!-- CITOTÉCNICOS -->
         <div class="tab-pane" id="tab-citotecnicos">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
         <!-- PATÓLOGOS -->
         <div class="tab-pane" id="tab-patologos">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
         <!-- TÉCNICOS -->
         <div class="tab-pane" id="tab-tecnicos">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
         <!-- EJECUTIVO -->
         <div class="tab-pane" id="tab-ejecutivo">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
         <!-- PERFORMANCE -->
         <div class="tab-pane" id="tab-performance">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
         <!-- PROYECCIÓN -->
         <div class="tab-pane" id="tab-proyeccion">
           <div class="dashboard-content">
-            <p class="text-muted text-center" style="padding-top:60px;">En construcción</p>
+            <p class="tab-construccion">En construcción</p>
           </div>
         </div>
 
