@@ -1529,7 +1529,7 @@ width: 70%;
   top: 50px !important;
   left: 0 !important;
   bottom: 0 !important;
-  width: 220px !important; /* ajusta el ancho que necesites */
+  width: 220px !important;
   overflow-y: hidden !important;
   overflow-x: hidden !important;
   z-index: 1000 !important;
@@ -1594,5 +1594,9 @@ body {
 }
 
 #footer {
-  flex-shrink: 0; /* Evita que el footer se comprima */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }

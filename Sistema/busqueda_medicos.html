@@ -1,38 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Susana Vighi - Sistema de Gestión Integral</title>
-    <link rel="shortcut icon" href="IMG/favicon.png">
-    <link rel="stylesheet" href="CSS/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="CSS/animate.min.css">
-    <link rel="stylesheet" href="CSS/inspinia.css">
-    <link rel="stylesheet" href="CSS/navbar.css">
-    <link rel="stylesheet" href="CSS/style_mobile.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Susana Vighi - Sistema de Gestión Integral</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+	<link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="CSS/style.css?v=5" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&amp;display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
-<body class="pace-done">
 
-    <div id="navbar"></div>
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
 
-    <div id="wrapper">
-        <div id="side-navbar"></div>
+<body>
 
-<div id="page-wrapper">
-<div class="wrapper wrapper-content">
-<div class="wrapper wrapper-content animated fadeInRight">
-                   
-<div class="ibox float-e-margins">
+  <div id="navbar"></div>
+
+  <div class="wrapper">
+    <div id="side-navbar"></div>
+    <div class="ibox-usuario ibox-shadow">
+
+<div id="ContentPlaceHolder1_up1">
+
+        <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h2>Médicos</h2>
                 <div style="text-align:right;"><a id="ContentPlaceHolder1_hl_Nuevo" class="btn btn-white" href="nuevo_medico.html"><i class="fa fa-plus-circle"></i>Nuevo médico</a></div>
             </div>
             <div class="ibox-content">
-                
+
+                <div class="input-group mb-3">
+                    <input type="text" id="buscadorMedico" class="form-control" placeholder="Buscar médico...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+
                 <div class="btn-group">
                     
                             <a id="ctl00_ContentPlaceHolder1_rp_medicos_iniciales_ctl00_btn_inciales" class="btn btn-white active" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$rp_medicos_iniciales$ctl00$btn_inciales','')">A</a>
@@ -2425,17 +2439,20 @@
                 </tbody></table>
             </div>
         </div>
-        <div id="footer"></div>
-</div>
-    </div>
 
-    <script>
-        $(document).ready(function () {
-            $("#navbar").load("navbar.html");
-            $("#side-navbar").load("side-navbar.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
-    <script src="JS/registro.js"></script>
+        <div id="ContentPlaceHolder1_upr1" style="display:none;" role="status" aria-hidden="true">
+		<div class="loading_border"><div class="loading_body"><img id="ContentPlaceHolder1_img_loading" src="../../img/loading_bkg.gif"></div></div>
+	</div>  
+
+    
+</div>
+
+
+                </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
 </body>
 </html>
