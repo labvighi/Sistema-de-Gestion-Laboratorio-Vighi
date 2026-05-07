@@ -62,7 +62,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   
   // Limpiar mensajes de error previos
-  document.querySelectorAll('.label-danger').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.form-error').forEach(el => el.classList.add('hidden'));
   
   // Obtener valores
   const nombre = nombreInput.value.trim();
@@ -76,27 +76,27 @@ form.addEventListener('submit', async (e) => {
   let hayErrores = false;
   
   if (!nombre) {
-    document.getElementById('errorNombre').style.display = 'inline-block';
+    document.getElementById('errorNombre').classList.remove('hidden');
     hayErrores = true;
   }
   
   if (!apellido) {
-    document.getElementById('errorApellido').style.display = 'inline-block';
+    document.getElementById('errorApellido').classList.remove('hidden');
     hayErrores = true;
   }
   
   if (!validarEmail(email)) {
-    document.getElementById('errorEmail').style.display = 'inline-block';
+    document.getElementById('errorEmail').classList.remove('hidden');
     hayErrores = true;
   }
   
   if (clave.length < 6) {
-    document.getElementById('errorClave').style.display = 'inline-block';
+    document.getElementById('errorClave').classList.remove('hidden');
     hayErrores = true;
   }
   
   if (clave !== confirmarClave) {
-    document.getElementById('errorConfirmar').style.display = 'inline-block';
+    document.getElementById('errorConfirmar').classList.remove('hidden');
     hayErrores = true;
   }
   

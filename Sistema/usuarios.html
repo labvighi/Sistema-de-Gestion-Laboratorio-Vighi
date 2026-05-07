@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=6" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow usuarios-page">
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <div class="usuarios-header">
+          <h3 class="page-title"><i class="fas fa-users"></i> Usuarios</h3>
+          <a href="crearUsuario.html" class="btn btn-usuarios-nuevo">
+            <i class="fa fa-plus-circle"></i> Nuevo usuario
+          </a>
+        </div>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content usuarios-content">
+
+        <!-- Filtros -->
+        <div class="usuarios-filtros">
+          <div class="usuarios-filtro-grupo">
+            <label for="filtroTipo">Tipo de usuario</label>
+            <select id="filtroTipo" class="form-control usuarios-select">
+              <option value="">Todos</option>
+              <option value="1">Administracion</option>
+              <option value="2">Citotecnico</option>
+              <option value="3">Direccion</option>
+              <option value="4">Externo</option>
+              <option value="5">Gerencial</option>
+              <option value="6">Patologo</option>
+              <option value="7">Tecnico</option>
+            </select>
+          </div>
+          <div class="usuarios-filtro-grupo">
+            <label for="filtroBuscar">Buscar</label>
+            <input type="text" id="filtroBuscar" class="form-control usuarios-select" placeholder="Nombre, apellido o e-mail...">
+          </div>
+        </div>
+
+        <!-- Tabla -->
+        <div class="table-responsive">
+          <table class="table table-hover usuarios-tabla" id="tablaUsuarios">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>E-mail</th>
+                <th>Tipo</th>
+                <th class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyUsuarios">
+              <tr>
+                <td colspan="6" class="text-center usuarios-cargando">
+                  <i class="fas fa-spinner fa-spin"></i> Cargando usuarios...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="usuarios-contador" class="usuarios-contador"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="JS/usuarios.js"></script>
+</body>
+</html>

@@ -71,8 +71,10 @@
     var usuario = sessionStorage.getItem("usuario") || localStorage.getItem("usuario");
     if (usuario) {
         var data = JSON.parse(usuario);
-        var el = document.getElementById("sidebar-username");
-        if (el) el.textContent = (data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO");
+        var elNombre = document.getElementById("sidebar-username");
+        if (elNombre) elNombre.textContent = (data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO");
+        var elPerfil = document.getElementById("sidebar-perfil");
+        if (elPerfil) elPerfil.innerHTML = '<i class="far fa-address-card"></i> ' + (data.perfilNombre || "Usuario");
     }
 })();
 

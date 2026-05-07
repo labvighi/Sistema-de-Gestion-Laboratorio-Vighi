@@ -1,10 +1,9 @@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - Susana Vighi</title>
+  <title>Inicio - Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
   <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
@@ -17,30 +16,26 @@
 </head>
 
 <script>
-	$(document).ready(function () {
-		$("#navbar").load("navbar.html");
-		$("#side-navbar").load("side-navbar.html");
-		$("#footer").load("footer.html");
-	});
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
 </script>
 
 <body>
-
   <div id="navbar"></div>
   <div id="side-navbar"></div>
 
-  <div class="container">
-    <div class="col-sm-8 ibox-login ibox-shadow">
-      <div class="ibox-title text-center"><h2>¡Bienvenido al Sistema!</h2></div>
-      <div class="ibox-content-form">
-        <div class="user-info">
-          <p><strong>Usuario:</strong> <span id="userEmail">Cargando...</span></p>
+  <div class="wrapper">
+    <div class="ibox ibox-shadow bienvenida-box">
+      <div class="bienvenida-header">
+        <div class="bienvenida-avatar"><img src="IMG/logo_sv_blanco.png" alt="Susana Vighi"></div>
+        <div class="bienvenida-info">
+          <h3 id="bienvenida-nombre">Cargando...</h3>
+          <span class="bienvenida-perfil" id="bienvenida-perfil"><i class="far fa-address-card"></i> Perfil</span>
+          <p class="bienvenida-mensaje">Sesi&oacute;n iniciada correctamente en el Sistema de Gesti&oacute;n Integral.</p>
         </div>
-
-        <p>Has iniciado sesión correctamente en el Sistema de Gestión Integral.</p>
-
-        <button class="btn btn-danger w-100" onclick="logout()">Cerrar Sesión</button>
-        <button class="btn btn-primary w-100 mt-2" onclick="crearUsuario()">Crear usuario</button>
       </div>
     </div>
   </div>
@@ -48,37 +43,21 @@
   <div id="footer"></div>
 
   <script>
-    // Verificar si hay sesión activa
-    let usuario = sessionStorage.getItem("usuario");
-
+    var usuario = sessionStorage.getItem("usuario");
     if (!usuario) {
-      // Si no hay sesión en sessionStorage, intentar cargar desde localStorage
       usuario = localStorage.getItem("usuario");
       if (usuario) {
-        // Restaurar la sesión en sessionStorage desde localStorage
         sessionStorage.setItem("usuario", usuario);
       } else {
-        // Sin sesión activa, redirigir al login
         window.location.href = "index.html";
       }
     }
 
-    // Mostrar información del usuario
-    const userData = JSON.parse(usuario);
-    document.getElementById("userEmail").textContent = userData.mail;
-
-    // Función para cerrar sesión
-    function logout() {
-      sessionStorage.removeItem("usuario");
-      localStorage.removeItem("usuario");
-      window.location.href = "index.html";
-    }
-
-     // Función para crear usuario
-    function crearUsuario() {
-      window.location.href = "crearUsuario.html";
-    }
+    var userData = JSON.parse(usuario);
+    var nombre = userData.mail ? userData.mail.split("@")[0].toUpperCase() : "USUARIO";
+    document.getElementById("bienvenida-nombre").textContent = "Bienvenido, " + nombre + "!";
+    document.getElementById("bienvenida-perfil").innerHTML = '<i class="far fa-address-card"></i> ' + (userData.perfilNombre || "Usuario");
   </script>
-
 </body>
 </html>
+

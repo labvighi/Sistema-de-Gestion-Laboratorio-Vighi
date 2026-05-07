@@ -1,118 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Susana Vighi - Sistema de Gestión Integral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Usuario - Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" href="CSS/style.css?v=5" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&amp;display=swap" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=5" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <script>
-		$(document).ready(function () {
-			$("#navbar").load("navbar.html");
-      $("#side-navbar").load("side-navbar.html");
-			$("#footer").load("footer.html");
-		});
-		document.addEventListener("DOMContentLoaded", function () {
-		const elements = document.querySelectorAll('.fade-in-up, .fade-in-right, .fade-in-left');
-		const observer = new IntersectionObserver(entries => {entries.forEach(entry => {
-			if (entry.isIntersecting) {entry.target.classList.add('visible');observer.unobserve(entry.target); // solo una vez
-			}});
-		}, 
-		{threshold: 0.15});
-		elements.forEach(el => observer.observe(el));
-		});
-
-	</script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
 
 <body>
-    
   <div id="navbar"></div>
+  <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div id="side-navbar"></div>
-    <div class="ibox-usuario ibox-shadow">
-      <div class="ibox-title"><h2>Nuevo usuario</h2></div>
-      <div class="ibox-content-form">
-        
+    <div class="ibox ibox-shadow form-page">
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <h3 class="page-title"><i class="fas fa-user-plus"></i> Nuevo usuario</h3>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content form-content">
+
         <div id="status"></div>
 
         <form id="formRegistro">
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" id="nombre" class="form-control" placeholder="Nombre..." required>
-            <span id="errorNombre" class="label-danger" style="display:none;">Requerido</span>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" id="nombre" class="form-control" placeholder="Nombre...">
+                <span id="errorNombre" class="form-error hidden">Requerido</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" id="apellido" class="form-control" placeholder="Apellido...">
+                <span id="errorApellido" class="form-error hidden">Requerido</span>
+              </div>
+            </div>
+          </div>
+          <!-- Sede y telefono: disponibles en estructura, editables desde pantalla de edicion -->
+          <input type="hidden" id="direccion" value="">
+          <input type="hidden" id="telefono" value="">
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" id="email" class="form-control" placeholder="E-mail...">
+                <span id="errorEmail" class="form-error hidden">E-mail inválido</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Tipo de usuario</label>
+                <select id="perfil" class="form-control">
+                  <option value="1">Administración</option>
+                  <option value="2">Citotécnico</option>
+                  <option value="3">Dirección</option>
+                  <option value="4">Externo</option>
+                  <option value="5">Gerencial</option>
+                  <option value="6">Patólogo</option>
+                  <option value="7">Técnico</option>
+                </select>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label>Apellido</label>
-            <input type="text" id="apellido" class="form-control" placeholder="Apellido..." required>
-            <span id="errorApellido" class="label-danger" style="display:none;">Requerido</span>
-          </div>
-
-          <div class="form-group">
-            <label>Dirección</label>
-            <select id="direccion" class="form-control">
-              <option value="1">Av. Santa Fe</option>
-              <option value="2">CM Monserrat</option>
-              <option value="3">CM Otamendi</option>
-              <option value="4">Medrano</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="text" id="telefono" class="form-control" placeholder="Teléfono..." required>
-            <span id="errorTelefono" class="label-danger error" style="display:none;">Requerido</span>
-          </div>
-
-          <div class="form-group">
-            <label>E-mail</label>
-            <input type="email" id="email" class="form-control" placeholder="E-mail..." required>
-            <span id="errorEmail" class="label-danger error" style="display:none;">E-mail inválido</span>
-          </div>
-
-          <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" id="clave" class="form-control" placeholder="Contraseña..." required minlength="6">
-            <span id="errorClave" class="label-danger error" style="display:none;">Mínimo 6 caracteres</span>
-          </div>
-
-          <div class="form-group">
-            <label>Confirmar Contraseña</label>
-            <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseña..." required>
-            <span id="errorConfirmar" class="label-danger error" style="display:none;">Las contraseñas no coinciden</span>
-          </div>
-
-          <div class="form-group">
-            <label>Perfil</label>
-            <select id="perfil" class="form-control">
-              <option value="1">Administración</option>
-              <option value="2">Citotécnico</option>
-              <option value="3">Dirección</option>
-              <option value="4">Externo</option>
-              <option value="5">Gerencial</option>
-              <option value="6">Patólogo</option>
-              <option value="7">Técnico</option>
-            </select>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Contraseña</label>
+                <input type="password" id="clave" class="form-control" placeholder="Contraseña..." minlength="6">
+                <span id="errorClave" class="form-error hidden">Mínimo 6 caracteres</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Confirmar contraseña</label>
+                <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseña...">
+                <span id="errorConfirmar" class="form-error hidden">Las contraseñas no coinciden</span>
+              </div>
+            </div>
           </div>
 
           <hr>
 
-          <div class="btn-group">
-            <a href="index.html" class="btn btn-white">Cancelar</a>
-            <button type="submit" id="btnCrear" class="btn btn-primary bg-btn"><i class="fa fa-plus-circle"></i> Crear usuario</button>
+          <div class="form-actions">
+            <a href="javascript:history.back()" class="btn btn-cancelar-medico"><i class="fa fa-arrow-left"></i> Cancelar</a>
+            <button type="submit" id="btnCrear" class="btn btn-crear-medico"><i class="fa fa-plus-circle"></i> Crear usuario</button>
           </div>
-        </form>
 
+        </form>
       </div>
     </div>
   </div>
@@ -122,3 +119,4 @@
   <script src="JS/registro.js"></script>
 </body>
 </html>
+

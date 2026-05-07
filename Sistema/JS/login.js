@@ -38,7 +38,7 @@ async function cargarUsuarios() {
     
     if (response.ok) {
       const data = await response.json();
-      usuarios = data.usuarios;
+      usuarios = Array.isArray(data) ? data : data.usuarios;
       
       // Guardar en localStorage como backup
       localStorage.setItem('usuarios', JSON.stringify(usuarios));
@@ -139,9 +139,20 @@ btnLogin.addEventListener("click", async () => {
     btnLogin.textContent = "Redirigiendo...";
 
     // Guardar información del usuario en sessionStorage y localStorage
+    const perfilesNombre = {
+      "1": "Administración",
+      "2": "Citotécnico",
+      "3": "Dirección",
+      "4": "Externo",
+      "5": "Gerencial",
+      "6": "Patólogo",
+      "7": "Técnico"
+    };
     const userData = {
       id: usuario.id,
-      mail: usuario.mail
+      mail: usuario.mail,
+      perfil: usuario.perfil,
+      perfilNombre: perfilesNombre[String(usuario.perfil)] || usuario.perfil || "Usuario"
     };
     sessionStorage.setItem("usuario", JSON.stringify(userData));
     localStorage.setItem("usuario", JSON.stringify(userData));

@@ -2,18 +2,19 @@
   "usuarios": [
     {
       "id": 1,
-      "mail": "admin@example.com",
-      "clave": "admin"
+      "nombre": "Admin",
+      "apellido": "Sistema",
+      "mail": "admin@susanavighi.com.ar",
+      "clave": "Admin1234",
+      "perfil": "1"
     },
     {
       "id": 2,
-      "mail": "pruebamail@susanavighi.com.ar",
-      "clave": "Clave1234"
-    },
-    {
-      "id": 3,
-      "mail": "mailprueba@susanavighi.com.ar",
-      "clave": "Clave1234"
+      "nombre": "Usuario",
+      "apellido": "Prueba",
+      "mail": "prueba@susanavighi.com.ar",
+      "clave": "Prueba1234",
+      "perfil": "7"
     }
   ]
 }

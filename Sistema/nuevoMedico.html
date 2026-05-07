@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Médico - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=7" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow form-page">
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <h3 class="page-title"><i class="fas fa-user-md"></i> Nuevo médico</h3>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content form-content">
+
+        <div id="status"></div>
+
+        <form id="formNuevoMedico">
+
+          <!-- Fila 1: Título / Nombre / Apellido / MN / MP -->
+          <div class="nm-fila">
+            <div class="nm-campo nm-campo-titulo">
+              <label>Título</label>
+              <select id="titulo" class="form-control">
+                <option value="Dr.">Dr.</option>
+                <option value="Dra.">Dra.</option>
+                <option value="Lic.">Lic.</option>
+                <option value="Prof.">Prof.</option>
+                <option value="">—</option>
+              </select>
+            </div>
+            <div class="nm-campo nm-campo-nombre">
+              <label>Nombre</label>
+              <input type="text" id="nombre" class="form-control" placeholder="Nombre...">
+              <span id="errorNombre" class="form-error hidden">Requerido</span>
+            </div>
+            <div class="nm-campo nm-campo-apellido">
+              <label>Apellido</label>
+              <input type="text" id="apellido" class="form-control" placeholder="Apellido...">
+              <span id="errorApellido" class="form-error hidden">Requerido</span>
+            </div>
+            <div class="nm-campo nm-campo-mat">
+              <label>Matrícula Nacional</label>
+              <input type="text" id="mn" class="form-control" placeholder="Matrícula nacional...">
+            </div>
+            <div class="nm-campo nm-campo-mat">
+              <label>Matrícula Provincial</label>
+              <input type="text" id="mp" class="form-control" placeholder="Matrícula provincial...">
+              <span id="errorMatricula" class="form-error hidden">Ingresá al menos una matrícula</span>
+            </div>
+          </div>
+
+          <hr class="nm-separador">
+
+          <!-- Mails -->
+          <div class="nm-seccion">
+            <div class="nm-seccion-header">
+              <span class="nm-seccion-titulo"><i class="fas fa-envelope"></i> Correos electrónicos</span>
+              <button type="button" class="btn btn-nm-agregar" id="btnAgregarMail">
+                <i class="fa fa-plus"></i> Agregar
+              </button>
+            </div>
+            <div id="listaMails">
+              <div class="nm-item-fila" data-index="0">
+                <input type="email" class="form-control nm-input-mail" placeholder="Mail...">
+                <button type="button" class="btn btn-nm-eliminar nm-btn-eliminar-item" title="Eliminar">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr class="nm-separador">
+
+          <!-- Ubicaciones -->
+          <div class="nm-seccion">
+            <div class="nm-seccion-header">
+              <span class="nm-seccion-titulo"><i class="fas fa-map-marker-alt"></i> Ubicaciones</span>
+              <button type="button" class="btn btn-nm-agregar" id="btnAgregarUbicacion">
+                <i class="fa fa-plus"></i> Agregar
+              </button>
+            </div>
+            <div id="listaUbicaciones">
+              <div class="nm-item-fila" data-index="0">
+                <select class="form-control nm-input-ubicacion">
+                  <option value="">Seleccioná una ubicación...</option>
+                </select>
+                <button type="button" class="btn btn-nm-eliminar nm-btn-eliminar-item" title="Eliminar">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr class="nm-separador">
+
+          <!-- Botones -->
+          <div class="form-actions">
+            <a href="javascript:history.back()" class="btn btn-cancelar-medico"><i class="fa fa-arrow-left"></i> Cancelar</a>
+            <button type="submit" id="btnCrear" class="btn btn-crear-medico">
+              <i class="fa fa-plus-circle"></i> Crear médico
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="JS/nuevoMedico.js"></script>
+</body>
+</html>

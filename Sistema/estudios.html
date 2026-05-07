@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudios - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=7" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow estudios-page">
+
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <h3 class="page-title"><i class="fas fa-microscope"></i> Estudios</h3>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content estudios-content">
+
+        <!-- Tabs PAPs / CTs / BPs / IHQs -->
+        <ul class="nav nav-tabs estudios-tabs" id="estudiosTabs">
+          <li class="active"><a href="#tab-paps" data-toggle="tab">PAPs</a></li>
+          <li><a href="#tab-cts"  data-toggle="tab">CTs</a></li>
+          <li><a href="#tab-bps"  data-toggle="tab">BPs</a></li>
+          <li><a href="#tab-ihqs" data-toggle="tab">IHQs</a></li>
+        </ul>
+
+        <!-- Filtros compartidos (fuera del tab-content, visibles en todas las pestañas) -->
+        <div class="estudios-filtros-wrapper">
+
+          <!-- Filtros fila 1 -->
+          <div class="estudios-filtros-fila">
+            <select class="form-control estudios-sel estudios-sel-dia" id="filtroDia">
+              <option value="">[ días ]</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+              <option>5</option><option>6</option><option>7</option><option>8</option>
+              <option>9</option><option>10</option><option>11</option><option>12</option>
+              <option>13</option><option>14</option><option>15</option><option>16</option>
+              <option>17</option><option>18</option><option>19</option><option>20</option>
+              <option>21</option><option>22</option><option>23</option><option>24</option>
+              <option>25</option><option>26</option><option>27</option><option>28</option>
+              <option>29</option><option>30</option><option>31</option>
+            </select>
+            <select class="form-control estudios-sel estudios-sel-mes" id="filtroMes">
+              <option value="">[ meses ]</option>
+              <option>Enero</option><option>Febrero</option><option>Marzo</option>
+              <option>Abril</option><option>Mayo</option><option>Junio</option>
+              <option>Julio</option><option>Agosto</option><option>Septiembre</option>
+              <option>Octubre</option><option>Noviembre</option><option>Diciembre</option>
+            </select>
+            <select class="form-control estudios-sel estudios-sel-anio" id="filtroAnio">
+              <option>2024</option><option>2025</option><option selected>2026</option>
+            </select>
+            <select class="form-control estudios-sel estudios-sel-md"><option>[ Procedencia: todas ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-md"><option>[ Lote: todos ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ Actividad: todas ]</option></select>
+          </div>
+
+          <!-- Filtros fila 2 -->
+          <div class="estudios-filtros-fila">
+            <select class="form-control estudios-sel estudios-sel-xl"><option>[ médico ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-xl"><option>[ médico firmante ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-xl"><option>[ cobertura ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-sm"><option>[ plan ]</option></select>
+          </div>
+
+          <!-- Filtros fila 3 -->
+          <div class="estudios-filtros-fila">
+            <select class="form-control estudios-sel estudios-sel-md"><option>[ Tipo de biopsia ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ zona del cuerpo ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-md"><option>[ Diagnóstico: todos ]</option></select>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ Organo: todos ]</option></select>
+            <input type="text" class="form-control estudios-sel estudios-sel-lg" placeholder="Diagnóstico contiene...">
+          </div>
+
+          <!-- Contador -->
+          <div class="estudios-contador-fila">
+            <label class="estudios-check-all">
+              <input type="checkbox" id="checkAll"> <span id="contadorEstudios">0 / 0</span>
+            </label>
+          </div>
+
+        </div><!-- /filtros-wrapper -->
+
+        <!-- Tabla por pestaña -->
+        <div class="tab-content estudios-tab-content">
+
+          <div class="tab-pane active" id="tab-paps">
+            <div class="table-responsive">
+              <table class="table estudios-tabla">
+                <thead><tr>
+                  <th class="estudios-th-check"></th>
+                  <th>Flujo</th><th>Paciente</th><th>Médico</th>
+                  <th>Recolección</th><th>Entrega</th><th></th>
+                </tr></thead>
+                <tbody id="tbodyEstudios">
+                  <tr><td colspan="7" class="text-center estudios-vacio">
+                    <i class="fas fa-flask estudios-vacio-icono"></i>
+                    <p>No hay protocolos PAPs cargados para los filtros seleccionados.</p>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-cts">
+            <div class="table-responsive">
+              <table class="table estudios-tabla">
+                <thead><tr>
+                  <th class="estudios-th-check"></th>
+                  <th>Flujo</th><th>Paciente</th><th>Médico</th>
+                  <th>Recolección</th><th>Entrega</th><th></th>
+                </tr></thead>
+                <tbody>
+                  <tr><td colspan="7" class="text-center estudios-vacio">
+                    <i class="fas fa-flask estudios-vacio-icono"></i>
+                    <p>No hay protocolos CTs cargados para los filtros seleccionados.</p>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-bps">
+            <div class="table-responsive">
+              <table class="table estudios-tabla">
+                <thead><tr>
+                  <th class="estudios-th-check"></th>
+                  <th>Flujo</th><th>Paciente</th><th>Médico</th>
+                  <th>Recolección</th><th>Entrega</th><th></th>
+                </tr></thead>
+                <tbody>
+                  <tr><td colspan="7" class="text-center estudios-vacio">
+                    <i class="fas fa-flask estudios-vacio-icono"></i>
+                    <p>No hay protocolos BPs cargados para los filtros seleccionados.</p>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="tab-ihqs">
+            <div class="table-responsive">
+              <table class="table estudios-tabla">
+                <thead><tr>
+                  <th class="estudios-th-check"></th>
+                  <th>Flujo</th><th>Paciente</th><th>Médico</th>
+                  <th>Recolección</th><th>Entrega</th><th></th>
+                </tr></thead>
+                <tbody>
+                  <tr><td colspan="7" class="text-center estudios-vacio">
+                    <i class="fas fa-flask estudios-vacio-icono"></i>
+                    <p>No hay protocolos IHQs cargados para los filtros seleccionados.</p>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div><!-- /tab-content -->
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="JS/estudios.js"></script>
+</body>
+</html>

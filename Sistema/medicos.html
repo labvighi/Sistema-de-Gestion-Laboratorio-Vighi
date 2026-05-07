@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Médicos - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="/Sistema/IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=7" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow usuarios-page">
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <div class="usuarios-header">
+          <h3 class="page-title"><i class="fas fa-user-md"></i> Médicos</h3>
+          <a href="nuevoMedico.html" class="btn btn-usuarios-nuevo">
+            <i class="fa fa-plus-circle"></i> Nuevo médico
+          </a>
+        </div>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content usuarios-content">
+
+        <!-- Filtro alfabético -->
+        <div class="medicos-alfabeto" id="filtroAlfabeto">
+          <button class="btn btn-medicos-letra active" data-letra="">Todos</button>
+          <button class="btn btn-medicos-letra" data-letra="A">A</button>
+          <button class="btn btn-medicos-letra" data-letra="B">B</button>
+          <button class="btn btn-medicos-letra" data-letra="C">C</button>
+          <button class="btn btn-medicos-letra" data-letra="D">D</button>
+          <button class="btn btn-medicos-letra" data-letra="E">E</button>
+          <button class="btn btn-medicos-letra" data-letra="F">F</button>
+          <button class="btn btn-medicos-letra" data-letra="G">G</button>
+          <button class="btn btn-medicos-letra" data-letra="H">H</button>
+          <button class="btn btn-medicos-letra" data-letra="I">I</button>
+          <button class="btn btn-medicos-letra" data-letra="J">J</button>
+          <button class="btn btn-medicos-letra" data-letra="K">K</button>
+          <button class="btn btn-medicos-letra" data-letra="L">L</button>
+          <button class="btn btn-medicos-letra" data-letra="M">M</button>
+          <button class="btn btn-medicos-letra" data-letra="N">N</button>
+          <button class="btn btn-medicos-letra" data-letra="O">O</button>
+          <button class="btn btn-medicos-letra" data-letra="P">P</button>
+          <button class="btn btn-medicos-letra" data-letra="Q">Q</button>
+          <button class="btn btn-medicos-letra" data-letra="R">R</button>
+          <button class="btn btn-medicos-letra" data-letra="S">S</button>
+          <button class="btn btn-medicos-letra" data-letra="T">T</button>
+          <button class="btn btn-medicos-letra" data-letra="U">U</button>
+          <button class="btn btn-medicos-letra" data-letra="V">V</button>
+          <button class="btn btn-medicos-letra" data-letra="W">W</button>
+          <button class="btn btn-medicos-letra" data-letra="X">X</button>
+          <button class="btn btn-medicos-letra" data-letra="Y">Y</button>
+          <button class="btn btn-medicos-letra" data-letra="Z">Z</button>
+        </div>
+
+        <!-- Tabla -->
+        <div class="table-responsive">
+          <table class="table table-hover usuarios-tabla medicos-tabla" id="tablaMedicos">
+            <thead>
+              <tr>
+                <th>Médico</th>
+                <th>MN</th>
+                <th>MP</th>
+                <th class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyMedicos">
+              <tr>
+                <td colspan="4" class="text-center usuarios-cargando">
+                  <i class="fas fa-spinner fa-spin"></i> Cargando...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="medicos-contador" class="usuarios-contador"></div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="JS/medicos.js"></script>
+</body>
+</html>
