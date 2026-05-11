@@ -3529,3 +3529,458 @@ body {
   transform: translateY(-1px);
   color: #fff !important;
 }
+
+/* ── NUEVO TICKET ───────────────────────────────────────────── */
+
+.nt-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+.nt-col-main {
+  flex: 1;
+  min-width: 0;
+}
+.nt-col-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+.nt-campo {
+  margin-bottom: 18px;
+}
+.nt-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+.nt-input-asunto {
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.nt-input-asunto:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(26,188,156,0.18);
+  outline: none;
+}
+.nt-input-error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231,76,60,0.15) !important;
+}
+.nt-textarea {
+  resize: vertical;
+  min-height: 110px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.15s;
+}
+.nt-textarea:focus {
+  border-color: #6a3092;
+  box-shadow: 0 0 0 3px rgba(106,48,146,0.12);
+  outline: none;
+}
+
+/* Checkboxes */
+.nt-check-fila {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+.nt-check-fila input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  accent-color: #6a3092;
+}
+.nt-check-label {
+  font-size: 13px;
+  color: #444;
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+.nt-check-inline {
+  margin-bottom: 0;
+}
+
+/* Responsable */
+.nt-responsable-fila {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nt-sel-area    { width: 130px; flex-shrink: 0; }
+.nt-sel-usuario { width: 180px; flex-shrink: 0; }
+
+/* Footer bar */
+.nt-footer-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0 4px;
+  border-top: 1px solid #eee;
+  margin-top: 4px;
+}
+.btn-nt-ia {
+  border: 1.5px solid #555;
+  background: #f5f5f5;
+  color: #444;
+  border-radius: 20px;
+  padding: 7px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.btn-nt-ia:hover {
+  background: #eee;
+  color: #222;
+}
+.btn-nt-crear {
+  background: linear-gradient(135deg, #6a3092 0%, #3D0054 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(106,48,146,0.35);
+  transition: box-shadow 0.15s, transform 0.1s;
+}
+.btn-nt-crear:hover {
+  box-shadow: 0 5px 16px rgba(106,48,146,0.5);
+  transform: translateY(-1px);
+  color: #fff !important;
+}
+
+/* Sidebar toggles */
+.nt-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.btn-nt-toggle {
+  border: 1.5px solid #c5a8d8;
+  background: #fff;
+  color: #6a3092;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn-nt-toggle:hover {
+  background: #f4eefa;
+  border-color: #6a3092;
+}
+.btn-nt-toggle.active {
+  background: #6a3092;
+  color: #fff !important;
+  border-color: #6a3092;
+}
+.btn-nt-toggle-urgente.active {
+  background: #e74c3c !important;
+  border-color: #e74c3c !important;
+}
+.btn-nt-toggle-alta.active {
+  background: #e67e22 !important;
+  border-color: #e67e22 !important;
+}
+
+/* Captura de pantalla */
+.nt-captura-seccion {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #eee;
+}
+.nt-captura-hints {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nt-captura-hints i {
+  width: 16px;
+  color: #6a3092;
+  margin-right: 4px;
+}
+.nt-captura-hints strong {
+  color: #555;
+}
+.nt-captura-drop {
+  border: 2px dashed #d4b8ec;
+  border-radius: 6px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  background: #faf5ff;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.15s;
+}
+.nt-captura-drop:focus-within,
+.nt-captura-drop:hover {
+  border-color: #6a3092;
+}
+.nt-captura-placeholder {
+  font-size: 13px;
+  color: #bbb;
+}
+.nt-captura-placeholder i {
+  margin-right: 6px;
+}
+#ntCapturaImg {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.btn-nt-borrar-img {
+  border: 1.5px solid #e74c3c;
+  background: #fff;
+  color: #e74c3c;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.btn-nt-borrar-img:hover {
+  background: #fdf0ee;
+}
+
+/* ── SOPORTE ────────────────────────────────────────────────── */
+
+.soporte-dashboard {
+  margin-bottom: 20px;
+}
+.soporte-dash-titulo {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 8px;
+}
+.soporte-dash-titulo strong {
+  color: #3D0054;
+}
+.soporte-dash-tabla {
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+.soporte-dash-tabla-2 {
+  margin-top: 10px !important;
+}
+.soporte-dash-tabla thead th {
+  font-size: 11px;
+  font-weight: 700;
+  color: #888;
+  text-align: center;
+  padding: 4px 6px;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+.soporte-dash-tabla thead th:first-child {
+  text-align: left;
+  width: 130px;
+  padding-left: 16px !important;
+}
+.soporte-dash-tabla tbody td {
+  padding: 0 !important;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: middle !important;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: transparent; /* oculto por defecto */
+  border: 1px solid #f0f0f0;
+}
+.soporte-dash-tabla tbody td.soporte-dash-tipo {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  padding: 0 14px 0 16px !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  line-height: 32px;
+  white-space: nowrap;
+  min-width: 130px;
+}
+/* Difuminado (sin valor) */
+.soporte-dash-ontime  { background-color: #d5f5e3; }
+.soporte-dash-delayed { background-color: #fde8c8; }
+.soporte-dash-late    { background-color: #fadbd8; }
+.soporte-dash-late5   { background-color: #fadbd8; }
+.soporte-dash-late510 { background-color: #f9ebea; }
+.soporte-dash-late10  { background-color: #fadbd8; }
+.soporte-dash-total   { background-color: #f0f0f0; }
+
+/* Prendido (con valor) — color completo + texto blanco */
+.soporte-dash-con-valor                       { color: #fff !important; }
+.soporte-dash-ontime.soporte-dash-con-valor   { background-color: #27ae60; }
+.soporte-dash-delayed.soporte-dash-con-valor  { background-color: #8B6B14; }
+.soporte-dash-late.soporte-dash-con-valor     { background-color: #c0392b; }
+.soporte-dash-late5.soporte-dash-con-valor    { background-color: #c0392b; }
+.soporte-dash-late510.soporte-dash-con-valor  { background-color: #922B21; }
+.soporte-dash-late10.soporte-dash-con-valor   { background-color: #c0392b; }
+.soporte-dash-total.soporte-dash-con-valor    { background-color: #f0f0f0; color: #7f8c8d !important; font-weight: 700 !important; }
+
+/* Filtros */
+.soporte-filtros-fila {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ece4f5;
+}
+.btn-soporte-nuevo {
+  background: linear-gradient(135deg, #6a3092 0%, #3D0054 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(106,48,146,0.3);
+  transition: box-shadow 0.15s;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.btn-soporte-nuevo:hover {
+  box-shadow: 0 4px 14px rgba(106,48,146,0.45);
+  color: #fff !important;
+}
+
+/* Tabla tickets */
+.soporte-tabla thead th {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+}
+.soporte-th-num    { width: 90px; }
+.soporte-th-fecha  { width: 90px; text-align: center; }
+.soporte-th-tipo   { width: 110px; text-align: center; }
+.soporte-th-estado { width: 90px; text-align: center; }
+.soporte-th-sched  { width: 120px; }
+
+.soporte-td-num {
+  font-weight: 700;
+  color: #3D0054;
+  white-space: nowrap;
+}
+.soporte-td-fecha {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+.soporte-td-tipo { text-align: center; }
+.soporte-td-estado {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+}
+.soporte-td-sched {
+  font-size: 12px;
+  color: #6a3092;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.soporte-badge-atraso { min-width: 86px; }
+.soporte-badge-delayed {
+  background-color: #8B6B14;
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+}
+.soporte-badge-ontime {
+  background-color: #27ae60;
+  color: #fff !important;
+  border: none;
+  font-weight: 600;
+}
+.soporte-fuego {
+  color: #e74c3c;
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+/* ── IHQ ────────────────────────────────────────────────────── */
+
+.ihq-tabla thead th {
+  white-space: nowrap;
+}
+.ihq-td-actividad {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3D0054;
+  white-space: nowrap;
+}
+.ihq-td-btn {
+  white-space: nowrap;
+  width: 90px;
+}
+
+/* Botón LT (tarde/vencido) — rojo */
+.btn-ihq-lt {
+  background-color: #c0392b;
+  color: #fff !important;
+  border: none;
+  min-width: 78px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.btn-ihq-lt:hover {
+  background-color: #a93226;
+  color: #fff !important;
+}
+
+/* Botón DE (dentro de horario urgente) — naranja */
+.btn-ihq-de {
+  background-color: #e67e22;
+  color: #fff !important;
+  border: none;
+  min-width: 78px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.btn-ihq-de:hover {
+  background-color: #ca6f1e;
+  color: #fff !important;
+}
+
+/* Fila 2 de filtros con botón imprimir alineado a la derecha */
+.ihq-fila2 {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ihq-fila2 .conges-filtro-grupo:last-of-type {
+  flex: 1;
+}
+.btn-ihq-imprimir {
+  border: 1.5px solid #6a3092;
+  background: #fff;
+  color: #6a3092;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: auto;
+  transition: all 0.15s;
+  align-self: flex-end;
+}
+.btn-ihq-imprimir:hover {
+  background: #f4eefa;
+}

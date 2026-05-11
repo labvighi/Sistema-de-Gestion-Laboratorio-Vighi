@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soporte - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow estudios-page">
+
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <h3 class="page-title"><i class="fas fa-life-ring"></i> Soporte</h3>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content estudios-content">
+
+        <!-- Dashboard -->
+        <div class="soporte-dashboard">
+          <div class="soporte-dash-titulo">
+            Dashboard soporte - tickets <strong>en curso</strong>
+          </div>
+
+          <!-- Evolutivo -->
+          <table class="table soporte-dash-tabla">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>On Time</th><th>Delayed</th><th>Late</th>
+                <th>Late 5d</th><th>Late 5-10d</th><th>Late +10d</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody><tr id="dashRowEvolutivo"></tr></tbody>
+          </table>
+
+          <!-- Resolutivo -->
+          <table class="table soporte-dash-tabla soporte-dash-tabla-2">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>On Time</th><th>Delayed</th><th>Late</th>
+                <th>Late 5d</th><th>Late 5-10d</th><th>Late +10d</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody><tr id="dashRowResolutivo"></tr></tbody>
+          </table>
+        </div>
+
+        <!-- Filtros + botón nuevo ticket -->
+        <div class="soporte-filtros-fila">
+          <select class="form-control estudios-sel estudios-sel-md" id="spTipo">
+            <option>[ Tipos: todos ]</option>
+            <option>Evolutivo</option>
+            <option>Resolutivo</option>
+          </select>
+          <select class="form-control estudios-sel estudios-sel-sm" id="spEstado">
+            <option>[ Abiertos ]</option>
+            <option>Cerrados</option>
+            <option>Todos</option>
+          </select>
+          <select class="form-control estudios-sel estudios-sel-lg" id="spAsignado">
+            <option>BACA, Tiago</option>
+          </select>
+          <select class="form-control estudios-sel estudios-sel-md" id="spAtraso">
+            <option>[ Atraso: todos ]</option>
+            <option>On Time</option>
+            <option>Delayed</option>
+            <option>Late</option>
+          </select>
+          <a href="nuevoTicket.html" class="btn btn-soporte-nuevo ms-auto">
+            <i class="fas fa-plus-circle"></i> Nuevo ticket
+          </a>
+        </div>
+
+        <!-- Tabla tickets -->
+        <div class="table-responsive">
+          <table class="table estudios-tabla soporte-tabla">
+            <thead>
+              <tr>
+                <th class="soporte-th-num"># Ticket</th>
+                <th>Asunto</th>
+                <th class="soporte-th-fecha">Deadline</th>
+                <th class="soporte-th-tipo">Tipo</th>
+                <th class="soporte-th-estado">Estado</th>
+                <th class="soporte-th-sched">Schedule</th>
+              </tr>
+            </thead>
+            <tbody id="tbodySoporte">
+              <tr>
+                <td colspan="6" class="text-center estudios-vacio">
+                  <i class="fas fa-life-ring estudios-vacio-icono"></i>
+                  <p>No hay tickets cargados.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/soporte.js"></script>
+</body>
+</html>
