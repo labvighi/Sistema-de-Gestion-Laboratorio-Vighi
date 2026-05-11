@@ -3766,13 +3766,18 @@ body {
   font-size: 14px;
   color: #444;
   margin-bottom: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 .soporte-dash-titulo strong {
   color: #3D0054;
 }
 .soporte-dash-tabla {
   margin-bottom: 0;
+  margin-left: 16px;
+  margin-right: 16px;
   table-layout: fixed;
+  width: calc(100% - 32px);
 }
 .soporte-dash-tabla-2 {
   margin-top: 10px !important;
@@ -3839,6 +3844,8 @@ body {
   flex-wrap: wrap;
   align-items: flex-end;
   margin-bottom: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
   padding-bottom: 14px;
   border-bottom: 1px solid #ece4f5;
 }
@@ -3871,6 +3878,9 @@ body {
 .soporte-th-tipo   { width: 110px; text-align: center; }
 .soporte-th-estado { width: 90px; text-align: center; }
 .soporte-th-sched  { width: 120px; }
+
+.soporte-tabla tbody td:first-child { padding-left: 24px !important; }
+.soporte-tabla tbody td:last-child  { padding-right: 20px !important; }
 
 .soporte-td-num {
   font-weight: 700;
