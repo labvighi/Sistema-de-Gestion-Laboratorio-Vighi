@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Congelación - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow nueva-conge-page">
+
+      <!-- Breadcrumb -->
+      <div class="nueva-conge-breadcrumb">
+        <a href="conges.html"><i class="fas fa-snowflake"></i> Congelaciones</a>
+        <span class="nc-sep">/</span>
+        <a href="conges.html">Agenda</a>
+        <span class="nc-sep">/</span>
+        <span>Asignar nueva congelación</span>
+      </div>
+
+      <div class="ibox-title">
+        <hr class="mb-1 mt-0">
+        <h3 class="page-title"><i class="fas fa-plus-circle"></i> Asignar nueva congelación</h3>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content nueva-conge-content">
+
+        <!-- Fecha -->
+        <div class="nueva-conge-fecha">
+          <i class="fas fa-calendar-alt"></i> <span id="ncFechaTexto">—</span>
+        </div>
+
+        <!-- Estado inicial -->
+        <div class="nueva-conge-seccion">
+          <label class="nueva-conge-label">Estado inicial</label>
+          <div class="nueva-conge-toggle-group" id="ncEstadoGroup">
+            <button class="btn btn-nc-toggle active" data-valor="Agendada">
+              <i class="fas fa-hourglass-half"></i> A confirmar
+            </button>
+            <button class="btn btn-nc-toggle" data-valor="Confirmada">
+              <i class="fas fa-check"></i> Confirmada
+            </button>
+          </div>
+        </div>
+
+        <!-- Tipo -->
+        <div class="nueva-conge-seccion">
+          <label class="nueva-conge-label">Tipo</label>
+          <div class="nueva-conge-toggle-group" id="ncTipoGroup">
+            <button class="btn btn-nc-toggle" data-valor="GI">GI</button>
+            <button class="btn btn-nc-toggle" data-valor="QR">QR</button>
+            <button class="btn btn-nc-toggle" data-valor="PUN">PUN</button>
+          </div>
+        </div>
+
+        <!-- Fila: Ubicación / Turno / Hora / Patólogo -->
+        <div class="nueva-conge-fila">
+          <div class="nueva-conge-campo">
+            <label class="nueva-conge-label">Ubicación</label>
+            <select class="form-control nueva-conge-sel" id="ncUbicacion">
+              <option value="">Cargando...</option>
+            </select>
+          </div>
+          <div class="nueva-conge-campo">
+            <label class="nueva-conge-label">Turno</label>
+            <div class="form-control nueva-conge-turno-display" id="ncTurno">Mañana</div>
+          </div>
+          <div class="nueva-conge-campo">
+            <label class="nueva-conge-label">Hora</label>
+            <select class="form-control nueva-conge-sel" id="ncHora">
+              <!-- generado por JS -->
+            </select>
+          </div>
+          <div class="nueva-conge-campo nueva-conge-campo-lg">
+            <label class="nueva-conge-label">Patólogo</label>
+            <select class="form-control nueva-conge-sel-lg" id="ncPatologo">
+              <option value="">[ Seleccionar ]</option>
+              <option>VEGA, Patricia</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Médico tratante -->
+        <div class="nueva-conge-seccion">
+          <label class="nueva-conge-label">Médico tratante</label>
+          <div class="nueva-conge-input-fila">
+            <input type="text" class="form-control nueva-conge-input" id="ncMedico" placeholder="Médico tratante..">
+            <button class="btn btn-nc-limpiar" id="btnLimpiarMedico">
+              <i class="fas fa-times"></i> Limpiar
+            </button>
+          </div>
+        </div>
+
+        <!-- Material -->
+        <div class="nueva-conge-seccion">
+          <label class="nueva-conge-label">Material</label>
+          <input type="text" class="form-control nueva-conge-input" id="ncMaterial" placeholder="Material..">
+        </div>
+
+        <!-- Cobertura -->
+        <div class="nueva-conge-seccion">
+          <label class="nueva-conge-label">Cobertura</label>
+          <select class="form-control nueva-conge-sel-md" id="ncCobertura">
+            <option value="particular">[ particular ]</option>
+          </select>
+        </div>
+
+        <!-- Paciente -->
+        <div class="nueva-conge-seccion">
+          <label class="nueva-conge-label">Paciente</label>
+          <div class="nueva-conge-input-fila">
+            <input type="text" class="form-control nueva-conge-input-dni" id="ncDni" placeholder="Buscar DNI...">
+            <button class="btn btn-nc-buscar" id="btnBuscarDni">
+              <i class="fas fa-search"></i> Buscar por DNI
+            </button>
+            <button class="btn btn-nc-nuevo" id="btnNuevoPaciente">
+              <i class="fas fa-plus-circle"></i> Cargar uno nuevo
+            </button>
+          </div>
+          <div id="ncPacienteResultado" class="nueva-conge-paciente-resultado hidden"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="nueva-conge-footer">
+          <a href="conges.html" class="btn btn-cancelar-medico">Cancelar</a>
+          <button class="btn btn-nc-asignar" id="btnAsignarConge">
+            <i class="fas fa-plus-circle"></i> Asignar congelación
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/nuevaCongelacion.js"></script>
+</body>
+</html>
