@@ -1,28 +1,57 @@
-<div id="navbar"><nav class="navbar navbar-default navbar-fixed-top bg-navbar">
-		<div id="navbar" class="collapse navbar-collapse navbar-web">
-			<ul class="nav navbar-nav navbar-right ">
-				<li><a href="/Sistema/dashboards.html" class="logobox-navbar-web"><img src="IMG/logo.png" class="logo-navbar-web"></a></li>
-				<li class="pt-1 pl-1 pr-1 pb-1"><input name="nn_protocolo_buscar" type="text" id="num_protocolo_buscar" title="Buscar por número de protocolo" class="form-control buscar-protocolo" placeholder="#P..." style="width:100px;"></li>
-				<li><a href="" style="color: white;"><i class="fa fa-search"></i></a></li>
-				<li><a href="" style="color: white;"><i class="fa fa-comments"></i> Tareas</a></li>
-				<li><a href="" style="color: white;"><i class="fa fa-history"></i></a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="conges.html" style="color: white;"><i class="far fa-hospital"></i> Conges</a></li>
-				<li><a href="ihq.html" style="color: white;"><i class="fas fa-star-of-life"></i> IHQ</a></li>
-				<li><a href="lotes.html" style="color: white;"><i class="far fa-list-alt"></i> Lotes</a></li>
-				<li><a href="" style="color: white;"><i class="fa fa-print"></i> Impresión</a></li>
-				<li><a href="estudios.html" style="color: white;"><i class="fas fa-microscope"></i> Estudios</a></li>
-				<li><a href="" style="color: white;"><i class="fas fa-dollar-sign"></i> Administración</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;"><i class="fas fa-users"></i> Agenda <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a id="hl_medicos" href="medicos.html"><i class="fas fa-user-md"></i> Médicos</a></li>
-						<li><a id="hl_pacientes" href="pacientes.html"><i class="fas fa-id-card"></i> Pacientes</a></li>
-						<li><a id="hl_usuarios" href="usuarios.html"><i class="fa fa-user-shield"></i> Usuarios</a></li>
-					</ul>
-				</li>
-				<li><a href="soporte.html" style="color: white;"><i class="fas fa-life-ring"></i> Soporte</a></li>
-				<li><a href="" style="color: white;"><i class="fas fa-bars"></i></a></li>
-			</ul>
-		</div>
-</nav></div>
+<nav class="navbar navbar-fixed-top bg-navbar">
+  <div class="navbar-web">
+
+    <!-- Grupo izquierdo: logo + búsqueda + acciones rápidas -->
+    <div class="navbar-grupo-izq">
+      <a href="dashboards.html" class="logobox-navbar-web">
+        <img src="IMG/logo.png" class="logo-navbar-web">
+      </a>
+      <input name="nn_protocolo_buscar" type="text" id="num_protocolo_buscar"
+             title="Buscar por número de protocolo"
+             class="form-control buscar-protocolo" placeholder="#P...">
+      <a href="" class="navbar-icono"><i class="fa fa-search"></i></a>
+      <a href="" class="navbar-icono"><i class="fa fa-comments"></i> Tareas</a>
+      <a href="" class="navbar-icono"><i class="fa fa-history"></i></a>
+    </div>
+
+    <!-- Grupo derecho: módulos principales -->
+    <div class="navbar-grupo-der">
+      <a href="conges.html"   class="navbar-icono"><i class="far fa-hospital"></i> Conges</a>
+      <a href="ihq.html"      class="navbar-icono"><i class="fas fa-star-of-life"></i> IHQ</a>
+      <a href="lotes.html"    class="navbar-icono"><i class="far fa-list-alt"></i> Lotes</a>
+      <a href="estudios.html" class="navbar-icono"><i class="fas fa-microscope"></i> Estudios</a>
+      <a href=""              class="navbar-icono"><i class="fas fa-dollar-sign"></i> Administración</a>
+      <div class="navbar-dropdown">
+        <a href="#" class="navbar-icono navbar-dropdown-toggle"><i class="fas fa-users"></i> Agenda <i class="fa fa-caret-down"></i></a>
+        <ul class="navbar-dropdown-menu">
+          <li><a href="medicos.html"><i class="fas fa-user-md"></i> Médicos</a></li>
+          <li><a href="pacientes.html"><i class="fas fa-id-card"></i> Pacientes</a></li>
+          <li><a href="usuarios.html"><i class="fa fa-user-shield"></i> Usuarios</a></li>
+        </ul>
+      </div>
+      <a href="soporte.html"  class="navbar-icono"><i class="fas fa-life-ring"></i> Soporte</a>
+      <a href=""              class="navbar-icono"><i class="fas fa-bars"></i></a>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+// Dropdown Agenda
+(function() {
+  document.querySelectorAll('.navbar-dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      var dd = this.closest('.navbar-dropdown');
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar-dropdown')) {
+      document.querySelectorAll('.navbar-dropdown').forEach(function(dd) {
+        dd.classList.remove('open');
+      });
+    }
+  });
+})();
+</script>

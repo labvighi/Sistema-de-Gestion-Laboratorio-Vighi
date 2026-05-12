@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imágenes - Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+    <div class="ibox ibox-shadow estudios-page">
+
+      <div class="ibox-title">
+        <h3 class="page-title"><i class="fas fa-images"></i> Imágenes</h3>
+        <p class="etiq-subtitulo">Órdenes sin protocolo asignado. <span id="imgContador">0</span></p>
+        <hr class="mb-0 mt-1">
+      </div>
+
+      <div class="ibox-content estudios-content">
+        <div class="flujos-contenido" id="imgContenido">
+          <div class="flujos-info-vacio">
+            <i class="fas fa-info-circle"></i>
+            No hay imágenes pendientes de vinculación.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="img-lightbox-overlay" id="imgLightbox">
+    <span class="img-lightbox-contador" id="lbContador"></span>
+    <button class="img-lightbox-cerrar" id="lbCerrar">&times;</button>
+    <button class="img-lightbox-prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+    <div class="img-lightbox-inner">
+      <img id="lbImg" src="" alt="">
+    </div>
+    <button class="img-lightbox-next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/imagenes.js"></script>
+</body>
+</html>

@@ -1,139 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Susana Vighi - Sistema de Gestión Integral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo - Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-	<link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<link rel="stylesheet" href="CSS/linecons.min.css" type="text/css">
-	<link rel="stylesheet" href="CSS/style.css?v=4" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&amp;display=swap" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <script>
-		$(document).ready(function () {
-			$("#navbar").load("navbar.html");
-            $("#side-navbar").load("side-navbar.html");
-			$("#footer").load("footer.html");
-		});
-		document.addEventListener("DOMContentLoaded", function () {
-		const elements = document.querySelectorAll('.fade-in-up, .fade-in-right, .fade-in-left');
-		const observer = new IntersectionObserver(entries => {entries.forEach(entry => {
-			if (entry.isIntersecting) {entry.target.classList.add('visible');observer.unobserve(entry.target); // solo una vez
-			}});
-		}, 
-		{threshold: 0.15});
-		elements.forEach(el => observer.observe(el));
-		});
-
-	</script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html");
+    $("#side-navbar").load("side-navbar.html");
+    $("#footer").load("footer.html");
+  });
+</script>
 
 <body>
-    
   <div id="navbar"></div>
+  <div id="side-navbar"></div>
 
-  <div class="wrapper">
-    <div id="side-navbar"></div>
-    <div class="ibox ibox-shadow">
-      <div class="ibox-title" style="padding-left: 10px;">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <div class="form form-inline mt-0">
-                        <div class="form-group">
-                            <h3 class="mb-0 mt-0"><a id="ContentPlaceHolder1_header1_hl_protocolo" href="./?id=1055268">#P1055268</a> </h3>
-                        </div>
-                        <div class="form-group"><a id="id_protocolo_copiar" onclick="myFunction()" class="text-muted" title="Copiar # protocolo al portapapeles"><i class="far fa-copy"></i>&nbsp;</a></div>
-                        <div class="form-group"><h2 class="mb-0 mt-0"></h2></div>
-                    </div>
-                </div>
-                <div class="col-sm-6 text-right">
-                    <div class="form form-inline mt-0">
-                        <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_validado" class="label label-light d-block"><i class="fa fa-eye"></i> Validado</span></div>
-                        <div class="form-group"></div>
-                        
-                        <div class="form-group hidden-xs"><span id="ContentPlaceHolder1_header1_lbl_Status" class="label label-light d-block"><i class="fas fa-flag-checkered"></i>Informado</span></div>
-                        <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_clave_diagnostico" title="Sospechoso" class="label label-warning d-block">SP</span></div>
-                        
-                        <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_urgente" class="label label-danger d-block"><i class="fa fa-exclamation-circle"></i> URGENTE </span></div>
-                        <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_UrgenteFlagToggle" class="btn btn-danger btn-sm" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_UrgenteFlagToggle&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="padding: 2px;margin: 0;padding-left: 5px;padding-right: 5px;"><i class="fa fa-running"></i> Prioridad alta</a></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-5" style="width: 35%;">  
-                    <div class="ibox-content hidden-hover-container mb-1">
-                      <h4><i class="fas fa-id-card"></i> Paciente <a id="ContentPlaceHolder1_header1_hl_protocolos_paciente" title="El paciente cuenta con estudios anteriores" href="../../pacientes/paciente/?id=671105" target="_blank"><i class="fa fa-arrow-right"></i></a></h4><hr class="mt-1 mb-1">
-                            <div class="form form-inline">
-                                <a id="ContentPlaceHolder1_header1_hl_paciente" href="../../pacientes/paciente/?id=671105">GIANNINI, MARTA DOMINGA</a>&nbsp;
-                                <span id="ContentPlaceHolder1_header1_lbl_paciente_edad" title="Año de nacimiento: 1947 Edad actual: 79 Edad al momento del estudio: 79">79 (1947)</span>
-                                <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_paciente_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_paciente_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a></div>
-                            </div>
-                            <div><span id="ContentPlaceHolder1_header1_lbl_dni"></span></div>
-                            <div id="ContentPlaceHolder1_header1_pnl_cobertura_show">
-                                <div class="form form-inline">
-                                    <span id="ContentPlaceHolder1_header1_lbl_cobertura">GALENO (ORO/PLA)</span>
-                                    <a id="ContentPlaceHolder1_header1_btn_cobertura_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_cobertura_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a>
-                                </div>
-                            </div><div id="ContentPlaceHolder1_header1_pnl_elegibilidad">
-                                <div class="form form-inline">
-                                    <span id="ContentPlaceHolder1_header1_lbl_nro_credencial">#011596330014</span>
-                                    <span id="ContentPlaceHolder1_header1_lbl_nro_elegibilidad" title="Elegibilidad autorizada #157664859" class="text-muted"><i class="fa fa-check"></i></span>
-                                    <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_elegibilidad_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_elegibilidad_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>modificar</a></div>
-                                </div>
-                            </div>                
-                    </div>
-                </div>
-                <div class="col-lg-3">  
-                    <div class="ibox-content hidden-hover-container mb-1">
-                        <h4 class="mb-0"><i class="fas fa-user-md"></i> Médico</h4><hr class="mt-1 mb-1">
-                        <div class="form form-inline">
-                            <div class="form-group"><a id="ContentPlaceHolder1_header1_hl_medico" href="../../medicos/medico/?id=4724">AGUIAR, ANA M.</a></div>
-                            <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_medico_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_medico_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a></div>
-                        </div>
-                        <div>
-                            <a id="ContentPlaceHolder1_header1_hl_ubicacion_procedencia" href="../../ubicaciones/ubicacion/?id=843">TRINIPALERMO</a>                      
-                            <span><span id="ContentPlaceHolder1_header1_propiedad_sede_lbl_valor"></span></span>
-                            <span><a id="ContentPlaceHolder1_header1_propiedad_sede_btn_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$propiedad_sede$btn_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>cambiar</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3" style="width: 24%;">
-                    <div class="ibox-content hidden-hover-container mb-1">
-                      <h4 class="mb-0"><i class="fas fa-truck"></i> Recorrido</h4><hr class="mt-1 mb-1"> 
-                        <div><a id="ContentPlaceHolder1_header1_hl_ubicacion_entrega" title="LU (M), MA (M), MI (M), JU (M), VI (M)" href="../../ubicaciones/ubicacion/?id=843">TRINIPALERMO</a> <a id="ContentPlaceHolder1_header1_hl_ubicacion_entrega_recorrido" title="LU (M), MA (M), MI (M), JU (M), VI (M)" href="../../ubicaciones/ubicacion/?id=843"></a></div>
-                        <div><span id="ContentPlaceHolder1_header1_lbl_ubicacion_entrega_recorrido">LU (M), MA (M), MI (M), JU (M), VI (M)</span></div>
-                    </div>
-                </div>
-                <div class="col-lg-2" style="width: 14%;">
-                    <div class="ibox-content hidden-hover-container mb-1">
-                    <h4 class="mb-0"><i class="fas fa-id-card"></i> Lote</h4><hr class="mt-1 mb-1">
-                            <div class="form form-inline">
-                                <div class="form-group"><span id="ContentPlaceHolder1_header1_lbl_sede">ONCO</span></div>
-                                <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_sede_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_sede_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>modificar</a></div>
-                            </div>
-                            <div class="form form-inline mb-1">
-                                <div class="form-group"><a id="ContentPlaceHolder1_header1_hl_lote" href="../../lotes/lote/?id=67607">ONCO-0121.1</a> </div>
-                                <div class="form-group"><a id="ContentPlaceHolder1_header1_btn_lote_edit_show" class="btn btn-white btn-xs hidden-xs hidden-hover" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$header1$btn_lote_edit_show&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="fa fa-pencil-alt"></i>modificar</a></div>
-                            </div>
-                    </div>
-                </div>
-            </div>
+  <div class="wrapper prot-wrapper">
+
+    <!-- ===== IBOX 1: CABECERA (número + badges + info paciente) ===== -->
+    <div class="ibox ibox-shadow prot-ibox">
+      <div class="ibox-title prot-ibox-title">
+        <div class="prot-header">
+          <div class="prot-numero">
+            <span id="protNumero">#P1055268</span>
+            <i class="far fa-copy prot-copy-icon" title="Copiar"></i>
+          </div>
+          <div class="prot-badges">
+            <span class="prot-badge prot-badge-validado"><i class="fas fa-eye"></i> Validado</span>
+            <span class="prot-badge prot-badge-qr">QR</span>
+            <span class="prot-badge prot-badge-informado"><i class="fas fa-flag"></i> Informado</span>
+            <span class="prot-badge prot-badge-sp">SP</span>
+            <span class="prot-badge prot-badge-urgente"><i class="fas fa-circle"></i> URGENTE</span>
+            <span class="prot-badge prot-badge-prioridad"><i class="fas fa-person-running"></i> Prioridad alta</span>
+          </div>
         </div>
-      <div class="ibox-content">
+      </div>
+      <div class="ibox-content prot-info-content">
+        <div class="prot-info-grid">
+          <div class="prot-info-col prot-info-col-xl">
+            <div class="prot-info-label"><i class="fas fa-id-card"></i> Paciente <i class="far fa-edit prot-edit-icon"></i></div>
+            <div class="prot-info-valor prot-link">GIANNINI, MARTA DOMINGA</div>
+            <div class="prot-info-sub">79 (1947)</div>
+            <div class="prot-info-sub">GALENO (ORO/PLA)</div>
+            <div class="prot-info-sub prot-dni">#011596330014 <i class="fas fa-check prot-check-ok"></i></div>
+          </div>
+          <div class="prot-info-col prot-info-col-xl">
+            <div class="prot-info-label"><i class="fas fa-user-md"></i> Médico</div>
+            <div class="prot-info-valor prot-link">AGUIAR, ANA M.</div>
+            <div class="prot-info-valor prot-link">TRINIPALERMO</div>
+          </div>
+          <div class="prot-info-col prot-info-col-xl">
+            <div class="prot-info-label"><i class="fas fa-truck"></i> Recorrido</div>
+            <div class="prot-info-valor prot-link">TRINIPALERMO</div>
+            <div class="prot-info-sub">LU (M), MA (M), MI (M), JU (M), VI (M)</div>
+          </div>
+          <div class="prot-info-col">
+            <div class="prot-info-label"><i class="fas fa-th-large"></i> Lote</div>
+            <div class="prot-info-sub">ONCO</div>
+            <div class="prot-info-valor prot-link">ONCO-0121.1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== IBOX 2: ESTUDIOS + FIRMANTE + ACCIONES ===== -->
+    <div class="ibox ibox-shadow prot-ibox">
+      <div class="ibox-content prot-estudios-content">
+
+        <div class="prot-estudios-header">
+          <span class="prot-estudios-titulo">Estudios (QR)</span>
+          <span class="prot-entrega">Entrega estimada: 04/02/2026</span>
+        </div>
+
+        <div id="protEstudios"></div>
+
+        <hr class="prot-hr">
+
+        <div class="prot-firmante-wrap">
+          <div class="prot-firmante-label">Médico firmante</div>
+          <div class="prot-firmante-valor">
+            <i class="fas fa-lock prot-icon-muted"></i>
+            <i class="fas fa-signature prot-icon-muted"></i>
+            <span>Dra. MISERENDINO, Diana</span>
+            <a href="#" class="prot-link-accion"><i class="far fa-edit"></i> cambiar</a>
+          </div>
+        </div>
+
+        <div class="prot-acciones">
+          <button class="btn prot-btn-accion"><i class="fas fa-sync-alt"></i> Actualizar</button>
+          <button class="btn prot-btn-accion"><i class="fas fa-print"></i> Ver informe</button>
+          <button class="btn prot-btn-accion"><i class="fas fa-paper-plane"></i> Enviar informe</button>
+        </div>
 
       </div>
     </div>
+
+    <!-- ===== IBOXES 3: ARCHIVOS | TAREAS | COMENTARIOS ===== -->
+    <div class="row prot-bottom-row">
+
+      <div class="col-md-4">
+        <div class="ibox ibox-shadow prot-ibox">
+          <div class="ibox-title prot-panel-ibox-title">
+            <i class="fas fa-folder-open"></i> Archivos asociados al protocolo
+          </div>
+          <div class="ibox-content">
+            <div class="prot-archivos-grid" id="protArchivosGrid"></div>
+            <div class="prot-archivos-lista" id="protArchivosLista"></div>
+            <button class="btn prot-btn-agregar prot-btn-full" id="btnAgregarArchivo"><i class="fas fa-plus-circle"></i> Agregar un archivo</button>
+
+            <!-- Panel upload (oculto por defecto) -->
+            <div class="prot-upload-panel" id="protUploadPanel" style="display:none;">
+              <div class="prot-upload-field">
+                <label class="prot-upload-label">Seleccionar archivos</label>
+                <div class="prot-upload-file-row">
+                  <label class="btn prot-btn-elegir-archivo" for="protFileInput">Elegir archivos</label>
+                  <input type="file" id="protFileInput" multiple style="display:none;">
+                  <span class="prot-upload-filename" id="protFileNombre">No se eligió ningún archivo</span>
+                </div>
+              </div>
+              <div class="prot-upload-field">
+                <label class="prot-upload-label">Tipos de archivo</label>
+                <select class="form-control prot-upload-sel" id="protFileTipo">
+                  <option>Historia clínica</option>
+                  <option>Informe Histológico</option>
+                  <option>Muestra</option>
+                  <option selected>Orden médica</option>
+                  <option>Presupuesto</option>
+                </select>
+              </div>
+              <div class="prot-upload-btns">
+                <button class="btn prot-btn-cancelar-upload" id="btnCancelarUpload">Cancelar</button>
+                <button class="btn prot-btn-subir-archivo"><i class="fas fa-upload"></i> Subir archivo</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="ibox ibox-shadow prot-ibox">
+          <div class="ibox-title prot-panel-ibox-title">
+            <i class="fas fa-list"></i> Tareas
+          </div>
+          <div class="ibox-content">
+            <div id="protTareasList"></div>
+            <button class="btn prot-btn-agregar prot-btn-full"><i class="fas fa-plus-circle"></i> Crear una tarea</button>
+            <div class="prot-procesamiento">
+              <div class="prot-proc-label"><i class="fas fa-upload"></i> Procesamiento</div>
+              <div class="prot-proc-btns">
+                <button class="btn prot-btn-proc"><i class="fas fa-building"></i> Interno</button>
+                <button class="btn prot-btn-proc prot-btn-proc-active"><i class="fas fa-external-link-alt"></i> Externo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="ibox ibox-shadow prot-ibox">
+          <div class="ibox-title prot-panel-ibox-title">
+            <i class="fas fa-comments"></i> Comentarios
+          </div>
+          <div class="ibox-content">
+            <div class="prot-comentarios-lista" id="protComentariosList"></div>
+            <button class="btn prot-btn-agregar prot-btn-full"><i class="fas fa-plus-circle"></i> Agregar un comentario</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== IBOX 4: FOOTER TABS ===== -->
+    <div class="ibox ibox-shadow prot-ibox">
+      <div class="ibox-content prot-footer-content">
+
+        <ul class="nav nav-tabs prot-footer-tabs" id="protFooterTabs">
+          <li><a href="#pft-eventos"      data-toggle="tab">Eventos</a></li>
+          <li><a href="#pft-presupuestos" data-toggle="tab">Presupuestos</a></li>
+          <li><a href="#pft-informes"     data-toggle="tab">Informes</a></li>
+          <li><a href="#pft-eliminar"     data-toggle="tab">Eliminar</a></li>
+        </ul>
+
+        <div class="tab-content prot-footer-tab-content">
+          <div class="tab-pane" id="pft-eventos">
+            <p class="prot-tab-vacio">No hay eventos registrados.</p>
+          </div>
+          <div class="tab-pane" id="pft-presupuestos">
+            <table class="table prot-pre-tabla">
+              <thead>
+                <tr>
+                  <th>Protocolo #</th>
+                  <th>Estudio</th>
+                  <th>Tipo</th>
+                  <th>Proveedor</th>
+                  <th class="prot-pre-th-monto">Monto</th>
+                  <th class="prot-pre-th-auth">Autorización</th>
+                </tr>
+              </thead>
+              <tbody id="pftPresupuestosTbody"></tbody>
+            </table>
+            <div class="prot-pre-footer">
+              <label class="prot-pre-exento">
+                <input type="checkbox" id="pftExentoIva"> Exento IVA
+              </label>
+              <button class="btn prot-btn-agregar" id="btnNuevoPresupuesto"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</button>
+            </div>
+          </div>
+          <div class="tab-pane" id="pft-informes">
+            <table class="table prot-inf-tabla">
+              <thead>
+                <tr>
+                  <th>Título</th>
+                  <th>Flujo</th>
+                  <th class="prot-inf-th-centro">Estudio</th>
+                  <th class="prot-inf-th-centro">IHQ</th>
+                  <th class="prot-inf-th-centro">IHQ leyenda</th>
+                  <th class="prot-inf-th-centro">Macro publicado</th>
+                  <th class="prot-inf-th-centro">Publicado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="pftInformesTbody"></tbody>
+            </table>
+            <div class="prot-inf-acciones">
+              <button class="btn prot-btn-accion"><i class="fas fa-undo"></i> Actualizar</button>
+            </div>
+          </div>
+          <div class="tab-pane" id="pft-eliminar">
+            <button class="btn prot-btn-eliminar-prot">
+              <i class="fas fa-trash-alt"></i> Eliminar protocolo
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <div id="footer"></div>
-
-  <script src="js/registro.js"></script>
+  <script src="JS/protocolo.js"></script>
 </body>
 </html>
