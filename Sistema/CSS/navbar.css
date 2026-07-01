@@ -103,7 +103,6 @@ nav.navbar-default > .sidebar-collapse > .logo { width:100%; text-align:center; 
 .nav.navbar-top-links > li > a:focus {background-color: #f1f1f1;}
 
 .navbar-fixed-top {
-    /*background: #fff;*/
     transition-duration: 0.5s;
     border-bottom: 1px solid #2F4050 !important;
     z-index: 2030;

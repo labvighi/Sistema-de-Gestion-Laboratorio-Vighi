@@ -1,0 +1,85 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+.cu-page { padding: 28px 28px 72px; display: flex; flex-direction: column; gap: 16px; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.cu-header { display: flex; align-items: center; gap: 12px; }
+.cu-back {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px;
+  border: 1px solid var(--border); background: #fff;
+  color: var(--slate); font-size: 14px; cursor: pointer;
+  text-decoration: none; transition: all 0.12s; flex-shrink: 0;
+}
+.cu-back:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.cu-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500; color: var(--accent);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.cu-title {
+  font-size: 22px; font-weight: 800; color: var(--blue);
+  letter-spacing: -0.02em; margin: 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.cu-title i { color: var(--accent); font-size: 18px; }
+
+/* ── Card ───────────────────────────────────────────────── */
+.cu-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+}
+.cu-form-body { padding: 24px; display: flex; flex-direction: column; gap: 0; }
+
+/* ── Form elements ───────────────────────────────────────── */
+.cu-row { display: flex; gap: 16px; margin-bottom: 16px; }
+.cu-row > .form-group { flex: 1; margin-bottom: 0; }
+.form-group label {
+  font-size: 11px; font-weight: 600; color: var(--slate);
+  text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 5px; display: block;
+}
+.form-control {
+  height: 34px !important; padding: 0 10px !important;
+  font-size: 12px !important; border-radius: 7px !important;
+  border: 1px solid var(--border) !important;
+  color: var(--blue) !important; font-family: 'Inter', sans-serif !important;
+  box-shadow: none !important;
+}
+.form-control:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(124,62,237,0.10) !important;
+}
+.form-error { font-size: 11px; color: #dc2626; margin-top: 3px; display: block; }
+.form-error.hidden { display: none; }
+
+.cu-divider { border: none; border-top: 1px solid var(--border); margin: 8px 0 20px; }
+
+#status { margin-bottom: 12px; }
+
+/* ── Actions ─────────────────────────────────────────────── */
+.form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+.btn-cancelar-medico {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 14px; border-radius: 7px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; border: 1px solid var(--border); background: #fff;
+  color: var(--slate); text-decoration: none; transition: all 0.12s;
+}
+.btn-cancelar-medico:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.btn-crear-medico {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 18px; border-radius: 7px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; border: none; background: var(--accent); color: #fff;
+  transition: background 0.15s;
+}
+.btn-crear-medico:hover { background: var(--blue); color: #fff; }

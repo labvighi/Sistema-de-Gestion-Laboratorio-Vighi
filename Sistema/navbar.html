@@ -1,57 +1,419 @@
-<nav class="navbar navbar-fixed-top bg-navbar">
-  <div class="navbar-web">
+<style>
+/* ── Navbar global ──────────────────────────────────────────── */
+:root {
+  --nb-blue:   #291050;
+  --nb-accent: #7c3eed;
+  --nb-slate:  #6b6b8a;
+  --nb-border: #e5e3ed;
+  --nb-surf:   #f7f4ff;
+  --nb-h:      56px;
+}
 
-    <!-- Grupo izquierdo: logo + búsqueda + acciones rápidas -->
-    <div class="navbar-grupo-izq">
-      <a href="dashboards.html" class="logobox-navbar-web">
-        <img src="IMG/logo.png" class="logo-navbar-web">
+.nb {
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  height: var(--nb-h);
+  background: #fff;
+  border-bottom: 1px solid var(--nb-border);
+  box-shadow: 0 1px 4px rgba(41,16,80,0.06);
+  display: flex;
+  align-items: center;
+  z-index: 1030;
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 0;
+}
+
+.nb::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--nb-accent) 0%, #a855f7 100%);
+  pointer-events: none;
+}
+
+/* ── Logo ────────────────────────────────────────────────────── */
+.nb-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 100%;
+  border-right: 1px solid var(--nb-border);
+  text-decoration: none;
+  gap: 10px;
+  width: 210px;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s;
+}
+.nb-logo:hover { background: var(--nb-surf); }
+.nb-logo-bars {
+  font-size: 13px;
+  color: var(--nb-slate);
+  flex-shrink: 0;
+  transition: color 0.12s;
+}
+.nb-logo:hover .nb-logo-bars { color: var(--nb-accent); }
+.nb-logo img {
+  height: 30px;
+  width: auto;
+}
+.nb-logo-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--nb-blue);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.nb-logo-sub {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--nb-slate);
+  letter-spacing: 0.02em;
+}
+
+/* ── Búsqueda ────────────────────────────────────────────────── */
+.nb-search {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  border: 1px solid var(--nb-border);
+  border-radius: 8px;
+  background: var(--nb-surf);
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.nb-search:focus-within {
+  border-color: var(--nb-accent);
+  box-shadow: 0 0 0 3px rgba(124,62,237,0.10);
+}
+.nb-search input {
+  width: 120px;
+  height: 32px;
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--nb-blue);
+  outline: none;
+  transition: width 0.2s ease;
+}
+.nb-search input:focus { width: 190px; }
+.nb-search input::placeholder { color: #bbb; }
+.nb-search-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--nb-slate);
+  cursor: pointer;
+  font-size: 11px;
+  transition: color 0.15s;
+}
+.nb-search-btn:hover { color: var(--nb-accent); }
+
+/* ── Acciones rápidas ────────────────────────────────────────── */
+.nb-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 8px;
+}
+.nb-act {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--nb-slate);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+.nb-act:hover { background: var(--nb-surf); color: var(--nb-blue); text-decoration: none; }
+.nb-act i { font-size: 12px; }
+
+/* ── Separador ───────────────────────────────────────────────── */
+.nb-sep { width: 1px; height: 18px; background: var(--nb-border); margin: 0 6px; flex-shrink: 0; }
+
+/* ── Módulos (derecha) ───────────────────────────────────────── */
+.nb-mods {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  margin-left: auto;
+  padding-right: 12px;
+}
+.nb-mod {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nb-slate);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+.nb-mod:hover { background: var(--nb-surf); color: var(--nb-blue); text-decoration: none; }
+.nb-mod.active { background: var(--nb-surf); color: var(--nb-accent); }
+.nb-mod i { font-size: 12px; }
+
+/* ── Dropdown ────────────────────────────────────────────────── */
+.nb-dd { position: relative; }
+.nb-dd-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--nb-border);
+  border-radius: 10px;
+  min-width: 176px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(41,16,80,0.12);
+  z-index: 1050;
+}
+.nb-dd.open .nb-dd-menu { display: block; }
+.nb-dd-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: var(--nb-blue);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+.nb-dd-menu li a:hover { background: var(--nb-surf); color: var(--nb-accent); }
+.nb-dd-menu li a i { font-size: 11px; width: 14px; text-align: center; color: var(--nb-slate); }
+
+/* ── Avatar + dropdown de perfil ─────────────────────────────── */
+.nb-user-dd { position: relative; }
+
+.nb-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--nb-accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 6px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.15s;
+}
+.nb-avatar:hover,
+.nb-user-dd.open .nb-avatar {
+  box-shadow: 0 0 0 3px rgba(124,62,237,0.25);
+}
+
+.nb-user-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--nb-border);
+  border-radius: 10px;
+  min-width: 200px;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(41,16,80,0.14);
+  z-index: 1060;
+}
+.nb-user-dd.open .nb-user-menu { display: block; }
+
+.nb-user-menu-header {
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid var(--nb-border);
+  margin-bottom: 6px;
+}
+.nb-user-menu-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nb-blue);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nb-user-menu-role {
+  font-size: 11px;
+  color: var(--nb-slate);
+  margin-top: 2px;
+}
+
+.nb-user-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--nb-blue);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.nb-user-menu-item:hover { background: var(--nb-surf); color: var(--nb-accent); text-decoration: none; }
+.nb-user-menu-item i { font-size: 11px; width: 14px; text-align: center; color: var(--nb-slate); }
+.nb-user-menu-item.danger:hover { background: #fff0f0; color: #c0392b; }
+.nb-user-menu-item.danger:hover i { color: #c0392b; }
+.nb-user-menu-sep { height: 1px; background: var(--nb-border); margin: 6px 0; }
+
+/* Ajuste cuerpo para nueva altura */
+body { padding-top: var(--nb-h) !important; }
+#side-navbar { top: var(--nb-h) !important; }
+</style>
+
+<nav class="nb">
+
+  <!-- Logo / toggle sidebar -->
+  <div class="nb-logo" id="nb-sidebar-toggle" role="button" title="Menú">
+    <i class="fa fa-bars nb-logo-bars"></i>
+    <img src="IMG/logo.png" alt="Vighi">
+    <div>
+      <div class="nb-logo-name">CAP Vighi</div>
+      <div class="nb-logo-sub">Sistema de Gestión</div>
+    </div>
+  </div>
+
+  <!-- Búsqueda -->
+  <div class="nb-search">
+    <input name="nn_protocolo_buscar" type="text" id="num_protocolo_buscar"
+           placeholder="#Protocolo" autocomplete="off">
+    <button class="nb-search-btn" title="Buscar"><i class="fa fa-search"></i></button>
+  </div>
+
+  <!-- Acciones rápidas -->
+  <div class="nb-actions">
+    <a href="tareas.html" class="nb-act"><i class="fa fa-comment-dots"></i> Tareas</a>
+    <a href="historial.html" class="nb-act" title="Historial"><i class="fa fa-clock-rotate-left"></i></a>
+  </div>
+
+  <div class="nb-sep"></div>
+
+  <!-- Módulos + Avatar -->
+  <div class="nb-mods">
+    <a href="conges.html"   class="nb-mod" data-page="conges"><i class="far fa-hospital"></i> Conges</a>
+    <a href="ihq.html"      class="nb-mod" data-page="ihq"><i class="fas fa-star-of-life"></i> IHQ</a>
+    <a href="lotes.html"    class="nb-mod" data-page="lotes"><i class="far fa-list-alt"></i> Lotes</a>
+    <a href="estudios.html" class="nb-mod" data-page="estudios"><i class="fas fa-microscope"></i> Estudios</a>
+    <a href="dashboards.html" class="nb-mod" data-page="dashboards"><i class="fas fa-chart-line"></i> Dashboards</a>
+    <a href="admin.html"   class="nb-mod" data-page="administracion"><i class="fas fa-dollar-sign"></i> Admin</a>
+
+    <div class="nb-dd">
+      <a href="#" class="nb-mod nb-dd-toggle">
+        <i class="fas fa-users"></i> Agenda <i class="fa fa-chevron-down" style="font-size:8px;margin-left:2px;opacity:.7;"></i>
       </a>
-      <input name="nn_protocolo_buscar" type="text" id="num_protocolo_buscar"
-             title="Buscar por número de protocolo"
-             class="form-control buscar-protocolo" placeholder="#P...">
-      <a href="" class="navbar-icono"><i class="fa fa-search"></i></a>
-      <a href="" class="navbar-icono"><i class="fa fa-comments"></i> Tareas</a>
-      <a href="" class="navbar-icono"><i class="fa fa-history"></i></a>
+      <ul class="nb-dd-menu">
+        <li><a href="medicos.html"><i class="fas fa-user-md"></i> Médicos</a></li>
+        <li><a href="pacientes.html"><i class="fas fa-id-card"></i> Pacientes</a></li>
+        <li><a href="usuarios.html"><i class="fas fa-user-shield"></i> Usuarios</a></li>
+      </ul>
     </div>
 
-    <!-- Grupo derecho: módulos principales -->
-    <div class="navbar-grupo-der">
-      <a href="conges.html"   class="navbar-icono"><i class="far fa-hospital"></i> Conges</a>
-      <a href="ihq.html"      class="navbar-icono"><i class="fas fa-star-of-life"></i> IHQ</a>
-      <a href="lotes.html"    class="navbar-icono"><i class="far fa-list-alt"></i> Lotes</a>
-      <a href="estudios.html" class="navbar-icono"><i class="fas fa-microscope"></i> Estudios</a>
-      <a href=""              class="navbar-icono"><i class="fas fa-dollar-sign"></i> Administración</a>
-      <div class="navbar-dropdown">
-        <a href="#" class="navbar-icono navbar-dropdown-toggle"><i class="fas fa-users"></i> Agenda <i class="fa fa-caret-down"></i></a>
-        <ul class="navbar-dropdown-menu">
-          <li><a href="medicos.html"><i class="fas fa-user-md"></i> Médicos</a></li>
-          <li><a href="pacientes.html"><i class="fas fa-id-card"></i> Pacientes</a></li>
-          <li><a href="usuarios.html"><i class="fa fa-user-shield"></i> Usuarios</a></li>
-        </ul>
+    <a href="soporte.html" class="nb-mod" data-page="soporte"><i class="fas fa-life-ring"></i> Soporte</a>
+
+    <div class="nb-sep"></div>
+
+    <!-- Avatar con dropdown de perfil -->
+    <div class="nb-user-dd" id="nb-user-dd">
+      <div class="nb-avatar" id="nb-avatar">??</div>
+      <div class="nb-user-menu">
+        <div class="nb-user-menu-header">
+          <div class="nb-user-menu-name" id="nb-menu-name">Usuario</div>
+          <div class="nb-user-menu-role" id="nb-menu-role">—</div>
+        </div>
+        <a href="#" class="nb-user-menu-item"><i class="fa fa-user"></i> Mi perfil</a>
+        <div class="nb-user-menu-sep"></div>
+        <a href="index.html" class="nb-user-menu-item danger"
+           onclick="sessionStorage.removeItem('usuario');localStorage.removeItem('usuario');">
+          <i class="fa fa-sign-out-alt"></i> Cerrar sesión
+        </a>
       </div>
-      <a href="soporte.html"  class="navbar-icono"><i class="fas fa-life-ring"></i> Soporte</a>
-      <a href=""              class="navbar-icono"><i class="fas fa-bars"></i></a>
     </div>
 
   </div>
 </nav>
 
 <script>
-// Dropdown Agenda
 (function() {
-  document.querySelectorAll('.navbar-dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(e) {
+  // Toggle sidebar
+  document.getElementById('nb-sidebar-toggle').addEventListener('click', function() {
+    var sb = document.getElementById('side-navbar');
+    var isOpen = sb.classList.toggle('sb-open');
+    document.body.classList.toggle('sb-open', isOpen);
+  });
+
+  // Dropdown Agenda
+  document.querySelectorAll('.nb-dd-toggle').forEach(function(t) {
+    t.addEventListener('click', function(e) {
       e.preventDefault();
-      var dd = this.closest('.navbar-dropdown');
-      dd.classList.toggle('open');
+      this.closest('.nb-dd').classList.toggle('open');
     });
   });
-  document.addEventListener('click', function(e) {
-    if (!e.target.closest('.navbar-dropdown')) {
-      document.querySelectorAll('.navbar-dropdown').forEach(function(dd) {
-        dd.classList.remove('open');
-      });
-    }
+
+  // Dropdown perfil usuario
+  var userDd = document.getElementById('nb-user-dd');
+  document.getElementById('nb-avatar').addEventListener('click', function(e) {
+    e.stopPropagation();
+    userDd.classList.toggle('open');
   });
+
+  // Cerrar todos los dropdowns al hacer clic afuera
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nb-dd'))
+      document.querySelectorAll('.nb-dd').forEach(function(d) { d.classList.remove('open'); });
+    if (!e.target.closest('.nb-user-dd'))
+      userDd.classList.remove('open');
+  });
+
+  // Módulo activo
+  var page = window.location.pathname.split('/').pop().replace('.html','');
+  document.querySelectorAll('.nb-mod[data-page]').forEach(function(el) {
+    if (el.getAttribute('data-page') === page) el.classList.add('active');
+  });
+
+  // Poblar avatar + menú con datos del usuario
+  try {
+    var u = JSON.parse(sessionStorage.getItem('usuario') || localStorage.getItem('usuario') || '{}');
+    var mail = u.mail || '';
+    var parts = mail.split('@')[0].split('.');
+    var initials = parts.length > 1
+      ? (parts[0][0] + parts[1][0]).toUpperCase()
+      : mail.substring(0, 2).toUpperCase();
+    if (initials) document.getElementById('nb-avatar').textContent = initials;
+    document.getElementById('nb-menu-name').textContent = mail || 'Usuario';
+    document.getElementById('nb-menu-role').textContent = u.perfilNombre || '—';
+  } catch(e) {}
 })();
 </script>

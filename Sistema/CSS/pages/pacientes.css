@@ -1,0 +1,330 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+/* ── Page wrapper ────────────────────────────────────────────── */
+.pac-page {
+  padding: 28px 32px 72px;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.pac-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.pac-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.pac-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pac-title i {
+  color: var(--accent);
+  font-size: 22px;
+}
+
+/* ── Primary button ──────────────────────────────────────────── */
+.pac-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pac-btn:hover {
+  background: var(--blue);
+  box-shadow: 0 4px 12px rgba(124, 62, 237, 0.25);
+}
+
+/* ── Card de búsqueda ────────────────────────────────────────── */
+.pac-search-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41, 16, 80, 0.05);
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.pac-search-block {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+/* ── Campos de formulario ────────────────────────────────────── */
+.pac-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pac-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.01em;
+}
+
+.pac-label-opt {
+  font-weight: 400;
+  color: var(--slate);
+  margin-left: 4px;
+}
+
+.pac-input,
+.pac-select {
+  height: 36px !important;
+  padding: 0 10px !important;
+  font-size: 13px !important;
+  border-radius: 7px !important;
+  border: 1px solid var(--border) !important;
+  background: #fff !important;
+  color: var(--blue) !important;
+  font-family: 'Inter', sans-serif !important;
+  outline: none;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+
+.pac-input:focus,
+.pac-select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(124, 62, 237, 0.10) !important;
+}
+
+.pac-input::placeholder {
+  color: #bbb;
+}
+
+.pac-select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%236b6b8a'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 8px center !important;
+  padding-right: 26px !important;
+  cursor: pointer;
+}
+
+/* ── Separador vertical ──────────────────────────────────────── */
+.pac-search-sep {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  margin: 0 20px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── Botón de búsqueda ───────────────────────────────────────── */
+.pac-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.pac-search-btn:hover {
+  background: var(--blue);
+}
+
+/* ── Card de resultados ──────────────────────────────────────── */
+.pac-results-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41, 16, 80, 0.05);
+  overflow: hidden;
+}
+
+/* ── Barra de resultados ─────────────────────────────────────── */
+.pac-results-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pac-results-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.01em;
+}
+
+.usuarios-contador {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--slate);
+  background: rgba(124, 62, 237, 0.08);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* ── Estado vacío ────────────────────────────────────────────── */
+.pacientes-vacio {
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.pacientes-vacio-icono {
+  display: block;
+  font-size: 32px;
+  color: rgba(124, 62, 237, 0.25);
+  margin-bottom: 14px;
+}
+
+.pacientes-vacio p {
+  font-size: 13px;
+  color: var(--slate);
+  margin: 0;
+}
+
+/* ── Tabla compartida ────────────────────────────────────────── */
+.pacientes-tabla,
+.usuarios-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  margin: 0 !important;
+}
+
+.pacientes-tabla thead tr,
+.usuarios-tabla thead tr {
+  background: var(--surf);
+  border-bottom: 2px solid var(--border);
+}
+
+.pacientes-tabla thead th,
+.usuarios-tabla thead th {
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.pacientes-tabla tbody tr,
+.usuarios-tabla tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+.pacientes-tabla tbody tr:hover,
+.usuarios-tabla tbody tr:hover {
+  background: var(--surf);
+}
+
+.pacientes-tabla tbody tr:last-child,
+.usuarios-tabla tbody tr:last-child {
+  border-bottom: none;
+}
+
+.pacientes-tabla td,
+.usuarios-tabla td {
+  padding: 11px 16px;
+  font-size: 13px;
+  color: #333;
+  vertical-align: middle;
+}
+
+/* ── Celdas específicas de pacientes ─────────────────────────── */
+.pac-td-dni {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.pac-td-nombre {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.pac-td-sub {
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 1px;
+}
+
+/* ── Botón de acción ─────────────────────────────────────────── */
+.usuarios-btn-accion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--surf);
+  border: 1px solid var(--border);
+  color: var(--slate);
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  text-decoration: none;
+}
+
+.usuarios-btn-accion:hover {
+  background: rgba(124, 62, 237, 0.10);
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}

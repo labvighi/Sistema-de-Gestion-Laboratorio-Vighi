@@ -1,0 +1,232 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+.tar-page { padding: 28px 28px 72px; display: flex; flex-direction: column; gap: 16px; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.tar-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.tar-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.tar-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tar-title i { color: var(--accent); font-size: 22px; }
+.tar-subtitle { font-size: 12px; color: var(--slate); margin: 3px 0 0; }
+
+.tar-btn-nueva {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tar-btn-nueva:hover { background: var(--blue); }
+
+/* ── Card ───────────────────────────────────────────────── */
+.tar-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+}
+
+/* ── Filtros ─────────────────────────────────────────────── */
+.tar-filtros {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.estudios-sel {
+  height: 30px !important;
+  padding: 0 8px !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--border) !important;
+  background: #fff !important;
+  color: var(--blue) !important;
+  font-family: 'Inter', sans-serif !important;
+  outline: none !important;
+}
+.estudios-sel:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(124,62,237,0.10) !important; }
+.estudios-sel-md { width: 140px; }
+.estudios-sel-lg { width: 190px; }
+
+.tar-contador {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--slate);
+  margin-left: auto;
+}
+
+/* ── Tabla ───────────────────────────────────────────────── */
+.tar-tabla-wrap { overflow-x: auto; }
+
+.tar-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  margin: 0 !important;
+}
+.tar-tabla thead tr { background: var(--surf); border-bottom: 2px solid var(--border); }
+.tar-tabla thead th {
+  padding: 9px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  white-space: nowrap;
+}
+.tar-tabla tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+.tar-tabla tbody tr:hover { background: var(--surf); }
+.tar-tabla tbody tr:last-child { border-bottom: none; }
+.tar-tabla td {
+  padding: 9px 14px;
+  font-size: 12px;
+  color: #333;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Columna solicitud */
+.tar-td-solicitud { min-width: 180px; white-space: normal !important; }
+.tar-link-solicitud {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 12px;
+}
+.tar-link-solicitud:hover { text-decoration: underline; color: var(--blue); }
+
+/* Columna protocolo */
+.tar-link-protocolo {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.tar-link-protocolo:hover { text-decoration: underline; }
+
+/* Columna status */
+.tar-status {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.tar-status-informado  { background: rgba(99,179,237,0.15); color: #2563eb; }
+.tar-status-en-curso   { background: rgba(251,191,36,0.18); color: #a16207; }
+.tar-status-completado { background: rgba(34,197,94,0.15);  color: #15803d; }
+
+/* Columna actividad */
+.tar-td-actividad { color: var(--slate) !important; font-size: 11px !important; }
+
+/* Columna iniciales */
+.tar-iniciales {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(124,62,237,0.10);
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Badge urgente */
+.tar-badge-urg {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  background: rgba(220,38,38,0.10);
+  color: #dc2626;
+  border: 1px solid rgba(220,38,38,0.2);
+  letter-spacing: 0.04em;
+}
+
+/* Estado tarea */
+.tar-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tar-estado-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.tar-estado-en-curso   .tar-estado-dot { background: #22c55e; }
+.tar-estado-completada .tar-estado-dot { background: #94a3b8; }
+.tar-estado-pendiente  .tar-estado-dot { background: #f59e0b; }
+
+/* Columna fecha */
+.tar-td-fecha {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--slate) !important;
+}
+
+/* Vacío */
+.tar-vacio { padding: 52px 24px; text-align: center; color: var(--slate); font-size: 13px; }
+.tar-vacio-icono { display: block; font-size: 28px; color: rgba(124,62,237,0.2); margin-bottom: 12px; }

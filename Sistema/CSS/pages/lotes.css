@@ -1,0 +1,216 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+.lot-page { padding: 28px 28px 72px; display: flex; flex-direction: column; gap: 16px; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.lot-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lot-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.lot-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lot-title i { color: var(--accent); font-size: 22px; }
+.lot-nuevo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.lot-nuevo-btn:hover { background: var(--blue); color: #fff; }
+
+/* ── Cards ───────────────────────────────────────────────── */
+.lot-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+}
+.lot-card-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.lot-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Tabla lotes activos ─────────────────────────────────── */
+.lotes-activos-tabla { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; margin: 0 !important; }
+.lotes-activos-tabla thead tr { background: var(--surf); border-bottom: 2px solid var(--border); }
+.lotes-activos-tabla thead th {
+  padding: 9px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  white-space: nowrap;
+}
+.lotes-activos-tabla tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.lotes-activos-tabla tbody tr:hover { background: var(--surf); }
+.lotes-activos-tabla tbody tr:last-child { border-bottom: none; }
+.lotes-activos-tabla td { padding: 9px 20px; font-size: 12px; color: #333; vertical-align: middle; }
+.lotes-td-tipo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slate);
+  letter-spacing: 0.08em;
+  background: var(--surf);
+  border-right: 2px solid var(--border) !important;
+  width: 90px;
+}
+.lotes-td-lote a { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 12px; }
+.lotes-td-lote a:hover { color: var(--accent); text-decoration: underline; }
+.lotes-btn-modificar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--slate);
+  transition: all 0.12s;
+}
+.lotes-btn-modificar:hover { border-color: var(--accent); color: var(--accent); background: rgba(124,62,237,0.05); }
+
+/* ── Filtros ─────────────────────────────────────────────── */
+.lot-filters {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lot-filter-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.estudios-sel {
+  height: 30px !important;
+  padding: 0 8px !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--border) !important;
+  background: #fff !important;
+  color: var(--blue) !important;
+  font-family: 'Inter', sans-serif !important;
+  outline: none !important;
+}
+.estudios-sel:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(124,62,237,0.10) !important; }
+.estudios-sel-sm   { width: 80px; }
+.estudios-sel-md   { width: 130px; }
+.estudios-sel-lg   { width: 160px; }
+.estudios-sel-xl   { width: 200px; }
+.estudios-sel-anio { width: 70px; }
+.estudios-sel-mes  { width: 105px; }
+.estudios-sel-dia  { width: 76px; }
+
+/* ── Tabla histórica ─────────────────────────────────────── */
+.lot-table-bar {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#lotes-contador {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--slate);
+  background: rgba(124,62,237,0.08);
+  padding: 2px 9px;
+  border-radius: 6px;
+}
+
+.lotes-tabla { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; margin: 0 !important; }
+.lotes-tabla thead tr { background: var(--surf); border-bottom: 2px solid var(--border); }
+.lotes-tabla thead th {
+  padding: 10px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  white-space: nowrap;
+}
+.lotes-tabla tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.lotes-tabla tbody tr:hover { background: var(--surf); }
+.lotes-tabla tbody tr:last-child { border-bottom: none; }
+.lotes-tabla td { padding: 10px 20px; font-size: 12px; color: #333; vertical-align: middle; }
+.lotes-td-lote a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.lotes-td-lote a:hover { text-decoration: underline; }
+.lotes-td-actividad { color: var(--slate); font-size: 11px; }
+
+.lotes-badge-estado {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.lotes-estado-activo   { background: #dcfce7; color: #15803d; }
+.lotes-estado-cerrado  { background: rgba(124,62,237,0.08); color: var(--accent); }
+.lotes-estado-anulado  { background: #fee2e2; color: #dc2626; }
+
+.usuarios-vacio { padding: 52px 24px; text-align: center; color: var(--slate); font-size: 13px; }

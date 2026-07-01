@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración �?? Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/admin.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+  <div class="adm-page">
+
+    <!-- Header -->
+    <div class="adm-header">
+      <div class="adm-eyebrow">Finanzas</div>
+      <h1 class="adm-title"><i class="fas fa-dollar-sign"></i> Administración</h1>
+    </div>
+
+    <div class="adm-layout">
+
+      <!-- Panel izquierdo -->
+      <div class="adm-sidebar">
+
+        <div class="adm-section">
+          <div class="adm-section-title">Ingresos</div>
+          <a href="facturar.html" class="adm-btn"><i class="fas fa-plus-circle"></i> Nueva factura</a>
+          <a href="facturas.html" class="adm-btn"><i class="fas fa-list"></i> Facturas emitidas</a>
+        </div>
+
+        <div class="adm-section">
+          <div class="adm-section-title">Presupuestos</div>
+          <a href="presupuestos.html" class="adm-btn"><i class="fas fa-file-invoice-dollar"></i> Presupuestos</a>
+        </div>
+
+        <div class="adm-section">
+          <div class="adm-section-title">Autorizaciones API</div>
+          <a href="autorizaciones.html" class="adm-btn"><i class="fas fa-wifi"></i> Dashboard autorizaciones</a>
+        </div>
+
+      </div>
+
+      <!-- Panel de cobros previstos -->
+      <div class="adm-card">
+        <div class="adm-card-header">
+          <span class="adm-card-title">Cobros previstos</span>
+        </div>
+
+        <div class="adm-cobros-grid" id="admCobrosGrid">
+          <!-- Renderizado por JS -->
+        </div>
+
+        <div class="adm-leyenda">
+          <span class="adm-ley-item"><span class="adm-dot adm-dot-fc"></span> FC cargada</span>
+          <span class="adm-ley-item"><span class="adm-dot adm-dot-atr"></span> Cobro atrasado</span>
+          <span class="adm-ley-item"><span class="adm-dot adm-dot-atr5"></span> Cobro atrasado +5d</span>
+          <span class="adm-ley-item"><span class="adm-dot adm-dot-tent"></span> FE tentativa</span>
+          <span class="adm-ley-item"><i class="fas fa-check adm-icon-conf"></i> FE confirmada</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/admin.js"></script>
+</body>
+</html>

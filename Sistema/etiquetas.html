@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Etiquetas - Susana Vighi</title>
+  <title>Etiquetas ? Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="CSS/pages/etiquetas.css" type="text/css">
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,56 +29,53 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow estudios-page">
+  <div class="etq-page">
 
-      <div class="ibox-title">
-        <hr class="mb-1 mt-0">
-        <h3 class="page-title"><i class="fas fa-tags"></i> Crear etiquetas</h3>
-        <p class="etiq-subtitulo">Para recepciÃ³n de Ã³rdenes y muestras.</p>
-        <hr class="mb-0 mt-1">
+    <!-- Header -->
+    <div class="etq-header">
+      <div class="etq-eyebrow">Recepción</div>
+      <h1 class="etq-title"><i class="fas fa-tags"></i> Crear etiquetas</h1>
+      <p class="etiq-subtitulo">Para recepción de órdenes y muestras.</p>
+    </div>
+
+    <!-- Card -->
+    <div class="etq-card">
+      <div class="etiq-filtros-fila">
+        <select class="form-control estudios-sel etiq-sel-tipo" id="etiqTipo">
+          <option value="borradores">Borradores</option>
+          <option value="creadas">Creadas</option>
+          <option value="impresas">Impresas</option>
+          <option value="todas">[ Todas ]</option>
+        </select>
+        <select class="form-control estudios-sel flujos-sel-dia" id="etiqDia">
+          <!-- generado por JS -->
+        </select>
+        <select class="form-control estudios-sel flujos-sel-mes" id="etiqMes">
+          <option value="">[ Mes: todos ]</option>
+          <option value="0">Enero</option><option value="1">Febrero</option>
+          <option value="2">Marzo</option><option value="3">Abril</option>
+          <option value="4">Mayo</option><option value="5">Junio</option>
+          <option value="6">Julio</option><option value="7">Agosto</option>
+          <option value="8">Septiembre</option><option value="9">Octubre</option>
+          <option value="10">Noviembre</option><option value="11">Diciembre</option>
+        </select>
+        <select class="form-control estudios-sel flujos-sel-anio" id="etiqAnio">
+          <option>2024</option><option>2025</option><option selected>2026</option>
+        </select>
+        <span class="etiq-dia-semana" id="etiqDiaSemana"></span>
+        <button class="btn btn-etiq-crear" id="btnCrearEtiquetas">
+          <i class="fas fa-plus"></i> Crear etiquetas
+        </button>
       </div>
-
-      <div class="ibox-content estudios-content">
-
-        <!-- Filtros -->
-        <div class="etiq-filtros-fila">
-          <select class="form-control estudios-sel etiq-sel-tipo" id="etiqTipo">
-            <option value="borradores">Borradores</option>
-            <option value="creadas">Creadas</option>
-            <option value="impresas">Impresas</option>
-            <option value="todas">[ Todas ]</option>
-          </select>
-          <select class="form-control estudios-sel flujos-sel-dia" id="etiqDia">
-            <!-- generado por JS -->
-          </select>
-          <select class="form-control estudios-sel flujos-sel-mes" id="etiqMes">
-            <option value="">[ Mes: todos ]</option>
-            <option value="0">Enero</option><option value="1">Febrero</option>
-            <option value="2">Marzo</option><option value="3">Abril</option>
-            <option value="4">Mayo</option><option value="5">Junio</option>
-            <option value="6">Julio</option><option value="7">Agosto</option>
-            <option value="8">Septiembre</option><option value="9">Octubre</option>
-            <option value="10">Noviembre</option><option value="11">Diciembre</option>
-          </select>
-          <select class="form-control estudios-sel flujos-sel-anio" id="etiqAnio">
-            <option>2024</option><option>2025</option><option selected>2026</option>
-          </select>
-          <span class="etiq-dia-semana" id="etiqDiaSemana"></span>
-          <button class="btn btn-etiq-crear" id="btnCrearEtiquetas">
-            <i class="fas fa-plus-circle"></i> Crear etiquetas
-          </button>
+      <div class="flujos-contenido" id="etiqContenido">
+        <div class="flujos-info-vacio">
+          <i class="fas fa-info-circle"></i>
+          No hay etiquetas cargadas en esa fecha o período.
         </div>
-
-        <!-- Contenido -->
-        <div class="flujos-contenido" id="etiqContenido">
-          <div class="flujos-info-vacio">
-            <i class="fas fa-info-circle"></i>
-            No hay etiquetas cargadas en esa fecha o perÃ­odo.
-          </div>
-        </div>
-
       </div>
     </div>
+
+  </div>
   </div>
 
   <div id="footer"></div>

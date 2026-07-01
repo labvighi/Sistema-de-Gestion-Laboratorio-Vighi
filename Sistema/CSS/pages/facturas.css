@@ -1,0 +1,163 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+.fct-page { padding: 20px 28px 72px; display: flex; flex-direction: column; gap: 14px; }
+
+/* ── Breadcrumb ──────────────────────────────────────────── */
+.fct-breadcrumb { display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 12px; }
+.fct-bread-link { color: var(--accent); text-decoration: none; }
+.fct-bread-link:hover { text-decoration: underline; }
+.fct-bread-sep { color: var(--border); font-size: 9px; }
+.fct-bread-current { color: var(--slate); }
+
+/* ── Header ─────────────────────────────────────────────── */
+.fct-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  color: var(--accent); letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.fct-title {
+  font-size: 24px; font-weight: 800;
+  color: var(--blue); letter-spacing: -0.02em;
+  margin: 0; display: flex; align-items: center; gap: 10px;
+}
+.fct-title i { color: var(--accent); font-size: 20px; }
+
+/* ── Card ───────────────────────────────────────────────── */
+.fct-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Filtros ────────────────────────────────────────────── */
+.fct-filtros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.fct-select {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--blue);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.fct-select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,62,237,0.10); }
+.fct-select-sm  { width: 72px; }
+.fct-select-md  { width: 180px; }
+.fct-select-lg  { width: 180px; }
+
+/* ── Tabla ──────────────────────────────────────────────── */
+.fct-tabla-wrap { overflow-x: auto; flex: 1; }
+
+.fct-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+.fct-tabla thead th {
+  padding: 9px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  background: var(--surf);
+  text-align: left;
+}
+.fct-tabla thead th.fct-num { text-align: right; }
+.fct-th-hint { font-size: 9px; color: var(--slate); margin-left: 2px; cursor: help; }
+
+.fct-tabla tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+.fct-tabla tbody tr:last-child { border-bottom: none; }
+.fct-tabla tbody tr:hover { background: var(--surf); }
+
+.fct-tabla tbody td {
+  padding: 7px 14px;
+  font-size: 12px;
+  color: #333;
+  white-space: nowrap;
+}
+.fct-tabla tbody td.fct-num {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+}
+
+/* Nro. Factura link */
+.fct-nro {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.fct-nro:hover { text-decoration: underline; }
+
+/* Fechas */
+.fct-fecha { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--slate); }
+.fct-fec-wrap { display: flex; align-items: center; gap: 4px; }
+.fct-fec-hint { font-size: 9px; color: #c4bfd8; cursor: help; }
+
+/* Cobertura */
+.fct-cob { font-size: 12px; font-weight: 600; color: var(--blue); }
+
+/* ── Badges de estado ────────────────────────────────────── */
+.fct-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.fct-badge-borrador {
+  background: #f5f4f8;
+  color: var(--slate);
+  border: 1px solid var(--border);
+}
+.fct-badge-emitida  { background: var(--accent); color: #fff; }
+.fct-badge-cobrada  { background: #22c55e;        color: #fff; }
+
+/* ── Totales ────────────────────────────────────────────── */
+.fct-totales {
+  display: flex;
+  justify-content: flex-end;
+  gap: 32px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surf);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+}
+.fct-tot-item { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.fct-tot-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: var(--slate); text-transform: uppercase; letter-spacing: 0.06em; }
+.fct-tot-val   { font-size: 12px; font-weight: 700; color: var(--blue); }

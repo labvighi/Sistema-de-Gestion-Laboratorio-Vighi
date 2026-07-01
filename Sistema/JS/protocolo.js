@@ -1,7 +1,12 @@
 // protocolo.js
 
 const PROT_DATA = {
-  numero: 'P1055268',
+  numero:      'P1055268',
+  paciente:    'GIANNINI, Marta',
+  medico:      'AGUIAR, Ana M.',
+  procedencia: 'TRINIPALERMO',
+  fecha:       '10/01/2026',
+  tipo:        '',
   estudios: [
     {
       titulo: '#P1055268-BPC (U) c/IHQ',
@@ -338,4 +343,17 @@ window.addEventListener('DOMContentLoaded', function() {
   initUploadPanel();
   initProcesamiento();
   initCopiarNumero();
+
+  // BDD: reemplazar con datos del protocolo real cuando se integre la BD
+  if (typeof historialAgregar === 'function') {
+    historialAgregar('protocolos', {
+      numero:      PROT_DATA.numero,
+      fecha:       PROT_DATA.fecha,
+      paciente:    PROT_DATA.paciente,
+      medico:      PROT_DATA.medico,
+      procedencia: PROT_DATA.procedencia,
+      tipo:        PROT_DATA.tipo || '',
+      eliminado:   false
+    });
+  }
 });

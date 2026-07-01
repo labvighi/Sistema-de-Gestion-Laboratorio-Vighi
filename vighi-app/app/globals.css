@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+/* ── Design tokens (Tailwind v4 theme) ─────────────────────── */
+@theme {
+  --color-vighi:   #291050;
+  --color-accent:  #7c3eed;
+  --color-slate:   #6b6b8a;
+  --color-surf:    #f7f4ff;
+  --color-panel:   #e5e3ed;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --radius-card: 0.75rem;
+}
+
+/* ── CSS variables (para compatibilidad con componentes en transición) ── */
+:root {
+  --blue:    #291050;
+  --accent:  #7c3eed;
+  --slate:   #6b6b8a;
+  --surf:    #f7f4ff;
+  --border:  #e5e3ed;
+  --radius:  0.75rem;
+  --nb-h:    56px;
+  --sb-w:    210px;
+}
+
+/*
+ * Reglas propias en @layer base/components: Tailwind v4 usa CSS Cascade Layers.
+ * Cualquier regla FUERA de un @layer tiene prioridad absoluta sobre las utilidades
+ * de Tailwind (que viven en @layer utilities), sin importar especificidad — esto
+ * pisaba clases como ml-auto, gap-*, px-* en toda la app. Todo debe ir en @layer.
+ */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; padding: 0; margin: 0; }
+
+  html { height: 100%; }
+
+  body {
+    min-height: 100%;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: #222;
+    background: var(--surf);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  button { cursor: pointer; }
+
+  code, pre, .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  /* ── App shell ───────────────────────────────────────────── */
+  .app-main {
+    margin-top: var(--nb-h);
+    padding: 24px;
+    min-height: calc(100vh - var(--nb-h));
+    transition: margin-left 0.2s ease;
+  }
+
+  .app-main.sb-open {
+    margin-left: var(--sb-w);
+  }
+
+  /* ── Shared button styles ───────────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { background: var(--blue); }
+}

@@ -58,18 +58,23 @@ window.addEventListener('DOMContentLoaded', () => {
   const ida   = getIda();
   const flujo = ida ? FLUJOS_DATA[ida] : null;
 
-  // Nombre estación y paso
-  document.getElementById('flEstacion').textContent = flujo ? flujo.estacion : 'Estación';
-  document.getElementById('flPaso').textContent     = flujo
-    ? `${flujo.seccion} / ${flujo.paso}`
-    : '—';
-  document.title = flujo ? `${flujo.paso} - Susana Vighi` : 'Estación - Susana Vighi';
+  // Breadcrumb
+  const elBreadEst = document.getElementById('flBreadEstacion');
+  const elBreadSec = document.getElementById('flBreadSeccion');
+  if (elBreadEst) elBreadEst.textContent = flujo ? flujo.estacion : 'Estación';
+  if (elBreadSec) elBreadSec.textContent = flujo ? flujo.seccion  : '—';
 
-  // Próxima etapa
-  const elProxima = document.getElementById('flProxima');
+  // Título principal = paso específico; subtítulo = sección
+  document.getElementById('flEstacion').textContent = flujo ? flujo.paso     : '—';
+  document.getElementById('flPaso').textContent     = flujo ? `${flujo.estacion} · ${flujo.seccion}` : '—';
+  document.title = flujo ? `${flujo.paso} — Susana Vighi` : 'Estación — Susana Vighi';
+
+  // Próxima etapa — pill
   if (flujo && flujo.proxLabel) {
-    elProxima.innerHTML = flujo.proxIda
-      ? `Próxima: <a href="flujos.html?ida=${flujo.proxIda}" class="flujos-proxima-link">${flujo.proxLabel}</a>`
-      : `Próxima: <span class="flujos-proxima-link">${flujo.proxLabel}</span>`;
+    const inner = flujo.proxIda
+      ? `<a href="flujos.html?ida=${flujo.proxIda}" class="fl-proxima-link">${flujo.proxLabel} <i class="fas fa-arrow-right"></i></a>`
+      : `<span style="color:var(--blue);font-weight:600;">${flujo.proxLabel}</span>`;
+    document.getElementById('flProxima').innerHTML =
+      `<div class="fl-proxima-pill"><span>Próxima etapa:</span> ${inner}</div>`;
   }
 });

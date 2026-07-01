@@ -1,5 +1,5 @@
 // conges.js
-// Congelaciones â€” BDD pendiente de conexiÃ³n
+// Congelaciones â?? BDD pendiente de conexiÃ³n
 
 let todasLasConges = [];
 
@@ -33,17 +33,17 @@ function renderTabla(lista) {
         <tr>
           <td class="conges-td-actividad">${idx === 0 ? `<span class="conges-actividad-label">${actividad}</span>` : ''}</td>
           <td class="estudios-td-flujo">
-            <a href="#">${c.protocolo || 'â€”'}</a>
+            <a href="#">${c.protocolo || 'â??'}</a>
             <div class="estudios-subtexto">${c.tipo || ''}</div>
           </td>
-          <td class="estudios-subtexto">${c.procedencia || 'â€”'}</td>
+          <td class="estudios-subtexto">${c.procedencia || 'â??'}</td>
           <td>
-            <div class="estudios-nombre">${c.cobertura || 'â€”'}</div>
+            <div class="estudios-nombre">${c.cobertura || 'â??'}</div>
             <div class="estudios-subtexto">${c.coberturaSub || ''}</div>
           </td>
-          <td class="conges-td-mat">${c.pc || 'â€”'}</td>
-          <td class="conges-td-mat">${c.mf || 'â€”'}</td>
-          <td class="estudios-nombre">${c.medico || 'â€”'}</td>
+          <td class="conges-td-mat">${c.pc || 'â??'}</td>
+          <td class="conges-td-mat">${c.mf || 'â??'}</td>
+          <td class="estudios-nombre">${c.medico || 'â??'}</td>
           <td class="text-center">
             <button class="btn btn-xs ${esUrgente ? 'btn-conges-urgente' : 'btn-estudios-ot'}">
               <i class="far fa-clock"></i> ${esUrgente ? 'DE 9h' : 'OT'}
@@ -56,7 +56,7 @@ function renderTabla(lista) {
   tbody.innerHTML = html;
 }
 
-// â”€â”€ AGENDA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â??â?? AGENDA â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??
 
 const DIAS   = ['Lunes','Martes','MiÃ©rcoles','Jueves','Viernes','SÃ¡bado','Domingo'];
 const MESES  = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
@@ -189,9 +189,9 @@ function renderTarjeta(c) {
     </div>`;
 }
 
-// â”€â”€ DASHBOARD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â??â?? DASHBOARD â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??
 
-// Datos de ejemplo â€” conectar a BDD
+// Datos de ejemplo â?? conectar a BDD
 const dashboardData = [
   { patologo: 'CARBALLO',       meses: [2,  5,  8,  14, 2,  0,0,0,0,0,0,0] },
   { patologo: 'COSTOYA',        meses: [9,  20, 25, 21, 10, 0,0,0,0,0,0,0] },
@@ -248,20 +248,20 @@ function initDashboardFiltros() {
   });
 }
 
-// â”€â”€ AGENDA PATÃ“LOGO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â??â?? AGENDA PATÃ?LOGO â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??â??
 
 const DIAS_AP  = ['Domingo','Lunes','Martes','MiÃ©rcoles','Jueves','Viernes','SÃ¡bado'];
 const MESES_AP = ['ene.','feb.','mar.','abr.','may.','jun.','jul.','ago.','sep.','oct.','nov.','dic.'];
 
-// Datos de ejemplo â€” conectar a BDD
+// Datos de ejemplo â?? conectar a BDD
 const agendaPatologoData = [
-  { id:1, patologo:'COSTOYA, M',  estado:'Agendada',   fecha:'2026-05-15', hora:'15:30', ubicacion:'Instituto QuirÃºrgico del Callao', medico:'Dra. SantamarÃ­a, Antonella', paciente:'FRENCH, SOLANGE',    cobertura:'UNIÃ“N PERSONAL', tipo:'QR',  procedimiento:'BRQ + GC' },
+  { id:1, patologo:'COSTOYA, M',  estado:'Agendada',   fecha:'2026-05-15', hora:'15:30', ubicacion:'Instituto QuirÃºrgico del Callao', medico:'Dra. SantamarÃ­a, Antonella', paciente:'FRENCH, SOLANGE',    cobertura:'UNIÃ?N PERSONAL', tipo:'QR',  procedimiento:'BRQ + GC' },
   { id:2, patologo:'COSTOYA, M',  estado:'Agendada',   fecha:'2026-05-19', hora:'07:30', ubicacion:'Sanatorio Suizo Argentina',       medico:'Dr. Loza, Carlos MartÃ­n',    paciente:'MARCENARO, SUSANA',  cobertura:'SMG',            tipo:'GI',  procedimiento:'CongelaciÃ³n de mama' },
   { id:3, patologo:'COSTOYA, M',  estado:'Agendada',   fecha:'2026-05-26', hora:'15:00', ubicacion:'IADT',                            medico:'Dra. Barchuk, Sabrina',      paciente:'GINOCCHIO, MARISA',  cobertura:'OSDE',           tipo:'QR',  procedimiento:'MAMA, CUADRANTECTOMÃA CON BIOPSIA GANGLIONAR UNILA' },
   { id:4, patologo:'COSTOYA, M',  estado:'Confirmada', fecha:'2026-05-16', hora:'09:00', ubicacion:'IADT',                            medico:'Dr. PÃ©rez, Juan',            paciente:'RODRÃGUEZ, ANA',     cobertura:'OSDE',           tipo:'GI',  procedimiento:'Biopsia de tiroides' },
   { id:5, patologo:'COSTOYA, M',  estado:'Confirmada', fecha:'2026-05-20', hora:'11:00', ubicacion:'Centro Medicus',                  medico:'Dra. GarcÃ­a, MarÃ­a',         paciente:'LOPEZ, ROBERTO',     cobertura:'SWISS MEDICAL',  tipo:'PUN', procedimiento:'Biopsia ganglionar' },
   { id:6, patologo:'DOMENIANNI',  estado:'Agendada',   fecha:'2026-05-22', hora:'08:00', ubicacion:'IADT',                            medico:'Dr. NÃºÃ±ez, Pablo',           paciente:'MARTÃNEZ, LAURA',    cobertura:'OSDE',           tipo:'GI',  procedimiento:'CongelaciÃ³n hepÃ¡tica' },
-  { id:7, patologo:'DOMENIANNI',  estado:'Confirmada', fecha:'2026-05-23', hora:'10:30', ubicacion:'Sanatorio Suizo Argentina',       medico:'Dra. Torres, Claudia',       paciente:'GÃ“MEZ, PEDRO',       cobertura:'PAMI',           tipo:'QR',  procedimiento:'NÃ³dulo tiroideo' },
+  { id:7, patologo:'DOMENIANNI',  estado:'Confirmada', fecha:'2026-05-23', hora:'10:30', ubicacion:'Sanatorio Suizo Argentina',       medico:'Dra. Torres, Claudia',       paciente:'GÃ?MEZ, PEDRO',       cobertura:'PAMI',           tipo:'QR',  procedimiento:'NÃ³dulo tiroideo' },
 ];
 
 let apPatologoActivo    = '';

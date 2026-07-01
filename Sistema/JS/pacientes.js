@@ -34,7 +34,8 @@ function mostrarResultados(pacientes) {
       <td>${p.fechaNacimiento || '—'}</td>
       <td>${p.obraSocial || '—'}</td>
       <td class="text-center">
-        <button class="btn btn-xs usuarios-btn-accion" title="Ver">
+        <button class="btn btn-xs usuarios-btn-accion" title="Ver"
+          onclick="registrarPacienteHistorial('${(p.apellido||'').replace(/'/g,"\\'")}','${(p.nombre||'').replace(/'/g,"\\'")}')">
           <i class="fa fa-eye"></i>
         </button>
       </td>
@@ -59,6 +60,12 @@ function mostrarResultados(pacientes) {
     </div>
     <div class="usuarios-contador">${pacientes.length} resultado${pacientes.length !== 1 ? 's' : ''}</div>
   `;
+}
+
+function registrarPacienteHistorial(apellido, nombre) {
+  if (typeof historialAgregar === 'function') {
+    historialAgregar('pacientes', { nombre: apellido + ', ' + nombre });
+  }
 }
 
 // Búsqueda por apellido/nombre (placeholder — conectar a BDD real)

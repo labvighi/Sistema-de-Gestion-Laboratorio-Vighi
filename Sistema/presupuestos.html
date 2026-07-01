@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuestos — Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/presupuestos.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+  <div class="pre-page">
+
+    <!-- Breadcrumb -->
+    <div class="pre-breadcrumb">
+      <a href="admin.html" class="pre-bread-link">Administración</a>
+      <span class="pre-bread-sep"><i class="fas fa-chevron-right"></i></span>
+      <span class="pre-bread-current">Presupuestos</span>
+    </div>
+
+    <!-- Header -->
+    <div class="pre-header">
+      <div class="pre-eyebrow">Administración</div>
+      <h1 class="pre-title"><i class="fas fa-file-invoice-dollar"></i> Presupuestos</h1>
+    </div>
+
+    <!-- Card principal -->
+    <div class="pre-card">
+
+      <!-- Filtros -->
+      <div class="pre-filtros">
+        <select class="pre-select pre-select-lg" id="preCobertura">
+          <option value="">[ Cobertura: todos ]</option>
+          <!-- BDD: poblar dinámicamente -->
+        </select>
+        <select class="pre-select pre-select-md" id="preEstado">
+          <option value="">[ Estado: todos ]</option>
+          <option value="borrador">Borrador</option>
+          <option value="enviado">Enviado</option>
+          <option value="aprobado">Aprobado</option>
+          <option value="rechazado">Rechazado</option>
+        </select>
+        <select class="pre-select pre-select-md" id="preItems">
+          <option value="con">[ Con items ]</option>
+          <option value="sin">[ Sin items ]</option>
+          <option value="todos">[ Con o sin items ]</option>
+        </select>
+        <a href="https://outlook.office.com/mail/" target="_blank" class="pre-btn-webmail" id="preWebmail">
+          <i class="fas fa-envelope"></i> Webmail presupuestos
+        </a>
+      </div>
+
+      <!-- Tabla -->
+      <div class="pre-tabla-wrap">
+        <table class="pre-tabla">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Paciente</th>
+              <th>Cobertura</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="preTbody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/presupuestos.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Claude Code
+.claude/
+
+# Node / Next.js (vighi-app)
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+
+# Entorno
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db

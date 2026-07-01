@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facturar �?? Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/facturar.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+  <div class="fac-page">
+
+    <!-- Breadcrumb -->
+    <div class="fac-breadcrumb">
+      <a href="admin.html" class="fac-bread-link">Administración</a>
+      <span class="fac-bread-sep"><i class="fas fa-chevron-right"></i></span>
+      <span class="fac-bread-current">Facturar</span>
+    </div>
+
+    <!-- Header -->
+    <div class="fac-header">
+      <div class="fac-eyebrow">Administración</div>
+      <h1 class="fac-title"><i class="fas fa-file-invoice-dollar"></i> Facturar</h1>
+    </div>
+
+    <!-- Panel de filtros -->
+    <div class="fac-card">
+      <div class="fac-filtros">
+
+        <!-- Fila 1 -->
+        <div class="fac-fila">
+          <div class="fac-campo">
+            <label class="fac-label">Desde</label>
+            <input type="date" class="fac-input" id="facDesde">
+          </div>
+          <div class="fac-campo">
+            <label class="fac-label">Hasta</label>
+            <input type="date" class="fac-input" id="facHasta">
+          </div>
+          <div class="fac-campo fac-campo-lg">
+            <label class="fac-label">Cobertura</label>
+            <select class="fac-select" id="facCobertura">
+              <option value="">[ Todas ]</option>
+              <!-- BDD: poblar dinámicamente con obras sociales -->
+            </select>
+          </div>
+          <div class="fac-campo fac-campo-lg">
+            <label class="fac-label">Plan</label>
+            <select class="fac-select" id="facPlan" disabled>
+              <option value="">[ n/d ]</option>
+              <!-- Se habilita y puebla al seleccionar Cobertura -->
+            </select>
+          </div>
+          <div class="fac-campo fac-campo-lg">
+            <label class="fac-label">Procedencia</label>
+            <select class="fac-select" id="facProcedencia">
+              <option value="">[ Todas ]</option>
+              <!-- BDD: poblar dinámicamente con ubicaciones -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Fila 2 -->
+        <div class="fac-fila">
+          <div class="fac-campo">
+            <label class="fac-label">IVA</label>
+            <select class="fac-select" id="facIva">
+              <option value="">[ Todos ]</option>
+              <option value="exento">Exento</option>
+              <option value="gravado">Gravado</option>
+            </select>
+          </div>
+          <div class="fac-campo">
+            <label class="fac-label">Flujo</label>
+            <select class="fac-select" id="facFlujo">
+              <option value="">[ Todos ]</option>
+              <option value="BP">BP</option>
+              <option value="CT">CT</option>
+              <option value="LIQ">LIQ</option>
+              <option value="PAP">PAP</option>
+              <option value="IMHQ">IMHQ</option>
+            </select>
+          </div>
+          <div class="fac-campo fac-campo-lg">
+            <label class="fac-label">Estudios</label>
+            <select class="fac-select" id="facEstudio">
+              <option value="">[ Todos ]</option>
+              <option value="derm">Dermatológico</option>
+              <option value="gine">Ginecológico</option>
+              <option value="quir">Quirúrgico</option>
+            </select>
+          </div>
+          <div class="fac-campo fac-campo-lg">
+            <label class="fac-label">Tipo</label>
+            <select class="fac-select" id="facTipo">
+              <option value="">[ Todos ]</option>
+              <option value="biop">Biopsias</option>
+              <option value="cito">Citologías</option>
+              <option value="ihq">Inmunohistoquímicas</option>
+            </select>
+          </div>
+          <div class="fac-campo">
+            <label class="fac-label">Informados</label>
+            <select class="fac-select" id="facInformado">
+              <option value="">[ Todos ]</option>
+              <option value="si">Informados</option>
+              <option value="no">No informados</option>
+            </select>
+          </div>
+          <div class="fac-campo">
+            <label class="fac-label">Diagnóstico</label>
+            <select class="fac-select" id="facDiagnostico">
+              <option value="">[ Todos ]</option>
+              <option value="MA">MA</option>
+              <option value="NE">NE</option>
+              <option value="NG">NG</option>
+              <option value="NMA">NMA</option>
+              <option value="SP">SP</option>
+            </select>
+          </div>
+          <div class="fac-campo fac-campo-lg">
+            <label class="fac-label">Prioridad técnicos</label>
+            <select class="fac-select" id="facPrioridad">
+              <option value="">[ Todos ]</option>
+              <option value="cong">Congelaciones</option>
+              <option value="ihq">IHQ</option>
+              <option value="nc">Nuevos Cortes</option>
+              <option value="te">Técnicas Especiales</option>
+            </select>
+          </div>
+          <div class="fac-campo fac-campo-btn">
+            <label class="fac-label">&nbsp;</label>
+            <button class="fac-btn-buscar" id="facBuscar">
+              <i class="fas fa-search"></i> Buscar
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Resultados (vacío inicial) -->
+    <div class="fac-card fac-resultados" id="facResultados" style="display:none">
+      <div class="fac-resultados-vacio">
+        <i class="fas fa-file-invoice fac-vacio-icono"></i>
+        <p>No se encontraron protocolos para facturar con los filtros seleccionados.</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/facturar.js"></script>
+</body>
+</html>

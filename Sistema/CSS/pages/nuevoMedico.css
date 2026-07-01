@@ -1,0 +1,114 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+.nm-page { padding: 28px 28px 72px; display: flex; flex-direction: column; gap: 16px; }
+
+.nm-header { display: flex; align-items: center; gap: 12px; }
+.nm-back {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 8px;
+  border: 1px solid var(--border); background: #fff;
+  color: var(--slate); font-size: 14px; cursor: pointer;
+  text-decoration: none; transition: all 0.12s; flex-shrink: 0;
+}
+.nm-back:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.nm-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500; color: var(--accent);
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.nm-title-h {
+  font-size: 22px; font-weight: 800; color: var(--blue);
+  letter-spacing: -0.02em; margin: 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.nm-title-h i { color: var(--accent); font-size: 18px; }
+
+.nm-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+}
+.nm-form-body { padding: 24px; }
+
+.form-control {
+  height: 34px !important; padding: 0 10px !important;
+  font-size: 12px !important; border-radius: 7px !important;
+  border: 1px solid var(--border) !important;
+  color: var(--blue) !important; font-family: 'Inter', sans-serif !important;
+  box-shadow: none !important;
+}
+.form-control:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(124,62,237,0.10) !important;
+}
+.form-error { font-size: 11px; color: #dc2626; margin-top: 3px; display: block; }
+.form-error.hidden { display: none; }
+#status { margin-bottom: 12px; }
+
+/* Fila principal de campos */
+.nm-fila { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 4px; flex-wrap: wrap; }
+.nm-campo { display: flex; flex-direction: column; gap: 4px; }
+.nm-campo label {
+  font-size: 10px; font-weight: 700; color: var(--slate);
+  text-transform: uppercase; letter-spacing: 0.07em; margin: 0;
+}
+.nm-campo-titulo  { width: 72px; }
+.nm-campo-nombre  { flex: 1.5; min-width: 120px; }
+.nm-campo-apellido{ flex: 1.5; min-width: 120px; }
+.nm-campo-mat     { flex: 1; min-width: 110px; }
+
+.nm-separador { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+/* Secciones listas */
+.nm-seccion { display: flex; flex-direction: column; gap: 10px; }
+.nm-seccion-header { display: flex; align-items: center; justify-content: space-between; }
+.nm-seccion-titulo {
+  font-size: 11px; font-weight: 700; color: var(--blue);
+  display: flex; align-items: center; gap: 6px;
+}
+.nm-seccion-titulo i { color: var(--accent); }
+.nm-item-fila { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.nm-input-mail, .nm-input-ubicacion { flex: 1; }
+
+.btn-nm-agregar {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 28px; padding: 0 12px; border-radius: 6px;
+  font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif;
+  cursor: pointer; border: 1px solid var(--border); background: #fff;
+  color: var(--accent); transition: all 0.12s;
+}
+.btn-nm-agregar:hover { border-color: var(--accent); background: rgba(124,62,237,0.05); }
+.btn-nm-eliminar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0;
+  font-size: 11px; cursor: pointer;
+  border: 1px solid var(--border); background: #fff;
+  color: var(--slate); transition: all 0.12s; padding: 0;
+}
+.btn-nm-eliminar:hover { border-color: #dc2626; color: #dc2626; background: #fee2e2; }
+
+.form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+.btn-cancelar-medico {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 14px; border-radius: 7px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; border: 1px solid var(--border); background: #fff;
+  color: var(--slate); text-decoration: none; transition: all 0.12s;
+}
+.btn-cancelar-medico:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.btn-crear-medico {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 18px; border-radius: 7px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; border: none; background: var(--accent); color: #fff;
+  transition: background 0.15s;
+}
+.btn-crear-medico:hover { background: var(--blue); color: #fff; }

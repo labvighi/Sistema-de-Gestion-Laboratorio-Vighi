@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareas — Susana Vighi</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/tareas.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</head>
+
+<script>
+  $(document).ready(function () {
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
+  });
+</script>
+
+<body>
+  <div id="navbar"></div>
+  <div id="side-navbar"></div>
+
+  <div class="wrapper">
+  <div class="tar-page">
+
+    <!-- Header -->
+    <div class="tar-header">
+      <div>
+        <div class="tar-eyebrow">Gestión</div>
+        <h1 class="tar-title"><i class="fas fa-list-check"></i> Tareas</h1>
+        <p class="tar-subtitle">Tareas asignadas a tu usuario.</p>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="tar-card">
+
+      <!-- Filtros -->
+      <div class="tar-filtros">
+        <select class="form-control estudios-sel estudios-sel-md" id="filtroEstado">
+          <option value="abiertas">Abiertas</option>
+          <option value="en_curso">En curso</option>
+          <option value="completadas">Completadas</option>
+          <option value="todas">[ Todas ]</option>
+        </select>
+        <select class="form-control estudios-sel estudios-sel-lg" id="filtroResponsable">
+          <option value="">[ Responsable: todos ]</option>
+        </select>
+        <select class="form-control estudios-sel estudios-sel-lg" id="filtroActividad">
+          <option value="">[ Actividad: todas ]</option>
+        </select>
+        <span class="tar-contador" id="tarContador"></span>
+      </div>
+
+      <!-- Tabla -->
+      <div class="tar-tabla-wrap">
+        <table class="tar-tabla" id="tarTabla">
+          <thead>
+            <tr>
+              <th>Solicitud</th>
+              <th>Protocolo</th>
+              <th>Status</th>
+              <th>Actividad</th>
+              <th>Autor</th>
+              <th>Responsable</th>
+              <th></th>
+              <th>Estado tarea</th>
+              <th>Actualizada</th>
+            </tr>
+          </thead>
+          <tbody id="tarTbody">
+            <tr>
+              <td colspan="9" class="tar-vacio">
+                <i class="fas fa-list-check tar-vacio-icono"></i>
+                <p>No hay tareas para mostrar.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+
+  <div id="footer"></div>
+  <script src="JS/tareas.js"></script>
+</body>
+</html>

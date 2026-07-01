@@ -1,0 +1,207 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+.sp-page { padding: 28px 28px 72px; display: flex; flex-direction: column; gap: 16px; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.sp-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sp-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sp-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sp-title i { color: var(--accent); font-size: 22px; }
+.btn-soporte-nuevo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-soporte-nuevo:hover { background: var(--blue); color: #fff; text-decoration: none; }
+
+/* ── Card base ───────────────────────────────────────────── */
+.sp-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+}
+.sp-card-header {
+  padding: 11px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sp-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.sp-card-sub {
+  font-size: 10px;
+  color: var(--slate);
+}
+
+/* ── Dashboard ───────────────────────────────────────────── */
+.soporte-dashboard { display: flex; flex-direction: column; gap: 0; }
+
+.soporte-dash-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  margin: 0 !important;
+}
+.soporte-dash-tabla thead tr { background: var(--surf); }
+.soporte-dash-tabla thead th {
+  padding: 8px 14px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--slate);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+.soporte-dash-tabla-2 thead tr { background: #fff; }
+.soporte-dash-tabla tbody tr { border-bottom: 1px solid var(--border); }
+.soporte-dash-tabla td {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+  color: rgba(107,107,138,0.3);
+}
+.soporte-dash-tipo {
+  text-align: left !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--blue) !important;
+  width: 100px;
+}
+.soporte-dash-ontime  { color: rgba(21,128,61,0.25); }
+.soporte-dash-delayed { color: rgba(161,98,7,0.25); }
+.soporte-dash-late    { color: rgba(220,38,38,0.25); }
+.soporte-dash-late5   { color: rgba(220,38,38,0.25); }
+.soporte-dash-late510 { color: rgba(220,38,38,0.25); }
+.soporte-dash-late10  { color: rgba(220,38,38,0.25); }
+.soporte-dash-total   { color: rgba(41,16,80,0.25); font-weight: 700; border-left: 1px solid var(--border) !important; }
+
+.soporte-dash-con-valor.soporte-dash-ontime  { color: #15803d; font-weight: 700; }
+.soporte-dash-con-valor.soporte-dash-delayed { color: #a16207; font-weight: 700; }
+.soporte-dash-con-valor.soporte-dash-late,
+.soporte-dash-con-valor.soporte-dash-late5,
+.soporte-dash-con-valor.soporte-dash-late510,
+.soporte-dash-con-valor.soporte-dash-late10  { color: #dc2626; font-weight: 700; }
+.soporte-dash-con-valor.soporte-dash-total   { color: var(--blue); }
+
+/* ── Filtros ─────────────────────────────────────────────── */
+.soporte-filtros-fila {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.estudios-sel {
+  height: 30px !important;
+  padding: 0 8px !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--border) !important;
+  background: #fff !important;
+  color: var(--blue) !important;
+  font-family: 'Inter', sans-serif !important;
+  outline: none !important;
+}
+.estudios-sel:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px rgba(124,62,237,0.10) !important; }
+.estudios-sel-sm { width: 110px; }
+.estudios-sel-md { width: 140px; }
+.estudios-sel-lg { width: 180px; }
+
+/* ── Tabla tickets ───────────────────────────────────────── */
+.soporte-tabla { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; margin: 0 !important; }
+.soporte-tabla thead tr { background: var(--surf); border-bottom: 2px solid var(--border); }
+.soporte-tabla thead th {
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  white-space: nowrap;
+}
+.soporte-tabla tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.soporte-tabla tbody tr:hover { background: var(--surf); }
+.soporte-tabla tbody tr:last-child { border-bottom: none; }
+.soporte-tabla td { padding: 10px 16px; font-size: 12px; color: #333; vertical-align: middle; }
+
+.soporte-th-num   { width: 80px; }
+.soporte-th-fecha { width: 100px; }
+.soporte-th-tipo  { width: 100px; }
+.soporte-th-estado { width: 100px; }
+.soporte-th-sched { width: 110px; }
+
+/* Badges de atraso */
+.soporte-badge-atraso {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: default;
+}
+.btn-ihq-lt        { background: #fee2e2; color: #dc2626; }
+.soporte-badge-delayed { background: #fef3c7; color: #a16207; }
+.soporte-badge-ontime  { background: #dcfce7; color: #15803d; }
+
+.estudios-vacio { padding: 52px 24px; text-align: center; color: var(--slate); font-size: 13px; }
+.estudios-vacio-icono { display: block; font-size: 28px; color: rgba(124,62,237,0.2); margin-bottom: 12px; }

@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EstaciÃ³n - Susana Vighi</title>
+  <title>Estación ? Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/flujos.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,113 +29,129 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow estudios-page">
+  <div class="fl-page">
 
-      <!-- Header estaciÃ³n -->
-      <div class="ibox-title flujos-ibox-title">
-        <hr class="mb-1 mt-0">
-        <div class="flujos-header">
-          <div class="flujos-header-izq">
-            <div class="flujos-estacion-nombre" id="flEstacion">â€”</div>
-            <div class="flujos-paso-nombre" id="flPaso">â€”</div>
-            <div class="flujos-responsable">
-              <span class="flujos-resp-label">Responsable:</span>
-              <span class="flujos-resp-valor" id="flResponsable"></span>
-            </div>
-          </div>
-          <div class="flujos-proxima" id="flProxima"></div>
+    <!-- Header -->
+    <div class="fl-header">
+      <div class="fl-header-left">
+        <div class="fl-breadcrumb">
+          <span id="flBreadEstacion">Estación</span>
+          <span class="fl-breadcrumb-sep">/</span>
+          <span id="flBreadSeccion">?</span>
         </div>
-        <hr class="mb-0 mt-1">
+        <h1 class="fl-estacion" id="flEstacion">?</h1>
+        <div class="fl-paso" id="flPaso">?</div>
+        <div class="fl-responsable">
+          <i class="fas fa-user-circle"></i>
+          <span>Responsable:</span>
+          <span id="flResponsable">?</span>
+        </div>
       </div>
-
-      <div class="ibox-content estudios-content">
-
-        <!-- Filtros -->
-        <div class="flujos-filtros">
-
-          <!-- Fila 1 -->
-          <div class="estudios-filtros-fila">
-            <select class="form-control estudios-sel flujos-sel-dia"  id="flDia">
-              <option value="">[ dÃ­a ]</option>
-            </select>
-            <select class="form-control estudios-sel flujos-sel-mes"  id="flMes">
-              <option value="">[ mes ]</option>
-              <option>Enero</option><option>Febrero</option><option>Marzo</option>
-              <option>Abril</option><option selected>Mayo</option><option>Junio</option>
-              <option>Julio</option><option>Agosto</option><option>Septiembre</option>
-              <option>Octubre</option><option>Noviembre</option><option>Diciembre</option>
-            </select>
-            <select class="form-control estudios-sel flujos-sel-anio" id="flAnio">
-              <option>2024</option><option>2025</option><option selected>2026</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-md" id="flTipoDoc">
-              <option>BP</option><option>CT</option><option>PAP</option><option>IHQ</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-lg" id="flTipoEstudio">
-              <option>[ Tipo estudio ]</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-lg" id="flPresupuesto">
-              <option>[ Presupuesto: todos ]</option>
-            </select>
-          </div>
-
-          <!-- Fila 2 -->
-          <div class="estudios-filtros-fila">
-            <select class="form-control estudios-sel estudios-sel-xl" id="flCitotecnico">
-              <option>[ CitotÃ©cnico: todos ]</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-xl" id="flMedicoFirmante">
-              <option>[ MÃ©dico firmante: todos ]</option>
-            </select>
-          </div>
-
-          <!-- Fila 3 -->
-          <div class="estudios-filtros-fila">
-            <select class="form-control estudios-sel estudios-sel-md" id="flLote">
-              <option>[ Lote: todos ]</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-md" id="flProcedencia">
-              <option>[ Procedencia: todas ]</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-xl" id="flMedicosProcedencia">
-              <option>[ MÃ©dicos Procedencia: todas ]</option>
-            </select>
-            <select class="form-control estudios-sel estudios-sel-xl" id="flCobertura">
-              <option>[ Cobertura: todas ]</option>
-            </select>
-          </div>
-
-          <!-- Fila estado / acciones -->
-          <div class="flujos-estado-fila">
-            <div class="flujos-estado-btns">
-              <button class="btn btn-xs btn-fl-ontime"   id="btnFlOntime">  <i class="far fa-clock"></i> On time <span id="cntOntime">(0)</span></button>
-              <button class="btn btn-xs btn-fl-delayed"  id="btnFlDelayed"> <i class="far fa-clock"></i> Delayed <span id="cntDelayed">(0)</span></button>
-              <button class="btn btn-xs btn-fl-late"     id="btnFlLate">    <i class="far fa-clock"></i> Late <span id="cntLate">(0)</span></button>
-              <button class="btn btn-xs btn-fl-outline"  id="btnFlLate5">   Late 5d <span id="cntLate5">(0)</span></button>
-              <button class="btn btn-xs btn-fl-outline"  id="btnFlLate510"> Late 5-10d <span id="cntLate510">(0)</span></button>
-              <button class="btn btn-xs btn-fl-outline"  id="btnFlLate10">  Late +10d <span id="cntLate10">(0)</span></button>
-            </div>
-            <div class="flujos-acciones-btns">
-              <button class="btn btn-xs btn-fl-accion"><i class="fas fa-print"></i> Listado todos</button>
-              <button class="btn btn-xs btn-fl-accion"><i class="far fa-check-square"></i> Seleccionados</button>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Contenido -->
-        <div class="flujos-contenido" id="flContenido">
-          <div class="flujos-info-vacio">
-            <i class="fas fa-info-circle"></i>
-            No hay protocolos para los filtros seleccionados.
-          </div>
-        </div>
-
-      </div>
+      <div id="flProxima"></div>
     </div>
+
+    <!-- Card -->
+    <div class="fl-card">
+
+      <!-- Status bar -->
+      <div class="fl-status-bar">
+        <div class="fl-status-chips">
+          <button class="fl-chip" id="btnFlOntime">
+            <span class="fl-chip-dot"></span> On time
+            <span class="fl-chip-count" id="cntOntime">0</span>
+          </button>
+          <button class="fl-chip" id="btnFlDelayed">
+            <span class="fl-chip-dot"></span> Delayed
+            <span class="fl-chip-count" id="cntDelayed">0</span>
+          </button>
+          <button class="fl-chip" id="btnFlLate">
+            <span class="fl-chip-dot"></span> Late
+            <span class="fl-chip-count" id="cntLate">0</span>
+          </button>
+          <div class="fl-sep"></div>
+          <button class="fl-chip" id="btnFlLate5">
+            Late &lt;5d <span class="fl-chip-count" id="cntLate5">0</span>
+          </button>
+          <button class="fl-chip" id="btnFlLate510">
+            Late 5?10d <span class="fl-chip-count" id="cntLate510">0</span>
+          </button>
+          <button class="fl-chip" id="btnFlLate10">
+            Late +10d <span class="fl-chip-count" id="cntLate10">0</span>
+          </button>
+        </div>
+        <div class="fl-action-btns">
+          <button class="fl-act-btn"><i class="fas fa-print"></i> Todos</button>
+          <button class="fl-act-btn fl-act-btn-primary"><i class="far fa-check-square"></i> Seleccionados</button>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="fl-filters">
+        <div class="fl-filters-row">
+          <select class="fl-sel fl-sel-xs" id="flDia"><option value="">Día</option></select>
+          <select class="fl-sel fl-sel-md" id="flMes">
+            <option value="">Mes</option>
+            <option>Enero</option><option>Febrero</option><option>Marzo</option>
+            <option>Abril</option><option>Mayo</option><option>Junio</option>
+            <option>Julio</option><option>Agosto</option><option>Septiembre</option>
+            <option>Octubre</option><option>Noviembre</option><option>Diciembre</option>
+          </select>
+          <select class="fl-sel fl-sel-sm" id="flAnio">
+            <option>2024</option><option>2025</option><option selected>2026</option>
+          </select>
+          <div class="fl-sep"></div>
+          <select class="fl-sel fl-sel-sm" id="flTipoDoc">
+            <option>BP</option><option>CT</option><option>PAP</option><option>IHQ</option>
+          </select>
+          <select class="fl-sel fl-sel-lg" id="flTipoEstudio"><option>Tipo de estudio</option></select>
+          <select class="fl-sel fl-sel-lg" id="flPresupuesto"><option>Presupuesto: todos</option></select>
+          <div class="fl-sep"></div>
+          <button class="fl-more-toggle" id="btnMoreFl">Más filtros <i class="fas fa-chevron-down"></i></button>
+        </div>
+
+        <div class="fl-filters-extra" id="flFiltersExtra">
+          <select class="fl-sel fl-sel-2xl" id="flCitotecnico"><option>Citotécnico: todos</option></select>
+          <select class="fl-sel fl-sel-2xl" id="flMedicoFirmante"><option>Médico firmante: todos</option></select>
+          <select class="fl-sel fl-sel-md" id="flLote"><option>Lote: todos</option></select>
+          <select class="fl-sel fl-sel-md" id="flProcedencia"><option>Procedencia: todas</option></select>
+          <select class="fl-sel fl-sel-2xl" id="flMedicosProcedencia"><option>Médicos procedencia: todas</option></select>
+          <select class="fl-sel fl-sel-2xl" id="flCobertura"><option>Cobertura: todas</option></select>
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="fl-content" id="flContenido">
+        <div class="fl-empty">
+          <div class="fl-empty-icon"><i class="fas fa-layer-group"></i></div>
+          <div class="fl-empty-title">Sin protocolos</div>
+          <p class="fl-empty-sub">No hay protocolos para los filtros seleccionados.</p>
+        </div>
+      </div>
+
+    </div><!-- /card -->
+  </div>
   </div>
 
   <div id="footer"></div>
+
+  <script>
+  // Toggle más filtros
+  document.getElementById('btnMoreFl').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('flFiltersExtra').classList.toggle('open');
+  });
+
+  // Render próxima etapa
+  window._renderProxima = function(flujo) {
+    var el = document.getElementById('flProxima');
+    if (!el || !flujo || !flujo.proxLabel) return;
+    var inner = flujo.proxIda
+      ? '<a href="flujos.html?ida=' + flujo.proxIda + '" class="fl-proxima-link">' + flujo.proxLabel + ' <i class="fas fa-arrow-right"></i></a>'
+      : '<span style="color:var(--blue);font-weight:600;">' + flujo.proxLabel + '</span>';
+    el.innerHTML = '<div class="fl-proxima-pill"><span>Próxima etapa:</span> ' + inner + '</div>';
+  };
+  </script>
+
   <script src="JS/flujos.js"></script>
 </body>
 </html>

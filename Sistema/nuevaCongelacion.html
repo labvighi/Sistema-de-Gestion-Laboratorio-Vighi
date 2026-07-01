@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nueva Congelación - Susana Vighi</title>
+  <title>Nueva Congelación — Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="CSS/pages/nuevaCongelacion.css" type="text/css">
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,24 +29,23 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow nueva-conge-page">
+  <div class="nc-page">
 
-      <!-- Breadcrumb -->
-      <div class="nueva-conge-breadcrumb">
-        <a href="conges.html"><i class="fas fa-snowflake"></i> Congelaciones</a>
-        <span class="nc-sep">/</span>
-        <a href="conges.html">Agenda</a>
-        <span class="nc-sep">/</span>
-        <span>Asignar nueva congelación</span>
-      </div>
+    <!-- Breadcrumb -->
+    <div class="nueva-conge-breadcrumb">
+      <a href="conges.html"><i class="fas fa-snowflake"></i> Congelaciones</a>
+      <span class="nc-sep">/</span>
+      <a href="conges.html">Agenda</a>
+      <span class="nc-sep">/</span>
+      <span>Asignar nueva congelación</span>
+    </div>
 
-      <div class="ibox-title">
-        <hr class="mb-1 mt-0">
-        <h3 class="page-title"><i class="fas fa-plus-circle"></i> Asignar nueva congelación</h3>
-        <hr class="mb-0 mt-1">
-      </div>
+    <!-- Title -->
+    <h1 class="nc-title"><i class="fas fa-plus-circle"></i> Asignar nueva congelación</h1>
 
-      <div class="ibox-content nueva-conge-content">
+    <!-- Card -->
+    <div class="nc-card">
+      <div class="nueva-conge-content">
 
         <!-- Fecha -->
         <div class="nueva-conge-fecha">
@@ -89,9 +89,7 @@
           </div>
           <div class="nueva-conge-campo">
             <label class="nueva-conge-label">Hora</label>
-            <select class="form-control nueva-conge-sel" id="ncHora">
-              <!-- generado por JS -->
-            </select>
+            <select class="form-control nueva-conge-sel" id="ncHora"></select>
           </div>
           <div class="nueva-conge-campo nueva-conge-campo-lg">
             <label class="nueva-conge-label">Patólogo</label>
@@ -106,7 +104,7 @@
         <div class="nueva-conge-seccion">
           <label class="nueva-conge-label">Médico tratante</label>
           <div class="nueva-conge-input-fila">
-            <input type="text" class="form-control nueva-conge-input" id="ncMedico" placeholder="Médico tratante..">
+            <input type="text" class="form-control nueva-conge-input" id="ncMedico" placeholder="Médico tratante...">
             <button class="btn btn-nc-limpiar" id="btnLimpiarMedico">
               <i class="fas fa-times"></i> Limpiar
             </button>
@@ -116,7 +114,7 @@
         <!-- Material -->
         <div class="nueva-conge-seccion">
           <label class="nueva-conge-label">Material</label>
-          <input type="text" class="form-control nueva-conge-input" id="ncMaterial" placeholder="Material..">
+          <input type="text" class="form-control nueva-conge-input" id="ncMaterial" placeholder="Material...">
         </div>
 
         <!-- Cobertura -->
@@ -144,14 +142,16 @@
 
         <!-- Footer -->
         <div class="nueva-conge-footer">
-          <a href="conges.html" class="btn btn-cancelar-medico">Cancelar</a>
-          <button class="btn btn-nc-asignar" id="btnAsignarConge">
+          <a href="conges.html" class="btn-cancelar-medico">Cancelar</a>
+          <button class="btn-nc-asignar" id="btnAsignarConge">
             <i class="fas fa-plus-circle"></i> Asignar congelación
           </button>
         </div>
 
       </div>
     </div>
+
+  </div>
   </div>
 
   <div id="footer"></div>

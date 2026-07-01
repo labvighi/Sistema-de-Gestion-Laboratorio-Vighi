@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RecepciÃ³n - Susana Vighi</title>
+  <title>Recepción — Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/recepcion.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,41 +28,74 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow">
-      <div class="ibox-title">
-        <h3 class="page-title"><i class="fas fa-robot"></i> RecepciÃ³n de muestras</h3>
-        <p class="etiq-subtitulo">Proceso automatizado de ingreso de muestras y carga de Ã³rdenes.</p>
-      </div>
+  <div class="rec-page">
 
-      <div class="ibox-content recepcion-panel">
+    <div class="rec-eyebrow">Ingreso de muestras</div>
+    <h1 class="rec-title"><i class="fas fa-robot"></i> Recepción</h1>
+    <p class="rec-subtitle">Proceso automatizado de ingreso de muestras y carga de órdenes.</p>
 
-        <div class="recepcion-item">
-          <a href="etiquetas.html"><i class="fas fa-tags"></i> Etiquetas</a>
-          <p>ImpresiÃ³n de etiquetas para identificar muestras y Ã³rdenes.</p>
+    <div class="rec-section-label">Acciones principales</div>
+
+    <div class="rec-grid">
+
+      <!-- Etiquetas -->
+      <a href="etiquetas.html" class="rec-card">
+        <div class="rec-card-icon"><i class="fas fa-tags"></i></div>
+        <div class="rec-card-body">
+          <div class="rec-card-header">
+            <div class="rec-card-title">Etiquetas</div>
+          </div>
+          <p class="rec-card-desc">Impresión de etiquetas para identificar muestras y órdenes de trabajo.</p>
         </div>
+        <div class="rec-card-footer">Abrir <i class="fas fa-arrow-right"></i></div>
+      </a>
 
-        <div class="recepcion-item">
-          <a href="imagenes.html"><i class="fas fa-images"></i> ImÃ¡genes <span id="cnt-imagenes">0</span></a>
-          <p>Ã“rdenes sin protocolo asignado.</p>
+      <!-- Imágenes -->
+      <a href="imagenes.html" class="rec-card">
+        <div class="rec-card-icon"><i class="fas fa-images"></i></div>
+        <div class="rec-card-body">
+          <div class="rec-card-header">
+            <div class="rec-card-title">Imágenes</div>
+            <span class="rec-card-badge urgent" id="cnt-imagenes">0 pendientes</span>
+          </div>
+          <p class="rec-card-desc">Órdenes sin protocolo asignado que requieren vinculación de imágenes.</p>
         </div>
+        <div class="rec-card-footer">Abrir <i class="fas fa-arrow-right"></i></div>
+      </a>
 
-        <div class="recepcion-item">
-          <a href="activacion.html"><i class="fas fa-user-check"></i> ActivaciÃ³n</a>
-          <p>ActivaciÃ³n de protocolos para poder avanzar al laboratorio.</p>
+      <!-- Activación -->
+      <a href="activacion.html" class="rec-card">
+        <div class="rec-card-icon"><i class="fas fa-user-check"></i></div>
+        <div class="rec-card-body">
+          <div class="rec-card-header">
+            <div class="rec-card-title">Activación</div>
+          </div>
+          <p class="rec-card-desc">Activación de protocolos para habilitar el avance al área de laboratorio.</p>
         </div>
+        <div class="rec-card-footer">Abrir <i class="fas fa-arrow-right"></i></div>
+      </a>
 
-        <div class="recepcion-item">
-          <a href="#"><i class="fas fa-desktop"></i> ValidaciÃ³n</a>
-          <p>ValidaciÃ³n final de Ã³rdenes para habilitar entrega y facturaciÃ³n.</p>
+      <!-- Validación -->
+      <a href="#" class="rec-card disabled">
+        <div class="rec-card-icon"><i class="fas fa-desktop"></i></div>
+        <div class="rec-card-body">
+          <div class="rec-card-header">
+            <div class="rec-card-title">Validación</div>
+            <span class="rec-card-badge">Próximamente</span>
+          </div>
+          <p class="rec-card-desc">Validación final de órdenes para habilitar la entrega y facturación.</p>
         </div>
+        <div class="rec-card-footer">Abrir <i class="fas fa-arrow-right"></i></div>
+      </a>
 
-      </div>
-    </div>
+    </div><!-- /grid -->
+  </div>
   </div>
 
   <div id="footer"></div>
 
   <script>
+    // Auth check
     var usuario = sessionStorage.getItem("usuario");
     if (!usuario) {
       usuario = localStorage.getItem("usuario");

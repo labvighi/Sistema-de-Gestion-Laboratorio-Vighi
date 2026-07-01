@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pacientes - Susana Vighi</title>
+  <title>Pacientes — Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=6" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/pacientes.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,78 +28,74 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow pacientes-page">
-      <div class="ibox-title">
-        <hr class="mb-1 mt-0">
-        <h3 class="page-title"><i class="fas fa-id-card"></i> Pacientes</h3>
-        <hr class="mb-0 mt-1">
+  <div class="pac-page">
+
+    <!-- Header -->
+    <div class="pac-header">
+      <div>
+        <div class="pac-eyebrow">Agenda</div>
+        <h1 class="pac-title"><i class="fas fa-id-card"></i> Pacientes</h1>
+      </div>
+      <button class="pac-btn"><i class="fas fa-plus"></i> Nuevo paciente</button>
+    </div>
+
+    <!-- B�squeda -->
+    <div class="pac-search-card">
+
+      <!-- Por apellido/nombre -->
+      <div class="pac-search-block">
+        <div class="pac-field">
+          <label class="pac-label">Apellido</label>
+          <select id="modoApellido" class="pac-select" style="width:130px;">
+            <option value="empieza">Empieza con</option>
+            <option value="contiene">Contiene</option>
+            <option value="exacto">Exacto</option>
+          </select>
+        </div>
+        <div class="pac-field">
+          <label class="pac-label">&nbsp;</label>
+          <input type="text" id="inputApellido" class="pac-input" placeholder="Apellido..." style="width:160px;" autocomplete="off">
+        </div>
+        <div class="pac-field">
+          <label class="pac-label">Nombre <span class="pac-label-opt">(opcional)</span></label>
+          <input type="text" id="inputNombre" class="pac-input" placeholder="Nombre..." style="width:140px;" autocomplete="off">
+        </div>
+        <button id="btnBuscarApellido" class="pac-search-btn">
+          <i class="fa fa-search"></i> Buscar
+        </button>
       </div>
 
-      <div class="ibox-content pacientes-content">
+      <!-- Separador -->
+      <div class="pac-search-sep"></div>
 
-        <!-- Panel de búsqueda -->
-        <div class="pacientes-busqueda-panel">
-
-          <!-- Bloque: Buscar por apellido/nombre -->
-          <div class="pacientes-busqueda-bloque">
-            <div class="pacientes-busqueda-fila">
-              <div class="pacientes-campo-grupo">
-                <label>Apellido</label>
-                <div class="pacientes-apellido-inputs">
-                  <select id="modoApellido" class="form-control pacientes-select-modo">
-                    <option value="empieza">Empieza con</option>
-                    <option value="contiene">Contiene</option>
-                    <option value="exacto">Exacto</option>
-                  </select>
-                  <input type="text" id="inputApellido" class="form-control pacientes-input" placeholder="Apellido...">
-                </div>
-              </div>
-              <div class="pacientes-campo-grupo">
-                <label>Nombre <span class="pacientes-opcional">(opcional)</span></label>
-                <input type="text" id="inputNombre" class="form-control pacientes-input" placeholder="Nombre contiene...">
-              </div>
-              <div class="pacientes-campo-grupo pacientes-campo-btn">
-                <button id="btnBuscarApellido" class="btn btn-pacientes-buscar">
-                  <i class="fa fa-search"></i> Buscar
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Separador vertical -->
-          <div class="pacientes-busqueda-separador"></div>
-
-          <!-- Bloque: Buscar por DNI -->
-          <div class="pacientes-busqueda-bloque pacientes-busqueda-dni">
-            <div class="pacientes-campo-grupo">
-              <label>Por DNI</label>
-              <div class="pacientes-dni-inputs">
-                <input type="text" id="inputDni" class="form-control pacientes-input" placeholder="DNI...">
-                <button id="btnBuscarDni" class="btn btn-pacientes-buscar">
-                  <i class="fa fa-search"></i> Buscar
-                </button>
-              </div>
-            </div>
-          </div>
-
+      <!-- Por DNI -->
+      <div class="pac-search-block" style="flex: 0 0 auto;">
+        <div class="pac-field">
+          <label class="pac-label">Por DNI</label>
+          <input type="text" id="inputDni" class="pac-input" placeholder="Ej: 30123456" style="width:150px;" autocomplete="off">
         </div>
+        <button id="btnBuscarDni" class="pac-search-btn">
+          <i class="fa fa-search"></i> Buscar
+        </button>
+      </div>
 
-        <hr class="pacientes-hr">
+    </div><!-- /search-card -->
 
-        <!-- Resultados -->
-        <div id="pacientes-resultados">
-          <div class="pacientes-vacio">
-            <i class="fas fa-user-injured pacientes-vacio-icono"></i>
-            <p>Ingresá un apellido o DNI para buscar pacientes.</p>
-          </div>
+    <!-- Resultados -->
+    <div class="pac-results-card">
+      <div id="pacientes-resultados">
+        <div class="pacientes-vacio">
+          <i class="fas fa-id-card pacientes-vacio-icono"></i>
+          <p>Ingresá un apellido o DNI para buscar pacientes.</p>
         </div>
-
       </div>
     </div>
+
+  </div>
   </div>
 
   <div id="footer"></div>
-
+  <script src="JS/historial-utils.js"></script>
   <script src="JS/pacientes.js"></script>
 </body>
 </html>

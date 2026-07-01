@@ -1,25 +1,26 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuevo Usuario - Susana Vighi</title>
+  <title>Nuevo Usuario ? Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=5" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="CSS/pages/crearUsuario.css" type="text/css">
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,95 +29,92 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow form-page">
-      <div class="ibox-title">
-        <hr class="mb-1 mt-0">
-        <h3 class="page-title"><i class="fas fa-user-plus"></i> Nuevo usuario</h3>
-        <hr class="mb-0 mt-1">
-      </div>
+  <div class="cu-page">
 
-      <div class="ibox-content form-content">
+    <!-- Header -->
+    <div class="cu-header">
+      <a href="javascript:history.back()" class="cu-back"><i class="fas fa-arrow-left"></i></a>
+      <div>
+        <div class="cu-eyebrow">Administración</div>
+        <h1 class="cu-title"><i class="fas fa-user-plus"></i> Nuevo usuario</h1>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="cu-card">
+      <div class="cu-form-body">
 
         <div id="status"></div>
 
         <form id="formRegistro">
-
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Nombre</label>
-                <input type="text" id="nombre" class="form-control" placeholder="Nombre...">
-                <span id="errorNombre" class="form-error hidden">Requerido</span>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Apellido</label>
-                <input type="text" id="apellido" class="form-control" placeholder="Apellido...">
-                <span id="errorApellido" class="form-error hidden">Requerido</span>
-              </div>
-            </div>
-          </div>
-          <!-- Sede y telefono: disponibles en estructura, editables desde pantalla de edicion -->
           <input type="hidden" id="direccion" value="">
           <input type="hidden" id="telefono" value="">
 
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>E-mail</label>
-                <input type="email" id="email" class="form-control" placeholder="E-mail...">
-                <span id="errorEmail" class="form-error hidden">E-mail invÃ¡lido</span>
-              </div>
+          <div class="cu-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" id="nombre" class="form-control" placeholder="Nombre...">
+              <span id="errorNombre" class="form-error hidden">Requerido</span>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Tipo de usuario</label>
-                <select id="perfil" class="form-control">
-                  <option value="1">AdministraciÃ³n</option>
-                  <option value="2">CitotÃ©cnico</option>
-                  <option value="3">DirecciÃ³n</option>
-                  <option value="4">Externo</option>
-                  <option value="5">Gerencial</option>
-                  <option value="6">PatÃ³logo</option>
-                  <option value="7">TÃ©cnico</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" id="apellido" class="form-control" placeholder="Apellido...">
+              <span id="errorApellido" class="form-error hidden">Requerido</span>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>ContraseÃ±a</label>
-                <input type="password" id="clave" class="form-control" placeholder="ContraseÃ±a..." minlength="6">
-                <span id="errorClave" class="form-error hidden">MÃ­nimo 6 caracteres</span>
-              </div>
+          <div class="cu-row">
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" id="email" class="form-control" placeholder="E-mail...">
+              <span id="errorEmail" class="form-error hidden">E-mail inválido</span>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Confirmar contraseÃ±a</label>
-                <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseÃ±a...">
-                <span id="errorConfirmar" class="form-error hidden">Las contraseÃ±as no coinciden</span>
-              </div>
+            <div class="form-group">
+              <label>Tipo de usuario</label>
+              <select id="perfil" class="form-control">
+                <option value="1">Administración</option>
+                <option value="2">Citotécnico</option>
+                <option value="3">Dirección</option>
+                <option value="4">Externo</option>
+                <option value="5">Gerencial</option>
+                <option value="6">Patólogo</option>
+                <option value="7">Técnico</option>
+              </select>
             </div>
           </div>
 
-          <hr>
+          <div class="cu-row">
+            <div class="form-group">
+              <label>Contraseña</label>
+              <input type="password" id="clave" class="form-control" placeholder="Contraseña..." minlength="6">
+              <span id="errorClave" class="form-error hidden">Mínimo 6 caracteres</span>
+            </div>
+            <div class="form-group">
+              <label>Confirmar contraseña</label>
+              <input type="password" id="confirmarClave" class="form-control" placeholder="Confirmar contraseña...">
+              <span id="errorConfirmar" class="form-error hidden">Las contraseñas no coinciden</span>
+            </div>
+          </div>
+
+          <hr class="cu-divider">
 
           <div class="form-actions">
-            <a href="javascript:history.back()" class="btn btn-cancelar-medico"><i class="fa fa-arrow-left"></i> Cancelar</a>
-            <button type="submit" id="btnCrear" class="btn btn-crear-medico"><i class="fa fa-plus-circle"></i> Crear usuario</button>
+            <a href="javascript:history.back()" class="btn-cancelar-medico">
+              <i class="fa fa-arrow-left"></i> Cancelar
+            </a>
+            <button type="submit" id="btnCrear" class="btn-crear-medico">
+              <i class="fa fa-plus-circle"></i> Crear usuario
+            </button>
           </div>
-
         </form>
+
       </div>
     </div>
+
+  </div>
   </div>
 
   <div id="footer"></div>
-
   <script src="JS/registro.js"></script>
 </body>
 </html>
-

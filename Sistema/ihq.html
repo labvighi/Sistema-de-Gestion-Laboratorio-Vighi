@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IHQ - Susana Vighi</title>
+  <title>IHQ ? Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/ihq.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
 </head>
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -28,86 +29,83 @@
   <div id="side-navbar"></div>
 
   <div class="wrapper">
-    <div class="ibox ibox-shadow estudios-page">
+  <div class="ihq-page">
 
-      <div class="ibox-title">
-        <hr class="mb-1 mt-0">
-        <h3 class="page-title"><i class="fas fa-star-of-life"></i> Tablero IMHQ</h3>
-        <hr class="mb-0 mt-1">
-      </div>
-
-      <div class="ibox-content estudios-content">
-
-        <!-- Filtros -->
-        <div class="estudios-filtros-wrapper">
-
-          <!-- Fila 1 -->
-          <div class="estudios-filtros-fila">
-            <div class="conges-filtro-grupo">
-              <label>PatÃ³logo</label>
-              <select class="form-control estudios-sel estudios-sel-lg"><option>[ PatÃ³logo: todos ]</option></select>
-            </div>
-            <div class="conges-filtro-grupo">
-              <label>Actividad</label>
-              <select class="form-control estudios-sel estudios-sel-lg"><option>[ Actividad: todas ]</option></select>
-            </div>
-            <div class="conges-filtro-grupo">
-              <label>Flujo</label>
-              <select class="form-control estudios-sel estudios-sel-lg"><option>[ Flujo: todos ]</option></select>
-            </div>
-            <div class="conges-filtro-grupo">
-              <label>Tipo biopsia</label>
-              <select class="form-control estudios-sel estudios-sel-md"><option>[ Tipo biopsia: todos ]</option></select>
-            </div>
-          </div>
-
-          <!-- Fila 2 -->
-          <div class="estudios-filtros-fila ihq-fila2">
-            <div class="conges-filtro-grupo">
-              <label>Cobertura</label>
-              <select class="form-control estudios-sel estudios-sel-lg"><option>[ Cobertura: todas ]</option></select>
-            </div>
-            <div class="conges-filtro-grupo">
-              <label>Procedencia</label>
-              <select class="form-control estudios-sel estudios-sel-md"><option>[ Procedencia: todas ]</option></select>
-            </div>
-            <div class="conges-filtro-grupo">
-              <label>MÃ©dico</label>
-              <select class="form-control estudios-sel estudios-sel-xl"><option>[ MÃ©dico: todos ]</option></select>
-            </div>
-            <button class="btn btn-ihq-imprimir ms-auto">
-              <i class="fas fa-print"></i> Imprimir listado
-            </button>
-          </div>
-
-        </div>
-
-        <!-- Tabla -->
-        <div class="table-responsive">
-          <table class="table estudios-tabla ihq-tabla">
-            <thead>
-              <tr>
-                <th>Actividad</th>
-                <th># Protocolo</th>
-                <th>PatÃ³logo</th>
-                <th>Paciente</th>
-                <th>MÃ©dico</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="tbodyIHQ">
-              <tr>
-                <td colspan="6" class="text-center estudios-vacio">
-                  <i class="fas fa-star-of-life estudios-vacio-icono"></i>
-                  <p>No hay protocolos IHQ cargados.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
+    <!-- Header -->
+    <div class="ihq-header">
+      <div>
+        <div class="ihq-eyebrow">Laboratorio</div>
+        <h1 class="ihq-title"><i class="fas fa-star-of-life"></i> Tablero IHQ</h1>
       </div>
     </div>
+
+    <!-- Card -->
+    <div class="ihq-card">
+
+      <!-- Filtros -->
+      <div class="estudios-filtros-wrapper">
+        <div class="estudios-filtros-fila">
+          <div class="conges-filtro-grupo">
+            <label>Patólogo</label>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ Patólogo: todos ]</option></select>
+          </div>
+          <div class="conges-filtro-grupo">
+            <label>Actividad</label>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ Actividad: todas ]</option></select>
+          </div>
+          <div class="conges-filtro-grupo">
+            <label>Flujo</label>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ Flujo: todos ]</option></select>
+          </div>
+          <div class="conges-filtro-grupo">
+            <label>Tipo biopsia</label>
+            <select class="form-control estudios-sel estudios-sel-md"><option>[ Tipo biopsia: todos ]</option></select>
+          </div>
+        </div>
+        <div class="estudios-filtros-fila ihq-fila2">
+          <div class="conges-filtro-grupo">
+            <label>Cobertura</label>
+            <select class="form-control estudios-sel estudios-sel-lg"><option>[ Cobertura: todas ]</option></select>
+          </div>
+          <div class="conges-filtro-grupo">
+            <label>Procedencia</label>
+            <select class="form-control estudios-sel estudios-sel-md"><option>[ Procedencia: todas ]</option></select>
+          </div>
+          <div class="conges-filtro-grupo">
+            <label>Médico</label>
+            <select class="form-control estudios-sel estudios-sel-xl"><option>[ Médico: todos ]</option></select>
+          </div>
+          <button class="btn btn-ihq-imprimir">
+            <i class="fas fa-print"></i> Imprimir listado
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <table class="ihq-tabla">
+        <thead>
+          <tr>
+            <th>Actividad</th>
+            <th># Protocolo</th>
+            <th>Patólogo</th>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody id="tbodyIHQ">
+          <tr>
+            <td colspan="6" class="estudios-vacio">
+              <i class="fas fa-star-of-life estudios-vacio-icono"></i>
+              <p>No hay protocolos IHQ cargados.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div><!-- /card -->
+
+  </div>
   </div>
 
   <div id="footer"></div>

@@ -41,7 +41,7 @@ function initFechaHoy() {
   const mesHoy  = hoy.getMonth();   // 0-11
   const anioHoy = hoy.getFullYear();
 
-  // Día — buscar la opción cuyo value numérico coincida
+  // Día �?? buscar la opción cuyo value numérico coincida
   const selDia = document.getElementById('etiqDia');
   if (selDia) {
     Array.from(selDia.options).forEach(function(o) {
@@ -49,7 +49,7 @@ function initFechaHoy() {
     });
   }
 
-  // Mes — buscar la opción cuyo value numérico coincida (0-11)
+  // Mes �?? buscar la opción cuyo value numérico coincida (0-11)
   const selMes = document.getElementById('etiqMes');
   if (selMes) {
     Array.from(selMes.options).forEach(function(o) {
@@ -57,7 +57,7 @@ function initFechaHoy() {
     });
   }
 
-  // Año — buscar la opción cuyo texto o value coincida con el año
+  // Año �?? buscar la opción cuyo texto o value coincida con el año
   const selAnio = document.getElementById('etiqAnio');
   if (selAnio) {
     var encontrado = false;

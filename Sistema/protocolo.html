@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Protocolo - Susana Vighi</title>
+  <title>Protocolo — Susana Vighi</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/png" href="IMG/favicon.png">
-  <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
-  <link rel="stylesheet" href="CSS/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="CSS/bootstrap-minimal.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="CSS/style.css?v=8" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css?v=10" type="text/css">
+  <link rel="stylesheet" href="CSS/vighi-design-system.css" type="text/css">
+  <link rel="stylesheet" href="CSS/pages/protocolo.css" type="text/css">
   <script src="https://code.jquery.com/jquery-2.1.0.min.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </head>
+
 
 <script>
   $(document).ready(function () {
-    $("#navbar").load("navbar.html");
-    $("#side-navbar").load("side-navbar.html");
-    $("#footer").load("footer.html");
+    $("#navbar").load("navbar.html?v=3");
+    $("#side-navbar").load("side-navbar.html?v=7");
+    $("#footer").load("footer.html?v=2");
   });
 </script>
 
@@ -27,231 +28,243 @@
   <div id="navbar"></div>
   <div id="side-navbar"></div>
 
-  <div class="wrapper prot-wrapper">
+  <div class="wrapper">
+  <div class="prot-page">
 
-    <!-- ===== IBOX 1: CABECERA (número + badges + info paciente) ===== -->
-    <div class="ibox ibox-shadow prot-ibox">
-      <div class="ibox-title prot-ibox-title">
-        <div class="prot-header">
-          <div class="prot-numero">
-            <span id="protNumero">#P1055268</span>
-            <i class="far fa-copy prot-copy-icon" title="Copiar"></i>
-          </div>
-          <div class="prot-badges">
-            <span class="prot-badge prot-badge-validado"><i class="fas fa-eye"></i> Validado</span>
-            <span class="prot-badge prot-badge-qr">QR</span>
-            <span class="prot-badge prot-badge-informado"><i class="fas fa-flag"></i> Informado</span>
-            <span class="prot-badge prot-badge-sp">SP</span>
-            <span class="prot-badge prot-badge-urgente"><i class="fas fa-circle"></i> URGENTE</span>
-            <span class="prot-badge prot-badge-prioridad"><i class="fas fa-person-running"></i> Prioridad alta</span>
-          </div>
+    <!-- -- CARD 1: CABECERA -------------------------------------- -->
+    <div class="prot-card">
+
+      <!-- Top bar: n�mero + badges + acciones -->
+      <div class="prot-top-bar prot-urgente">
+        <div class="prot-numero-wrap">
+          <span id="protNumero">#P1055268</span>
+          <span class="prot-urgente-tag">(U)</span>
+          <i class="far fa-copy prot-copy-icon" title="Copiar n�mero"></i>
+        </div>
+        <div class="prot-badges">
+          <span class="prot-badge prot-badge-sp">SP</span>
+          <span class="prot-badge prot-badge-validado"><i class="fas fa-eye"></i> Validado</span>
+          <span class="prot-badge prot-badge-informado"><i class="fas fa-flag"></i> Informado</span>
+        </div>
+        <div class="prot-top-actions">
+          <button class="prot-top-btn"><i class="fas fa-sync-alt"></i> Actualizar</button>
+          <button class="prot-top-btn"><i class="fas fa-print"></i> Ver informe</button>
+          <button class="prot-top-btn prot-top-btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
         </div>
       </div>
-      <div class="ibox-content prot-info-content">
-        <div class="prot-info-grid">
-          <div class="prot-info-col prot-info-col-xl">
-            <div class="prot-info-label"><i class="fas fa-id-card"></i> Paciente <i class="far fa-edit prot-edit-icon"></i></div>
-            <div class="prot-info-valor prot-link">GIANNINI, MARTA DOMINGA</div>
-            <div class="prot-info-sub">79 (1947)</div>
-            <div class="prot-info-sub">GALENO (ORO/PLA)</div>
-            <div class="prot-info-sub prot-dni">#011596330014 <i class="fas fa-check prot-check-ok"></i></div>
-          </div>
-          <div class="prot-info-col prot-info-col-xl">
-            <div class="prot-info-label"><i class="fas fa-user-md"></i> Médico</div>
-            <div class="prot-info-valor prot-link">AGUIAR, ANA M.</div>
-            <div class="prot-info-valor prot-link">TRINIPALERMO</div>
-          </div>
-          <div class="prot-info-col prot-info-col-xl">
-            <div class="prot-info-label"><i class="fas fa-truck"></i> Recorrido</div>
-            <div class="prot-info-valor prot-link">TRINIPALERMO</div>
-            <div class="prot-info-sub">LU (M), MA (M), MI (M), JU (M), VI (M)</div>
-          </div>
-          <div class="prot-info-col">
-            <div class="prot-info-label"><i class="fas fa-th-large"></i> Lote</div>
-            <div class="prot-info-sub">ONCO</div>
-            <div class="prot-info-valor prot-link">ONCO-0121.1</div>
-          </div>
+
+      <!-- Info grid: paciente / médico / recorrido / lote -->
+      <div class="prot-info-grid">
+        <div class="prot-info-col">
+          <div class="prot-info-label"><i class="fas fa-id-card"></i> Paciente <i class="far fa-edit prot-edit-icon"></i></div>
+          <div class="prot-info-valor prot-link">GIANNINI, MARTA DOMINGA</div>
+          <div class="prot-info-sub">79 años (1947)</div>
+          <div class="prot-info-sub">GALENO (ORO/PLA)</div>
+          <div class="prot-info-sub prot-dni">#011596330014 <i class="fas fa-check prot-check-ok"></i></div>
+        </div>
+        <div class="prot-info-col">
+          <div class="prot-info-label"><i class="fas fa-user-md"></i> Médico</div>
+          <div class="prot-info-valor prot-link">AGUIAR, ANA M.</div>
+          <div class="prot-info-sub prot-link">TRINIPALERMO</div>
+        </div>
+        <div class="prot-info-col">
+          <div class="prot-info-label"><i class="fas fa-truck"></i> Recorrido</div>
+          <div class="prot-info-valor prot-link">TRINIPALERMO</div>
+          <div class="prot-info-sub">LU (M), MA (M), MI (M), JU (M), VI (M)</div>
+        </div>
+        <div class="prot-info-col">
+          <div class="prot-info-label"><i class="fas fa-th-large"></i> Lote</div>
+          <div class="prot-info-sub">ONCO</div>
+          <div class="prot-info-valor prot-link">ONCO-0121.1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -- CARD 2: ESTUDIOS -------------------------------------- -->
+    <div class="prot-card">
+      <div class="prot-estudios-bar">
+        <span class="prot-estudios-titulo">Estudios (QR)</span>
+        <span class="prot-entrega">Entrega estimada: 04/02/2026</span>
+      </div>
+
+      <div id="protEstudios"></div>
+
+      <div class="prot-firmante-wrap">
+        <div class="prot-firmante-label">Firmante</div>
+        <div class="prot-firmante-valor">
+          <i class="fas fa-lock prot-icon-muted"></i>
+          <i class="fas fa-signature prot-icon-muted"></i>
+          <span>Dra. MISERENDINO, Diana</span>
+          <a href="#" class="prot-link-accion"><i class="far fa-edit"></i> cambiar</a>
         </div>
       </div>
     </div>
 
-    <!-- ===== IBOX 2: ESTUDIOS + FIRMANTE + ACCIONES ===== -->
-    <div class="ibox ibox-shadow prot-ibox">
-      <div class="ibox-content prot-estudios-content">
+    <!-- -- FILA: ARCHIVOS | TAREAS | COMENTARIOS ---------------- -->
+    <div class="prot-panels-row">
 
-        <div class="prot-estudios-header">
-          <span class="prot-estudios-titulo">Estudios (QR)</span>
-          <span class="prot-entrega">Entrega estimada: 04/02/2026</span>
-        </div>
-
-        <div id="protEstudios"></div>
-
-        <hr class="prot-hr">
-
-        <div class="prot-firmante-wrap">
-          <div class="prot-firmante-label">Médico firmante</div>
-          <div class="prot-firmante-valor">
-            <i class="fas fa-lock prot-icon-muted"></i>
-            <i class="fas fa-signature prot-icon-muted"></i>
-            <span>Dra. MISERENDINO, Diana</span>
-            <a href="#" class="prot-link-accion"><i class="far fa-edit"></i> cambiar</a>
-          </div>
-        </div>
-
-        <div class="prot-acciones">
-          <button class="btn prot-btn-accion"><i class="fas fa-sync-alt"></i> Actualizar</button>
-          <button class="btn prot-btn-accion"><i class="fas fa-print"></i> Ver informe</button>
-          <button class="btn prot-btn-accion"><i class="fas fa-paper-plane"></i> Enviar informe</button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ===== IBOXES 3: ARCHIVOS | TAREAS | COMENTARIOS ===== -->
-    <div class="row prot-bottom-row">
-
-      <div class="col-md-4">
-        <div class="ibox ibox-shadow prot-ibox">
-          <div class="ibox-title prot-panel-ibox-title">
-            <i class="fas fa-folder-open"></i> Archivos asociados al protocolo
-          </div>
-          <div class="ibox-content">
-            <div class="prot-archivos-grid" id="protArchivosGrid"></div>
-            <div class="prot-archivos-lista" id="protArchivosLista"></div>
-            <button class="btn prot-btn-agregar prot-btn-full" id="btnAgregarArchivo"><i class="fas fa-plus-circle"></i> Agregar un archivo</button>
-
-            <!-- Panel upload (oculto por defecto) -->
-            <div class="prot-upload-panel" id="protUploadPanel" style="display:none;">
-              <div class="prot-upload-field">
-                <label class="prot-upload-label">Seleccionar archivos</label>
-                <div class="prot-upload-file-row">
-                  <label class="btn prot-btn-elegir-archivo" for="protFileInput">Elegir archivos</label>
-                  <input type="file" id="protFileInput" multiple style="display:none;">
-                  <span class="prot-upload-filename" id="protFileNombre">No se eligió ningún archivo</span>
-                </div>
-              </div>
-              <div class="prot-upload-field">
-                <label class="prot-upload-label">Tipos de archivo</label>
-                <select class="form-control prot-upload-sel" id="protFileTipo">
-                  <option>Historia clínica</option>
-                  <option>Informe Histológico</option>
-                  <option>Muestra</option>
-                  <option selected>Orden médica</option>
-                  <option>Presupuesto</option>
-                </select>
-              </div>
-              <div class="prot-upload-btns">
-                <button class="btn prot-btn-cancelar-upload" id="btnCancelarUpload">Cancelar</button>
-                <button class="btn prot-btn-subir-archivo"><i class="fas fa-upload"></i> Subir archivo</button>
+      <!-- Archivos -->
+      <div class="prot-card">
+        <div class="prot-panel-title"><i class="fas fa-folder-open"></i> Archivos</div>
+        <div class="prot-panel-body">
+          <div class="prot-archivos-grid" id="protArchivosGrid"></div>
+          <div class="prot-archivos-lista" id="protArchivosLista"></div>
+          <button class="btn prot-btn-agregar prot-btn-full" id="btnAgregarArchivo">
+            <i class="fas fa-plus"></i> Agregar archivo
+          </button>
+          <div class="prot-upload-panel" id="protUploadPanel" style="display:none;">
+            <div class="prot-upload-field">
+              <label class="prot-upload-label">Seleccionar archivos</label>
+              <div class="prot-upload-file-row">
+                <label class="prot-btn-elegir-archivo" for="protFileInput">Elegir archivos</label>
+                <input type="file" id="protFileInput" multiple style="display:none;">
+                <span class="prot-upload-filename" id="protFileNombre">Sin archivos seleccionados</span>
               </div>
             </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="ibox ibox-shadow prot-ibox">
-          <div class="ibox-title prot-panel-ibox-title">
-            <i class="fas fa-list"></i> Tareas
-          </div>
-          <div class="ibox-content">
-            <div id="protTareasList"></div>
-            <a href="nuevatarea.html" class="btn prot-btn-agregar prot-btn-full"><i class="fas fa-plus-circle"></i> Crear una tarea</a>
-            <div class="prot-procesamiento">
-              <div class="prot-proc-label"><i class="fas fa-upload"></i> Procesamiento</div>
-              <div class="prot-proc-btns">
-                <button class="btn prot-btn-proc"><i class="fas fa-building"></i> Interno</button>
-                <button class="btn prot-btn-proc prot-btn-proc-active"><i class="fas fa-external-link-alt"></i> Externo</button>
-              </div>
+            <div class="prot-upload-field">
+              <label class="prot-upload-label">Tipo de archivo</label>
+              <select class="form-control prot-upload-sel" id="protFileTipo">
+                <option>Historia clínica</option>
+                <option>Informe Histológico</option>
+                <option>Muestra</option>
+                <option selected>Orden médica</option>
+                <option>Presupuesto</option>
+              </select>
+            </div>
+            <div class="prot-upload-btns">
+              <button class="prot-btn-cancelar-upload" id="btnCancelarUpload">Cancelar</button>
+              <button class="prot-btn-subir-archivo"><i class="fas fa-upload"></i> Subir</button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="ibox ibox-shadow prot-ibox">
-          <div class="ibox-title prot-panel-ibox-title">
-            <i class="fas fa-comments"></i> Comentarios
-          </div>
-          <div class="ibox-content">
-            <div class="prot-comentarios-lista" id="protComentariosList"></div>
-            <button class="btn prot-btn-agregar prot-btn-full"><i class="fas fa-plus-circle"></i> Agregar un comentario</button>
+      <!-- Tareas -->
+      <div class="prot-card">
+        <div class="prot-panel-title"><i class="fas fa-list"></i> Tareas</div>
+        <div class="prot-panel-body">
+          <div id="protTareasList"></div>
+          <a href="nuevatarea.html" class="btn prot-btn-agregar prot-btn-full">
+            <i class="fas fa-plus"></i> Crear tarea
+          </a>
+          <div class="prot-procesamiento">
+            <div class="prot-proc-label"><i class="fas fa-upload"></i> Procesamiento</div>
+            <div class="prot-proc-btns">
+              <button class="btn prot-btn-proc"><i class="fas fa-building"></i> Interno</button>
+              <button class="btn prot-btn-proc prot-btn-proc-active"><i class="fas fa-external-link-alt"></i> Externo</button>
+            </div>
           </div>
         </div>
       </div>
 
-    </div>
-
-    <!-- ===== IBOX 4: FOOTER TABS ===== -->
-    <div class="ibox ibox-shadow prot-ibox">
-      <div class="ibox-content prot-footer-content">
-
-        <ul class="nav nav-tabs prot-footer-tabs" id="protFooterTabs">
-          <li><a href="#pft-eventos"      data-toggle="tab">Eventos</a></li>
-          <li><a href="#pft-presupuestos" data-toggle="tab">Presupuestos</a></li>
-          <li><a href="#pft-informes"     data-toggle="tab">Informes</a></li>
-          <li><a href="#pft-eliminar"     data-toggle="tab">Eliminar</a></li>
-        </ul>
-
-        <div class="tab-content prot-footer-tab-content">
-          <div class="tab-pane" id="pft-eventos">
-            <p class="prot-tab-vacio">No hay eventos registrados.</p>
-          </div>
-          <div class="tab-pane" id="pft-presupuestos">
-            <table class="table prot-pre-tabla">
-              <thead>
-                <tr>
-                  <th>Protocolo #</th>
-                  <th>Estudio</th>
-                  <th>Tipo</th>
-                  <th>Proveedor</th>
-                  <th class="prot-pre-th-monto">Monto</th>
-                  <th class="prot-pre-th-auth">Autorización</th>
-                </tr>
-              </thead>
-              <tbody id="pftPresupuestosTbody"></tbody>
-            </table>
-            <div class="prot-pre-footer">
-              <label class="prot-pre-exento">
-                <input type="checkbox" id="pftExentoIva"> Exento IVA
-              </label>
-              <button class="btn prot-btn-agregar" id="btnNuevoPresupuesto"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</button>
-            </div>
-          </div>
-          <div class="tab-pane" id="pft-informes">
-            <table class="table prot-inf-tabla">
-              <thead>
-                <tr>
-                  <th>Título</th>
-                  <th>Flujo</th>
-                  <th class="prot-inf-th-centro">Estudio</th>
-                  <th class="prot-inf-th-centro">IHQ</th>
-                  <th class="prot-inf-th-centro">IHQ leyenda</th>
-                  <th class="prot-inf-th-centro">Macro publicado</th>
-                  <th class="prot-inf-th-centro">Publicado</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="pftInformesTbody"></tbody>
-            </table>
-            <div class="prot-inf-acciones">
-              <button class="btn prot-btn-accion"><i class="fas fa-undo"></i> Actualizar</button>
-            </div>
-          </div>
-          <div class="tab-pane" id="pft-eliminar">
-            <button class="btn prot-btn-eliminar-prot">
-              <i class="fas fa-trash-alt"></i> Eliminar protocolo
-            </button>
-          </div>
+      <!-- Comentarios -->
+      <div class="prot-card">
+        <div class="prot-panel-title"><i class="fas fa-comments"></i> Comentarios</div>
+        <div class="prot-panel-body">
+          <div class="prot-comentarios-lista" id="protComentariosList"></div>
+          <button class="btn prot-btn-agregar prot-btn-full">
+            <i class="fas fa-plus"></i> Agregar comentario
+          </button>
         </div>
-
       </div>
-    </div>
 
-  </div>
+    </div><!-- /panels-row -->
+
+    <!-- -- CARD TABS: EVENTOS | PRESUPUESTOS | INFORMES | ELIMINAR -->
+    <div class="prot-card">
+
+      <!-- Tab bar -->
+      <div class="prot-footer-tabbar">
+        <button class="prot-ftab" data-fpane="pft-eventos">Eventos</button>
+        <button class="prot-ftab active" data-fpane="pft-presupuestos">Presupuestos</button>
+        <button class="prot-ftab" data-fpane="pft-informes">Informes</button>
+        <button class="prot-ftab danger" data-fpane="pft-eliminar">Eliminar</button>
+      </div>
+
+      <!-- Panes -->
+      <div class="prot-fpane" id="pft-eventos">
+        <p class="prot-tab-vacio">No hay eventos registrados.</p>
+      </div>
+
+      <div class="prot-fpane active" id="pft-presupuestos">
+        <table class="prot-pre-tabla">
+          <thead>
+            <tr>
+              <th>Protocolo</th>
+              <th>Estudio</th>
+              <th>Tipo</th>
+              <th>Proveedor</th>
+              <th class="prot-pre-th-monto">Monto</th>
+              <th class="prot-pre-th-auth">Autorización</th>
+            </tr>
+          </thead>
+          <tbody id="pftPresupuestosTbody"></tbody>
+        </table>
+        <div class="prot-pre-footer">
+          <label class="prot-pre-exento">
+            <input type="checkbox" id="pftExentoIva"> Exento IVA
+          </label>
+          <button class="btn prot-btn-agregar" id="btnNuevoPresupuesto">
+            <i class="fas fa-plus"></i> Nuevo presupuesto
+          </button>
+        </div>
+      </div>
+
+      <div class="prot-fpane" id="pft-informes">
+        <table class="prot-inf-tabla">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Flujo</th>
+              <th class="prot-inf-th-centro">Estudio</th>
+              <th class="prot-inf-th-centro">IHQ</th>
+              <th class="prot-inf-th-centro">IHQ leyenda</th>
+              <th class="prot-inf-th-centro">Macro pub.</th>
+              <th class="prot-inf-th-centro">Publicado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="pftInformesTbody"></tbody>
+        </table>
+        <div class="prot-inf-acciones">
+          <button class="btn prot-btn-accion"><i class="fas fa-undo"></i> Actualizar</button>
+        </div>
+      </div>
+
+      <div class="prot-fpane" id="pft-eliminar">
+        <div class="prot-danger-zone">
+          <div class="prot-danger-icon"><i class="fas fa-triangle-exclamation"></i></div>
+          <div class="prot-danger-body">
+            <div class="prot-danger-title">Zona de peligro</div>
+            <div class="prot-danger-desc">Esta acción eliminará el protocolo y todos sus datos asociados. No se puede deshacer.</div>
+          </div>
+          <button class="prot-btn-eliminar-prot">
+            <i class="fas fa-trash-alt"></i> Eliminar protocolo
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /tabs card -->
+
+  </div><!-- /prot-page -->
+  </div><!-- /wrapper -->
 
   <div id="footer"></div>
+
+  <script>
+  // Tab switching custom
+  document.querySelectorAll('.prot-ftab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.prot-ftab').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.prot-fpane').forEach(function(p) { p.classList.remove('active'); });
+      this.classList.add('active');
+      var pane = document.getElementById(this.getAttribute('data-fpane'));
+      if (pane) pane.classList.add('active');
+    });
+  });
+  </script>
+
+  <script src="JS/historial-utils.js"></script>
   <script src="JS/protocolo.js"></script>
 </body>
 </html>

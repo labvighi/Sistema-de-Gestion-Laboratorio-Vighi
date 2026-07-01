@@ -1,114 +1,268 @@
-<div id="side-navbar">
-<nav class="navbar-default navbar-static-side" role="navigation" style="margin-top:12px;">
-	<div class="sidebar-collapse">
-		<div class="nav-header-left">
-			<div id="pnl_nav_left">
-				<div class="nav-header-usuario">
-					<ul>
-						<li><a class="text-white" id="sidebar-username"><i class="fas fa-user"></i> USUARIO</a></li>
-						<li><a class="text-white" id="hl_exit" href="index.html" onclick="sessionStorage.removeItem('usuario');localStorage.removeItem('usuario');"><i class="fa fa-sign-out-alt"></i> <span class="nav-label">Cerrar sesión</span></a></li>
-						<li class="item_boton_perfil active"><a class="text-white" id="sidebar-perfil"><i class="far fa-address-card"></i> Gerencial</a></li>     
-					</ul>
-				</div>
-				
-				<ul class="nav metismenu" id="side-menu" style="font-size: 12px"><hr style="margin-top: 0px; margin-bottom: 0px;">
-					<li><a class="text-white" id="hl_recepcion" href="recepcion.html"><i class="fa fa-plus-circle"></i> RECEPCIÓN</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
-					<li><a class="text-white" href="#"><i class="fa fa-motorcycle"></i> <span class="nav-label">TRASLADOS</span><span class="fa arrow"></span></a><hr style="margin-top: 0px; margin-bottom: 0px;">
-						<ul class="nav nav-second-level collapse" style="padding-top:0px;">
-							<li class="titulo">LABORATORIO</li>
-							<li class="item"><a href="flujos.html?ida=14"><i class="fa fa-caret-right"></i>Lab &gt; Informar (1)</a></li>
-							<li class="item"><a href="flujos.html?ida=40"><i class="fa fa-caret-right"></i>Lab &gt; Colorear (15)</a></li>
-							<li class="item"><a href="flujos.html?ida=102"><i class="fa fa-caret-right"></i>Lab &gt; Revisar (4)</a></li>
-							<li class="item"><a href="flujos.html?ida=120"><i class="fa fa-caret-right"></i>Lab &gt; Archivar (68793)</a></li>
-							<li class="item"><a href="flujos.html?ida=105"><i class="fa fa-caret-right"></i>Lab Ext &gt; Procesar (10)</a></li>
-							<li class="titulo">CITOTÉCNICOS</li>
-							<li class="item"><a href="flujos.html?ida=90"><i class="fa fa-caret-right"></i>Cito &gt; Informar (546)</a></li>
-							<li class="titulo">DEVOLUCIÓN</li>
-							<li class="item"><a href="flujos.html?ida=110"><i class="fa fa-caret-right"></i>Cons &gt; Entregar (196)</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#" class="text-white"><i class="fa fa-flask"></i> <span class="nav-label">LABORATORIO</span><span class="fa arrow"></span></a><hr style="margin-top: 0px; margin-bottom: 0px;">
-						<ul class="nav nav-second-level collapse" style="padding-top:0px;">
-							<li class="titulo">PROCESAMIENTO</li>
-							<li class="item"><a href="flujos.html?ida=106"><i class="fa fa-caret-right"></i>IHQ &gt; Procesar (14)</a></li>
-							<li class="item"><a href="flujos.html?ida=50"><i class="fa fa-caret-right"></i>Histo &gt; Procesar (19)</a></li>
-							<li class="item"><a href="flujos.html?ida=57"><i class="fa fa-caret-right"></i>Liq &gt; Centrifugar (2)</a></li>
-							<li class="titulo">INCLUSIÓN</li>
-							<li class="item"><a href="flujos.html?ida=60"><i class="fa fa-caret-right"></i>Cassette &gt; Incluir (114)</a></li>
-							<li class="titulo">CORTE PH</li>
-							<li class="item"><a href="flujos.html?ida=70"><i class="fa fa-caret-right"></i>Taco &gt; Cortar (31)</a></li>
-							<li class="item"><a href="flujos.html?ida=104"><i class="fa fa-caret-right"></i>Taco IHQ &gt; Cortar (21)</a></li>
-							<li class="titulo">COLOREADO</li>
-							<li class="item"><a href="flujos.html?ida=80"><i class="fa fa-caret-right"></i>Porta &gt; Colorear (774)</a></li>
-							<li class="titulo">ARCHIVO</li>
-							<li class="item"><a href="flujos.html?ida=130"><i class="fa fa-caret-right"></i>Porta &gt; Archivar (98037)</a></li>
-							<li class="item"><a href="flujos.html?ida=118"><i class="fa fa-caret-right"></i>Taco &gt; Archivar (53492)</a></li>
-							<li class="titulo">RESERVA</li>
-							<li class="item"><a href="flujos.html?ida=140"><i class="fa fa-caret-right"></i>Reserva &gt; Tirar (11)</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#" class="text-white"><i class="fa fa-stethoscope"></i> <span class="nav-label">DIAGNÓSTICOS</span><span class="fa arrow"></span></a><hr style="margin-top: 0px; margin-bottom: 0px;">
-						<ul class="nav nav-second-level collapse" style="padding-top:0px;">
-							<li class="titulo">MACROSCOPÍA</li>
-							<li class="item"><a href="flujos.html?ida=20"><i class="fa fa-caret-right"></i>Macro &gt; Informar (112)</a></li>
-							<li class="titulo">MICROSCOPÍA</li>
-							<li class="item"><a href="flujos.html?ida=100"><i class="fa fa-caret-right"></i>Micro &gt; Informar (1030)</a></li>
-							<li class="item"><a href="flujos.html?ida=108"><i class="fa fa-caret-right"></i>Micro &gt; Interpretar (22)</a></li>
-							<li class="item"><a href="flujos.html?ida=103"><i class="fa fa-caret-right"></i>Micro &gt; Revisar (25)</a></li>
-						</ul>
-					</li>
-                </ul>        
-			</div>
-        </div>
-    </div>
-</nav>
+<style>
+/* ── Sidebar global ─────────────────────────────────────────── */
+:root {
+  --sb-blue:   #291050;
+  --sb-accent: #7c3eed;
+  --sb-slate:  #a89bc5;
+  --sb-w:      210px;
+}
+
+#side-navbar {
+  position: fixed !important;
+  top: 56px !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: var(--sb-w) !important;
+  background: linear-gradient(180deg, #1f0c42 0%, #291050 60%) !important;
+  overflow: hidden !important;
+  z-index: 1000 !important;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex !important;
+  flex-direction: column !important;
+  transform: translateX(-100%);
+  border-right: 1px solid rgba(124,62,237,0.15);
+}
+#side-navbar.sb-open {
+  transform: translateX(0);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body { margin-left: 0 !important; }
+body.sb-open { margin-left: var(--sb-w) !important; transition: margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* ── Menú ────────────────────────────────────────────────────── */
+.sb-menu {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px 0 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+.sb-menu::-webkit-scrollbar { width: 3px; }
+.sb-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+/* ── Item principal ──────────────────────────────────────────── */
+.sb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: rgba(255,255,255,0.82);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+a.sb-item:hover, .sb-item:hover, .sb-item.open {
+  background: rgba(124,62,237,0.22);
+  color: #fff;
+  border-left-color: var(--sb-accent);
+  text-decoration: none;
+}
+.sb-item-icon {
+  font-size: 13px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.12s;
+}
+a.sb-item:hover .sb-item-icon,
+.sb-item:hover .sb-item-icon,
+.sb-item.open .sb-item-icon { color: var(--sb-accent); }
+.sb-item-label { flex: 1; }
+.sb-item-arrow {
+  font-size: 9px;
+  color: rgba(255,255,255,0.3);
+  transition: transform 0.18s ease, color 0.18s;
+}
+.sb-item.open .sb-item-arrow { transform: rotate(90deg); color: rgba(255,255,255,0.6); }
+
+/* ── Submenú ─────────────────────────────────────────────────── */
+.sb-submenu { display: none; background: rgba(0,0,0,0.15); }
+.sb-submenu.open { display: block; }
+
+/* ── Título de sección ───────────────────────────────────────── */
+.sb-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 5px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sb-accent);
+  opacity: 0.85;
+  background: rgba(124,62,237,0.08);
+  margin-top: 4px;
+}
+.sb-section::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: var(--sb-accent);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+.sb-section::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(124,62,237,0.2);
+}
+
+/* ── Ítem de submenú ─────────────────────────────────────────── */
+.sb-sub {
+  display: flex;
+  align-items: center;
+  padding: 6px 16px 6px 32px;
+  color: rgba(255,255,255,0.62);
+  font-size: 11.5px;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+.sb-sub:hover {
+  background: rgba(124,62,237,0.12);
+  color: #fff;
+  border-left-color: var(--sb-accent);
+  text-decoration: none;
+}
+.sb-sub i { display: none; }
+
+/* ── Contador badge ──────────────────────────────────────────── */
+.sb-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  min-width: 20px;
+  text-align: center;
+  transition: color 0.1s, background 0.1s;
+}
+.sb-sub:hover .sb-count {
+  color: #fff;
+  background: var(--sb-accent);
+}
+
+/* ── Footer decorativo ───────────────────────────────────────── */
+.sb-footer {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  color: rgba(255,255,255,0.18);
+  letter-spacing: 0.08em;
+}
+</style>
+
+<!-- side-navbar fragment — cargado dinámicamente por jQuery .load() -->
+
+<!-- Menú -->
+<div class="sb-menu">
+
+  <!-- RECEPCIÓN -->
+  <div class="sb-item" data-sub="sub-recepcion">
+    <i class="sb-item-icon fa fa-plus-circle"></i>
+    <span class="sb-item-label">Recepción</span>
+    <i class="sb-item-arrow fa fa-chevron-right"></i>
+  </div>
+  <div class="sb-submenu" id="sub-recepcion">
+    <a class="sb-sub" href="recepcion.html"><i class="fa fa-caret-right"></i>Nueva recepción</a>
+    <a class="sb-sub" href="etiquetas.html"><i class="fa fa-caret-right"></i>Etiquetas</a>
+    <a class="sb-sub" href="imagenes.html"><i class="fa fa-caret-right"></i>Imágenes</a>
+    <a class="sb-sub" href="activacion.html"><i class="fa fa-caret-right"></i>Activación</a>
+  </div>
+
+  <!-- TRASLADOS -->
+  <div class="sb-item" data-sub="sub-traslados">
+    <i class="sb-item-icon fa fa-motorcycle"></i>
+    <span class="sb-item-label">Traslados</span>
+    <i class="sb-item-arrow fa fa-chevron-right"></i>
+  </div>
+  <div class="sb-submenu" id="sub-traslados">
+    <div class="sb-section">Laboratorio</div>
+    <a class="sb-sub" href="flujos.html?ida=14"><i class="fa fa-caret-right"></i>Lab › Informar<span class="sb-count">1</span></a>
+    <a class="sb-sub" href="flujos.html?ida=40"><i class="fa fa-caret-right"></i>Lab › Colorear<span class="sb-count">15</span></a>
+    <a class="sb-sub" href="flujos.html?ida=102"><i class="fa fa-caret-right"></i>Lab › Revisar<span class="sb-count">4</span></a>
+    <a class="sb-sub" href="flujos.html?ida=120"><i class="fa fa-caret-right"></i>Lab › Archivar<span class="sb-count">68793</span></a>
+    <a class="sb-sub" href="flujos.html?ida=105"><i class="fa fa-caret-right"></i>Lab Ext › Procesar<span class="sb-count">10</span></a>
+    <div class="sb-section">Citotécnicos</div>
+    <a class="sb-sub" href="flujos.html?ida=90"><i class="fa fa-caret-right"></i>Cito › Informar<span class="sb-count">546</span></a>
+    <div class="sb-section">Devolución</div>
+    <a class="sb-sub" href="flujos.html?ida=110"><i class="fa fa-caret-right"></i>Cons › Entregar<span class="sb-count">196</span></a>
+  </div>
+
+  <!-- LABORATORIO -->
+  <div class="sb-item" data-sub="sub-laboratorio">
+    <i class="sb-item-icon fa fa-flask"></i>
+    <span class="sb-item-label">Laboratorio</span>
+    <i class="sb-item-arrow fa fa-chevron-right"></i>
+  </div>
+  <div class="sb-submenu" id="sub-laboratorio">
+    <div class="sb-section">Procesamiento</div>
+    <a class="sb-sub" href="flujos.html?ida=106"><i class="fa fa-caret-right"></i>IHQ › Procesar<span class="sb-count">14</span></a>
+    <a class="sb-sub" href="flujos.html?ida=50"><i class="fa fa-caret-right"></i>Histo › Procesar<span class="sb-count">19</span></a>
+    <a class="sb-sub" href="flujos.html?ida=57"><i class="fa fa-caret-right"></i>Liq › Centrifugar<span class="sb-count">2</span></a>
+    <div class="sb-section">Inclusión</div>
+    <a class="sb-sub" href="flujos.html?ida=60"><i class="fa fa-caret-right"></i>Cassette › Incluir<span class="sb-count">114</span></a>
+    <div class="sb-section">Corte PH</div>
+    <a class="sb-sub" href="flujos.html?ida=70"><i class="fa fa-caret-right"></i>Taco › Cortar<span class="sb-count">31</span></a>
+    <a class="sb-sub" href="flujos.html?ida=104"><i class="fa fa-caret-right"></i>Taco IHQ › Cortar<span class="sb-count">21</span></a>
+    <div class="sb-section">Coloreado</div>
+    <a class="sb-sub" href="flujos.html?ida=80"><i class="fa fa-caret-right"></i>Porta › Colorear<span class="sb-count">774</span></a>
+    <div class="sb-section">Archivo</div>
+    <a class="sb-sub" href="flujos.html?ida=130"><i class="fa fa-caret-right"></i>Porta › Archivar<span class="sb-count">98037</span></a>
+    <a class="sb-sub" href="flujos.html?ida=118"><i class="fa fa-caret-right"></i>Taco › Archivar<span class="sb-count">53492</span></a>
+    <div class="sb-section">Reserva</div>
+    <a class="sb-sub" href="flujos.html?ida=140"><i class="fa fa-caret-right"></i>Reserva › Tirar<span class="sb-count">11</span></a>
+  </div>
+
+  <!-- DIAGNÓSTICOS -->
+  <div class="sb-item" data-sub="sub-diagnosticos">
+    <i class="sb-item-icon fa fa-stethoscope"></i>
+    <span class="sb-item-label">Diagnósticos</span>
+    <i class="sb-item-arrow fa fa-chevron-right"></i>
+  </div>
+  <div class="sb-submenu" id="sub-diagnosticos">
+    <div class="sb-section">Macroscopía</div>
+    <a class="sb-sub" href="flujos.html?ida=20"><i class="fa fa-caret-right"></i>Macro › Informar<span class="sb-count">112</span></a>
+    <div class="sb-section">Microscopía</div>
+    <a class="sb-sub" href="flujos.html?ida=100"><i class="fa fa-caret-right"></i>Micro › Informar<span class="sb-count">1030</span></a>
+    <a class="sb-sub" href="flujos.html?ida=108"><i class="fa fa-caret-right"></i>Micro › Interpretar<span class="sb-count">22</span></a>
+    <a class="sb-sub" href="flujos.html?ida=103"><i class="fa fa-caret-right"></i>Micro › Revisar<span class="sb-count">25</span></a>
+  </div>
+
+</div>
 
 <script>
-// Mostrar nombre del usuario en el sidebar
 (function() {
-    var usuario = sessionStorage.getItem("usuario") || localStorage.getItem("usuario");
-    if (usuario) {
-        var data = JSON.parse(usuario);
-        var elNombre = document.getElementById("sidebar-username");
-        if (elNombre) elNombre.textContent = (data.mail ? data.mail.split("@")[0].toUpperCase() : "USUARIO");
-        var elPerfil = document.getElementById("sidebar-perfil");
-        if (elPerfil) elPerfil.innerHTML = '<i class="far fa-address-card"></i> ' + (data.perfilNombre || "Usuario");
-    }
-})();
+  // Accordion submenús
+  document.querySelectorAll('.sb-item[data-sub]').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var subId = this.getAttribute('data-sub');
+      var sub = document.getElementById(subId);
+      var isOpen = sub.classList.contains('open');
 
-// Manejar menús desplegables del sidebar
-// Se ejecuta directo (sin DOMContentLoaded) porque este script se inyecta dinámicamente con jQuery .load()
-(function() {
-    // Ocultar todos los submenús al inicio
-    document.querySelectorAll('.nav-second-level').forEach(function(sub) {
-        sub.style.display = 'none';
+      document.querySelectorAll('.sb-submenu.open').forEach(function(s) { s.classList.remove('open'); });
+      document.querySelectorAll('.sb-item.open').forEach(function(i) { i.classList.remove('open'); });
+
+      if (!isOpen) {
+        sub.classList.add('open');
+        this.classList.add('open');
+      }
     });
-
-    // Asignar click a cada link con flecha
-    document.querySelectorAll('#side-menu > li > a').forEach(function(link) {
-        var li = link.parentElement;
-        var submenu = li.querySelector('.nav-second-level');
-        if (!submenu) return;
-
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var isOpen = li.classList.contains('open');
-
-            // Cerrar todos los submenús abiertos
-            document.querySelectorAll('#side-menu > li').forEach(function(otherLi) {
-                otherLi.classList.remove('open');
-                var otherSub = otherLi.querySelector('.nav-second-level');
-                if (otherSub) otherSub.style.display = 'none';
-            });
-
-            // Si estaba cerrado, abrirlo
-            if (!isOpen) {
-                li.classList.add('open');
-                submenu.style.display = 'block';
-            }
-        });
-    });
+  });
 })();
 </script>

@@ -1,5 +1,5 @@
 // estudios.js
-// Listado de estudios/protocolos â€” BDD pendiente de conexiÃ³n
+// Listado de estudios/protocolos â?? BDD pendiente de conexiÃ³n
 
 let protocolos = [];
 
@@ -31,19 +31,19 @@ function renderTabla(lista) {
     <tr>
       <td class="estudios-td-check"><input type="checkbox" class="check-protocolo"></td>
       <td class="estudios-td-flujo">
-        <a href="#">${p.flujo || 'â€”'}</a>
+        <a href="#">${p.flujo || 'â??'}</a>
         <div class="estudios-subtexto">${p.tipo || ''}</div>
       </td>
       <td>
-        <div class="estudios-nombre">${p.paciente || 'â€”'}</div>
+        <div class="estudios-nombre">${p.paciente || 'â??'}</div>
         <div class="estudios-subtexto">${p.cobertura || ''}</div>
       </td>
       <td>
-        <div class="estudios-nombre">${p.medico || 'â€”'}</div>
+        <div class="estudios-nombre">${p.medico || 'â??'}</div>
         <div class="estudios-subtexto">${p.ubicacion || ''}</div>
       </td>
-      <td class="estudios-fecha">${p.recoleccion || 'â€”'}</td>
-      <td class="estudios-fecha">${p.entrega || 'â€”'}</td>
+      <td class="estudios-fecha">${p.recoleccion || 'â??'}</td>
+      <td class="estudios-fecha">${p.entrega || 'â??'}</td>
       <td class="text-center">
         <button class="btn btn-xs btn-estudios-ot">
           <i class="far fa-clock"></i> OT

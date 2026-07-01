@@ -41,7 +41,7 @@ function renderTabla(medicos) {
   }
 
   tbody.innerHTML = medicos.map(m => `
-    <tr>
+    <tr style="cursor:pointer" onclick="registrarMedicoHistorial('${(m.apellido||'').replace(/'/g,"\\'")}','${(m.nombre||'').replace(/'/g,"\\'")}')">
       <td class="medicos-td-nombre">${m.apellido || '—'}, ${m.nombre || ''}</td>
       <td class="medicos-td-mat">${m.mn || '—'}</td>
       <td class="medicos-td-mat">${m.mp || '—'}</td>
@@ -62,6 +62,12 @@ function filtrarPorLetra(letra) {
   return todosMedicos.filter(m =>
     (m.apellido || '').toUpperCase().startsWith(letra)
   );
+}
+
+function registrarMedicoHistorial(apellido, nombre) {
+  if (typeof historialAgregar === 'function') {
+    historialAgregar('medicos', { nombre: apellido + ', ' + nombre });
+  }
 }
 
 // Editar médico (placeholder hasta que exista editarMedico.html)

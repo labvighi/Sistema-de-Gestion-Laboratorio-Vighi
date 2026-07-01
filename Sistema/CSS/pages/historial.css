@@ -1,0 +1,218 @@
+:root {
+  --blue:   #291050;
+  --accent: #7c3eed;
+  --slate:  #6b6b8a;
+  --surf:   #f7f4ff;
+  --border: #e5e3ed;
+}
+
+/* Página que ocupa exactamente el alto disponible sin scroll */
+html, body { overflow: hidden !important; height: 100%; }
+
+.his-page {
+  padding: 14px 28px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(100vh - var(--nb-h, 56px));
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── Header compacto ─────────────────────────────────────── */
+.his-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.his-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.his-sep { width: 1px; height: 14px; background: var(--border); }
+.his-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.his-title i { color: var(--accent); font-size: 17px; }
+
+/* ── Card ───────────────────────────────────────────────── */
+.his-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(41,16,80,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Protocolos y cols se reparten el espacio 55/45 */
+.his-page > .his-card {
+  flex: 11;
+  min-height: 0;
+}
+.his-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 9;
+  min-height: 0;
+}
+.his-cols .his-card { flex: 1; }
+
+.his-card-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surf);
+  flex-shrink: 0;
+}
+.his-card-icon { font-size: 11px; color: var(--accent); }
+.his-card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* ── Tabla ───────────────────────────────────────────────── */
+.his-tabla-wrap {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.his-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  margin: 0 !important;
+}
+.his-tabla thead tr { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 1; }
+.his-tabla thead th {
+  padding: 5px 14px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  white-space: nowrap;
+  text-align: left;
+}
+.his-tabla tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+.his-tabla tbody tr:hover { background: var(--surf); }
+.his-tabla tbody tr:last-child { border-bottom: none; }
+.his-tabla td {
+  padding: 5px 14px;
+  font-size: 11px;
+  color: #333;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Protocolo link */
+.his-link-prot {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.his-link-prot:hover { text-decoration: underline; }
+
+/* Médico / Paciente link */
+.his-link {
+  color: var(--accent);
+  font-size: 11px;
+  text-decoration: none;
+}
+.his-link:hover { text-decoration: underline; }
+
+/* ── his-cols: filas que llenan el alto via flex ─────────── */
+.his-cols .his-card .his-tabla {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.his-cols .his-card .his-tabla thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  flex-shrink: 0;
+}
+.his-cols .his-card .his-tabla tbody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.his-cols .his-card .his-tabla tbody tr {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  min-height: 0;
+}
+.his-cols .his-card .his-tabla tbody tr:last-child { border-bottom: none; }
+.his-cols .his-card .his-tabla tbody td {
+  flex: 1;
+  padding: 0 14px;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Fecha */
+.his-td-fecha {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--slate) !important;
+}
+
+/* Tipo badge */
+.his-tipo {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  padding: 0 6px;
+  border-radius: 20px;
+  font-size: 8px;
+  font-weight: 700;
+  background: rgba(124,62,237,0.10);
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+/* Eliminado badge */
+.his-badge-eliminado {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 16px;
+  padding: 0 6px;
+  border-radius: 20px;
+  font-size: 8px;
+  font-weight: 700;
+  background: rgba(220,38,38,0.08);
+  color: #dc2626;
+  border: 1px solid rgba(220,38,38,0.18);
+}
