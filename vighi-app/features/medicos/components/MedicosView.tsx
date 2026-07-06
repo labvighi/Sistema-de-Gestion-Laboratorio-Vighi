@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -36,7 +36,6 @@ export default function MedicosView() {
       />
 
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
-        {/* Filtro alfabético */}
         <div className="px-4 py-3 border-b border-panel bg-surf flex items-center gap-1 flex-wrap">
           <button
             className={`inline-flex items-center justify-center min-w-[28px] h-7 px-2.5 rounded-md font-sans text-[11px] font-semibold cursor-pointer transition-[background,color,border-color] duration-100 border mr-1 ${letra === '' ? 'bg-accent text-white border-accent' : 'bg-white text-vighi border-panel hover:bg-white hover:text-vighi hover:border-panel'}`}
@@ -55,7 +54,6 @@ export default function MedicosView() {
           ))}
         </div>
 
-        {/* Barra contador */}
         <div className="px-5 py-2.5 border-b border-panel flex items-center justify-between">
           {filtered.length > 0 && (
             <span className="font-mono text-[11px] text-slate bg-[rgba(124,62,237,0.08)] px-2.5 py-0.5 rounded-md">
@@ -64,7 +62,6 @@ export default function MedicosView() {
           )}
         </div>
 
-        {/* Tabla */}
         <table className="w-full border-collapse font-sans m-0">
           <thead>
             <tr className="bg-surf border-b-2 border-panel">

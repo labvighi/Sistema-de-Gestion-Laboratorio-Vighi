@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -17,7 +17,6 @@ export default function HistorialView() {
 
   return (
     <div className="p-3.5 px-7 flex flex-col gap-2.5 h-[calc(100vh-56px)] overflow-hidden box-border">
-      {/* Header compacto */}
       <div className="flex items-center gap-2.5 flex-shrink-0">
         <span className="font-mono text-[9px] font-medium text-accent tracking-[0.12em] uppercase">Actividad reciente</span>
         <span className="w-px h-3.5 bg-panel" />
@@ -26,7 +25,6 @@ export default function HistorialView() {
         </h1>
       </div>
 
-      {/* Protocolos */}
       <div className="bg-white border border-panel rounded-[10px] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden flex flex-col min-h-0 flex-[11]">
         <div className="flex items-center gap-1.5 px-4 py-[7px] border-b border-panel bg-surf flex-shrink-0">
           <i className="fas fa-file-alt text-[11px] text-accent"></i>
@@ -78,7 +76,6 @@ export default function HistorialView() {
         </div>
       </div>
 
-      {/* Médicos + Pacientes */}
       <div className="grid grid-cols-2 gap-2.5 flex-[9] min-h-0">
         <div className="bg-white border border-panel rounded-[10px] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden flex flex-col flex-1">
           <div className="flex items-center gap-1.5 px-4 py-[7px] border-b border-panel bg-surf flex-shrink-0">

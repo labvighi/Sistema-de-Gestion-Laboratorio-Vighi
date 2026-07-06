@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import PageHeader from '@/components/ui/PageHeader';
@@ -56,7 +56,6 @@ export default function PacientesView() {
         }
       />
 
-      {/* Búsqueda */}
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] p-5 pb-6 flex items-end gap-0 mb-4 flex-wrap">
         <div className="flex items-end gap-2.5 flex-wrap flex-1">
           <div className="flex flex-col gap-[5px]">
@@ -109,7 +108,6 @@ export default function PacientesView() {
 
         <div className="w-px h-12 bg-panel mx-5 flex-shrink-0 self-center" />
 
-        {/* Por DNI */}
         <div className="flex items-end gap-2.5 flex-wrap flex-[0_0_auto]">
           <div className="flex flex-col gap-[5px]">
             <label className="text-[11px] font-semibold text-vighi tracking-[0.01em]">Por DNI</label>
@@ -133,7 +131,6 @@ export default function PacientesView() {
         </div>
       </div>
 
-      {/* Resultados */}
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
         {resultados === null ? (
           <div className="py-14 px-6 text-center">

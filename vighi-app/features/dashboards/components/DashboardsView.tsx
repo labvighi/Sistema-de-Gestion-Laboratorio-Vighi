@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -69,7 +69,6 @@ export default function DashboardsView() {
 
   return (
     <div className="flex flex-col gap-4 p-7 pb-18">
-      {/* Header */}
       <div className="flex items-end justify-between gap-4 mb-2">
         <div>
           <div className="font-mono text-[9px] font-medium text-accent tracking-[0.12em] uppercase mb-1">Panel de control</div>
@@ -80,7 +79,6 @@ export default function DashboardsView() {
         <div className="font-mono text-[9px] text-slate tracking-[0.08em] pb-1">{timestamp}</div>
       </div>
 
-      {/* Tab bar */}
       <div className="flex items-stretch bg-surf border border-panel rounded-t-[0.75rem] overflow-x-auto">
         {TABS.map(t => (
           <button
@@ -93,10 +91,8 @@ export default function DashboardsView() {
         ))}
       </div>
 
-      {/* Gerencial */}
       {activeTab === 'gerencial' && (
         <div className="flex flex-col gap-0 -mt-4">
-          {/* KPIs */}
           <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="bg-white border border-panel border-t-[3px] border-t-accent rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] px-5 py-4">
               <div className="font-mono text-[9px] font-bold text-accent tracking-[0.12em] uppercase mb-2">Hoy</div>
@@ -126,7 +122,6 @@ export default function DashboardsView() {
             </div>
           </div>
 
-          {/* Filtros + contenido */}
           <div className={FilterBar}>
             <span className="text-[10px] font-bold text-slate uppercase tracking-[0.08em] whitespace-nowrap">Filtros</span>
             <select className={SEL}><option value="">Flujos: todos</option><option>Citología</option><option>Histología</option></select>
@@ -144,7 +139,6 @@ export default function DashboardsView() {
         </div>
       )}
 
-      {/* Macro */}
       {activeTab === 'macro' && (
         <div className="flex flex-col gap-0 -mt-4">
           <div className={FilterBar}>
@@ -158,7 +152,6 @@ export default function DashboardsView() {
         </div>
       )}
 
-      {/* Validación */}
       {activeTab === 'validacion' && (
         <div className="flex flex-col gap-0 -mt-4">
           <div className={FilterBar}>
@@ -172,7 +165,6 @@ export default function DashboardsView() {
         </div>
       )}
 
-      {/* WIP tabs */}
       {Object.entries(WIP_LABELS).map(([id, label]) =>
         activeTab === id ? (
           <div key={id} className="bg-white border border-panel rounded-[0.75rem] -mt-4">

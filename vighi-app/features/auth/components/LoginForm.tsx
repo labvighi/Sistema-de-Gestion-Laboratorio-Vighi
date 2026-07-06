@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
@@ -50,7 +50,6 @@ export default function LoginForm() {
 
   return (
     <div className="flex min-h-screen">
-      {/* Panel branding */}
       <div className="flex-[0_0_440px] bg-vighi flex flex-col justify-between py-[52px] px-12 relative overflow-hidden max-md:hidden">
         <svg className="absolute inset-0 pointer-events-none" viewBox="0 0 440 800" preserveAspectRatio="xMidYMid slice">
           <circle cx="380" cy="120" r="200" fill="rgba(124,62,237,0.08)" />
@@ -81,7 +80,6 @@ export default function LoginForm() {
         </div>
       </div>
 
-      {/* Panel formulario */}
       <div className="flex-1 flex items-center justify-center py-10 px-6 bg-white">
         <div className="w-full max-w-[380px]">
           <div className="font-mono text-[10px] font-medium text-accent tracking-[0.12em] uppercase mb-2.5">Acceso al sistema</div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import PageHeader from '@/components/ui/PageHeader';
@@ -56,7 +56,6 @@ export default function EstudiosView() {
       />
 
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
-        {/* Tab bar */}
         <div className="flex items-stretch border-b border-panel bg-surf overflow-x-auto">
           {TABS.map(t => (
             <button
@@ -70,7 +69,6 @@ export default function EstudiosView() {
           ))}
         </div>
 
-        {/* Filtros */}
         <div className="flex flex-col border-b border-panel">
           <div className="px-4 py-2.5 flex items-center gap-2 flex-wrap">
             <span className="text-[10px] font-bold text-slate uppercase tracking-[0.08em] whitespace-nowrap flex-shrink-0 mr-1">Filtros</span>
@@ -103,7 +101,6 @@ export default function EstudiosView() {
             </button>
           </div>
 
-          {/* Filtros extra */}
           {moreOpen && (
             <div className="px-4 pb-3 flex items-center gap-2 flex-wrap border-t border-panel pt-2.5">
               <select className={SEL} style={{ width: 180 }}><option>Médico</option></select>
@@ -118,7 +115,6 @@ export default function EstudiosView() {
             </div>
           )}
 
-          {/* Bottom bar */}
           <div className="px-4 py-2.5 border-t border-panel flex items-center justify-between">
             <div className="flex items-center gap-2">
               <label className="m-0 cursor-pointer flex items-center gap-1.5 text-[11px] text-slate">
@@ -138,7 +134,6 @@ export default function EstudiosView() {
           </div>
         </div>
 
-        {/* Paneles */}
         {TABS.map(t => (
           activeTab === t.id ? (
             <table key={t.id} className="w-full border-collapse font-sans m-0">

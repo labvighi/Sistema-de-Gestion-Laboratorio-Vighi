@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -42,7 +42,6 @@ export default function SoporteView() {
         }
       />
 
-      {/* Dashboard */}
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
         <div className="px-5 py-3 border-b border-panel bg-surf flex items-center justify-between gap-3">
           <span className="text-[10px] font-bold text-slate uppercase tracking-[0.1em]">Dashboard</span>
@@ -78,7 +77,6 @@ export default function SoporteView() {
         </table>
       </div>
 
-      {/* Tickets */}
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
         <div className="px-5 py-3 border-b border-panel bg-surf flex items-center gap-2 flex-wrap">
           <select className={SEL} style={{ width: 140 }} value={filtrTipo} onChange={e => setFiltrTipo(e.target.value)}>

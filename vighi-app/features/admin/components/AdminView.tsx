@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import PageHeader from '@/components/ui/PageHeader';
@@ -13,7 +13,6 @@ export default function AdminView() {
       />
 
       <div className="grid gap-5" style={{ gridTemplateColumns: '220px 1fr' }}>
-        {/* Sidebar */}
         <div className="flex flex-col gap-3">
           <div className="bg-white border border-panel rounded-[10px] p-[14px]">
             <div className="text-[9px] font-bold text-slate uppercase tracking-[0.1em] mb-2">Ingresos</div>
@@ -38,7 +37,6 @@ export default function AdminView() {
           </div>
         </div>
 
-        {/* Cobros previstos */}
         <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden flex flex-col">
           <div className="px-5 py-3 border-b border-panel bg-surf flex items-center justify-between">
             <span className="text-[13px] font-bold text-vighi">Cobros previstos</span>

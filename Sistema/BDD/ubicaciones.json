@@ -1,7 +1,0 @@
-{
-  "ubicaciones": [
-    { "id": 1, "nombre": "RECEPCION" },
-    { "id": 2, "nombre": "IADT" },
-    { "id": 3, "nombre": "OTAMENDI" }
-  ]
-}

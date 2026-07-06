@@ -1,5 +1,8 @@
 # Claude Code
 .claude/
+CLAUDE.md
+vighi-app/CLAUDE.md
+vighi-app/AGENTS.md
 
 # Node / Next.js (vighi-app)
 node_modules/

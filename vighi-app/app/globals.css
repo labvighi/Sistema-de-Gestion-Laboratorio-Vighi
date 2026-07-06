@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import 'tailwindcss';
 
-/* ── Design tokens (Tailwind v4 theme) ─────────────────────── */
 @theme {
   --color-vighi:   #291050;
   --color-accent:  #7c3eed;
@@ -15,7 +14,6 @@
   --radius-card: 0.75rem;
 }
 
-/* ── CSS variables (para compatibilidad con componentes en transición) ── */
 :root {
   --blue:    #291050;
   --accent:  #7c3eed;
@@ -28,10 +26,10 @@
 }
 
 /*
- * Reglas propias en @layer base/components: Tailwind v4 usa CSS Cascade Layers.
- * Cualquier regla FUERA de un @layer tiene prioridad absoluta sobre las utilidades
- * de Tailwind (que viven en @layer utilities), sin importar especificidad — esto
- * pisaba clases como ml-auto, gap-*, px-* en toda la app. Todo debe ir en @layer.
+ * Tailwind v4 usa CSS Cascade Layers. Cualquier regla propia FUERA de un @layer
+ * tiene prioridad absoluta sobre las utilidades de Tailwind (@layer utilities),
+ * sin importar especificidad, y pisaba clases como ml-auto, gap-*, px-*. Por eso
+ * todo el CSS propio va dentro de @layer base/components.
  */
 @layer base {
   *, *::before, *::after { box-sizing: border-box; padding: 0; margin: 0; }
@@ -57,7 +55,6 @@
 }
 
 @layer components {
-  /* ── App shell ───────────────────────────────────────────── */
   .app-main {
     margin-top: var(--nb-h);
     padding: 24px;
@@ -69,7 +66,6 @@
     margin-left: var(--sb-w);
   }
 
-  /* ── Shared button styles ───────────────────────────────────── */
   .btn-primary {
     display: inline-flex;
     align-items: center;

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -55,7 +55,6 @@ export default function UsuariosView() {
       />
 
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
-        {/* Filtros */}
         <div className="py-3.5 px-5 border-b border-panel bg-surf flex items-center gap-3 flex-wrap">
           <span className="text-[10px] font-bold text-slate uppercase tracking-[0.08em] whitespace-nowrap flex-shrink-0">Filtrar</span>
           <select
@@ -78,7 +77,6 @@ export default function UsuariosView() {
           />
         </div>
 
-        {/* Barra contador */}
         <div className="px-5 py-2.5 border-b border-panel flex items-center justify-end">
           {filtered.length > 0 && (
             <span className="font-mono text-[11px] text-slate bg-[rgba(124,62,237,0.08)] px-2.5 py-0.5 rounded-md">
@@ -87,7 +85,6 @@ export default function UsuariosView() {
           )}
         </div>
 
-        {/* Tabla */}
         <table className="w-full border-collapse font-sans m-0">
           <thead>
             <tr className="bg-surf border-b-2 border-panel">

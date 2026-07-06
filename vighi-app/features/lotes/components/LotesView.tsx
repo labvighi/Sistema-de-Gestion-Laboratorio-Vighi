@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import PageHeader from '@/components/ui/PageHeader';
@@ -41,7 +41,6 @@ export default function LotesView() {
         }
       />
 
-      {/* Lotes activos */}
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
         <div className="px-5 py-3 border-b border-panel bg-surf flex items-center justify-between">
           <span className="text-[10px] font-bold text-slate uppercase tracking-[0.1em]">Lotes activos</span>
@@ -72,7 +71,6 @@ export default function LotesView() {
         </table>
       </div>
 
-      {/* Histórico */}
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
         <div className="px-5 py-3 border-b border-panel bg-surf flex items-center gap-2 flex-wrap">
           <span className="text-[10px] font-bold text-slate uppercase tracking-[0.08em] whitespace-nowrap flex-shrink-0">Filtrar</span>

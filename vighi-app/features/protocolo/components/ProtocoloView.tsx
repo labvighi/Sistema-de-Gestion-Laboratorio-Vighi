@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -91,8 +91,7 @@ type FTab = 'eventos' | 'presupuestos' | 'informes' | 'eliminar';
 
 interface Props { id: string; }
 
-// Shared class snippets
-const CARD = "bg-white border border-panel rounded-[12px] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden";
+const CARD ="bg-white border border-panel rounded-[12px] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden";
 const INFO_LABEL = "text-[10px] font-bold text-slate uppercase tracking-[0.08em] flex items-center gap-1.5 mb-1.5";
 const INFO_VALOR = "text-[13px] font-bold text-vighi";
 const INFO_SUB = "text-[11px] text-slate mt-0.5";
@@ -117,7 +116,6 @@ export default function ProtocoloView({ id }: Props) {
   return (
     <div className="flex flex-col gap-4 p-7 pb-18">
 
-      {/* ── Card 1: Cabecera ── */}
       <div className={CARD}>
         <div className={`flex items-center justify-between gap-4 px-5 py-3.5 border-b border-panel ${prot.urgente ? 'border-t-[3px] border-t-[#ef4444]' : ''}`}>
           <div className="flex items-center gap-2.5">
@@ -148,7 +146,6 @@ export default function ProtocoloView({ id }: Props) {
         </div>
 
         <div className="grid grid-cols-4 divide-x divide-panel">
-          {/* Paciente */}
           <div className="px-5 py-4">
             <div className={INFO_LABEL}><i className="fas fa-id-card"></i> Paciente <i className="far fa-edit text-accent cursor-pointer ml-auto opacity-60 hover:opacity-100"></i></div>
             <div className={`${INFO_VALOR} ${INFO_LINK}`}>{prot.paciente}</div>
@@ -160,19 +157,16 @@ export default function ProtocoloView({ id }: Props) {
               </div>
             )}
           </div>
-          {/* Médico */}
           <div className="px-5 py-4">
             <div className={INFO_LABEL}><i className="fas fa-user-md"></i> Médico</div>
             <div className={`${INFO_VALOR} ${INFO_LINK}`}>{prot.medico}</div>
             <div className={`${INFO_SUB} ${INFO_LINK}`}>{prot.procedencia}</div>
           </div>
-          {/* Recorrido */}
           <div className="px-5 py-4">
             <div className={INFO_LABEL}><i className="fas fa-truck"></i> Recorrido</div>
             <div className={`${INFO_VALOR} ${INFO_LINK}`}>{prot.procedencia}</div>
             <div className={INFO_SUB}>LU (M), MA (M), MI (M), JU (M), VI (M)</div>
           </div>
-          {/* Lote */}
           <div className="px-5 py-4">
             <div className={INFO_LABEL}><i className="fas fa-th-large"></i> Lote</div>
             {prot.lote && <div className={INFO_SUB}>{prot.lote}</div>}
@@ -181,7 +175,6 @@ export default function ProtocoloView({ id }: Props) {
         </div>
       </div>
 
-      {/* ── Card 2: Estudios ── */}
       <div className={CARD}>
         <div className="px-5 py-3 border-b border-panel bg-surf flex items-center justify-between gap-3">
           <span className="text-[13px] font-bold text-vighi">Estudios (QR)</span>
@@ -233,9 +226,7 @@ export default function ProtocoloView({ id }: Props) {
         </div>
       </div>
 
-      {/* ── Row: Archivos | Tareas | Comentarios ── */}
       <div className="grid grid-cols-3 gap-4">
-        {/* Archivos */}
         <div className={CARD}>
           <div className="px-4 py-3 border-b border-panel bg-surf text-[12px] font-bold text-vighi">
             <i className="fas fa-folder-open text-accent mr-1.5"></i> Archivos
@@ -269,7 +260,6 @@ export default function ProtocoloView({ id }: Props) {
           </div>
         </div>
 
-        {/* Tareas */}
         <div className={CARD}>
           <div className="px-4 py-3 border-b border-panel bg-surf text-[12px] font-bold text-vighi">
             <i className="fas fa-list text-accent mr-1.5"></i> Tareas
@@ -308,7 +298,6 @@ export default function ProtocoloView({ id }: Props) {
           </div>
         </div>
 
-        {/* Comentarios */}
         <div className={CARD}>
           <div className="px-4 py-3 border-b border-panel bg-surf text-[12px] font-bold text-vighi">
             <i className="fas fa-comments text-accent mr-1.5"></i> Comentarios
@@ -330,7 +319,6 @@ export default function ProtocoloView({ id }: Props) {
         </div>
       </div>
 
-      {/* ── Footer tabs ── */}
       <div className={CARD}>
         <div className="flex items-stretch bg-surf border-b border-panel overflow-x-auto">
           {(['eventos','presupuestos','informes','eliminar'] as FTab[]).map(tab => (
@@ -344,12 +332,10 @@ export default function ProtocoloView({ id }: Props) {
           ))}
         </div>
 
-        {/* Eventos */}
         {ftab === 'eventos' && (
           <div className="px-5 py-4 text-[12px] text-slate">No hay eventos registrados.</div>
         )}
 
-        {/* Presupuestos */}
         {ftab === 'presupuestos' && (
           <div className="p-4">
             <table className="w-full border-collapse m-0 text-[11px]">
@@ -387,7 +373,6 @@ export default function ProtocoloView({ id }: Props) {
           </div>
         )}
 
-        {/* Informes */}
         {ftab === 'informes' && (
           <div className="p-4">
             <table className="w-full border-collapse m-0 text-[11px]">
@@ -426,7 +411,6 @@ export default function ProtocoloView({ id }: Props) {
           </div>
         )}
 
-        {/* Eliminar */}
         {ftab === 'eliminar' && (
           <div className="p-4">
             <div className="bg-[rgba(239,68,68,0.06)] border border-[rgba(239,68,68,0.2)] rounded-[10px] px-5 py-4 flex items-center gap-4">

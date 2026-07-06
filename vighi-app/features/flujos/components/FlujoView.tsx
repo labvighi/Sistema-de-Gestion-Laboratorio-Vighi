@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -43,7 +43,6 @@ export default function FlujoView() {
 
   return (
     <div className="flex flex-col gap-4 p-7 pb-18">
-      {/* Header */}
       <div className="flex items-start justify-between gap-4 mb-1">
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center gap-1.5 text-[11px] text-slate mb-0.5">
@@ -77,7 +76,6 @@ export default function FlujoView() {
       </div>
 
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
-        {/* Status bar */}
         <div className="px-4 py-3 border-b border-panel bg-surf flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-1.5 flex-wrap">
             {([
@@ -126,7 +124,6 @@ export default function FlujoView() {
           </div>
         </div>
 
-        {/* Filtros */}
         <div className="flex flex-col border-b border-panel">
           <div className="px-4 py-2.5 flex items-center gap-2 flex-wrap">
             <select className={SEL} style={{ width: 55 }}>
@@ -169,7 +166,6 @@ export default function FlujoView() {
           )}
         </div>
 
-        {/* Contenido */}
         <div className="p-8">
           <div className="flex flex-col items-center justify-center gap-2 py-10 text-center">
             <div className="w-8 h-8 rounded-[8px] bg-surf flex items-center justify-center text-[16px] text-[rgba(124,62,237,0.35)]">

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -149,7 +149,6 @@ export default function SideNavbar({ open }: Props) {
       className={`fixed top-14 left-0 bottom-0 w-[210px] border-r border-[rgba(124,62,237,0.15)] flex flex-col z-[1000] font-sans overflow-hidden transition-transform duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] ${open ? 'translate-x-0' : '-translate-x-full'}`}
       style={{ background: 'linear-gradient(180deg, #1f0c42 0%, #291050 60%)' }}
     >
-      {/* Menu scroll area */}
       <div className="flex-1 overflow-y-auto overflow-x-hidden py-2 pb-6 [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.08)_transparent] [&::-webkit-scrollbar]:w-[3px] [&::-webkit-scrollbar-thumb]:bg-[rgba(255,255,255,0.1)] [&::-webkit-scrollbar-thumb]:rounded">
         {MENU.map(group => {
           const isOpen = openGroup === group.id;
@@ -180,7 +179,6 @@ export default function SideNavbar({ open }: Props) {
 
               {hasAccordion && isOpen && (
                 <div className="bg-[rgba(0,0,0,0.15)]">
-                  {/* Ítems planos */}
                   {group.items?.map(item => (
                     <Link
                       key={item.href}
@@ -195,7 +193,6 @@ export default function SideNavbar({ open }: Props) {
                       )}
                     </Link>
                   ))}
-                  {/* Secciones con título */}
                   {group.sections?.map(sec => (
                     <div key={sec.title}>
                       <div className="flex items-center gap-2 py-2 px-4 pl-5 font-mono text-[9px] font-bold tracking-[0.12em] uppercase text-accent opacity-85 bg-[rgba(124,62,237,0.08)] mt-1 before:content-[''] before:block before:w-3.5 before:h-px before:bg-accent before:opacity-50 before:flex-shrink-0 after:content-[''] after:flex-1 after:h-px after:bg-[rgba(124,62,237,0.2)]">

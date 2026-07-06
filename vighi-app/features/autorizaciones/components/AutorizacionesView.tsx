@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import PageHeader from '@/components/ui/PageHeader';
@@ -41,7 +41,6 @@ export default function AutorizacionesView() {
       />
 
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
-        {/* Fila filtros 1 */}
         <div className="px-5 py-3 border-b border-panel bg-surf flex items-center gap-2 flex-wrap">
           <select className={SEL} style={{ width: 70 }}>
             {[2024,2025,2026].map(y => <option key={y}>{y}</option>)}
@@ -53,7 +52,6 @@ export default function AutorizacionesView() {
             <option value="">[ Día: todos ]</option>
           </select>
         </div>
-        {/* Fila filtros 2 */}
         <div className="px-5 py-3 border-b-2 border-panel bg-surf flex items-center gap-2 flex-wrap">
           <select className={SEL} style={{ width: 180 }}><option value="">[ Cobertura: todas ]</option></select>
           <select className={SEL} style={{ width: 160 }}>

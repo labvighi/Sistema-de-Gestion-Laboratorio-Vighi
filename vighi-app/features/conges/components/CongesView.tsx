@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -47,7 +47,6 @@ export default function CongesView() {
       />
 
       <div className="bg-white border border-panel rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] overflow-hidden">
-        {/* Tab bar */}
         <div className="flex items-stretch border-b border-panel bg-surf overflow-x-auto">
           {TABS.map(t => (
             <button
@@ -60,7 +59,6 @@ export default function CongesView() {
           ))}
         </div>
 
-        {/* Filtros compartidos (Tablero + Agenda) */}
         {(activeTab === 'tablero' || activeTab === 'agenda') && (
           <div className="px-5 py-3.5 border-b border-panel bg-surf flex flex-col gap-2.5">
             <div className="flex items-end gap-3 flex-wrap">
@@ -102,7 +100,6 @@ export default function CongesView() {
           </div>
         )}
 
-        {/* ── TABLERO ── */}
         {activeTab === 'tablero' && (
           <table className="w-full border-collapse font-sans m-0">
             <thead>
@@ -123,7 +120,6 @@ export default function CongesView() {
           </table>
         )}
 
-        {/* ── AGENDA ── */}
         {activeTab === 'agenda' && (
           <>
             <div className="px-5 py-3 border-t border-panel bg-surf flex flex-col gap-2.5">
@@ -149,10 +145,8 @@ export default function CongesView() {
           </>
         )}
 
-        {/* ── DASHBOARD ── */}
         {activeTab === 'dashboard' && <Wip text="Dashboard de congelaciones" />}
 
-        {/* ── AGENDA PATÓLOGO ── */}
         {activeTab === 'patologo' && <Wip text="Agenda de patólogo" />}
       </div>
     </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -48,7 +48,6 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
 
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-white border-b border-panel shadow-[0_1px_4px_rgba(41,16,80,0.06)] flex items-center z-[1030] font-sans before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-0.5 before:bg-gradient-to-r before:from-accent before:to-[#a855f7] before:pointer-events-none">
-      {/* Logo / menu toggle */}
       <button
         className="flex-shrink-0 flex items-center h-full border-r border-panel gap-2.5 w-[210px] px-4 cursor-pointer select-none transition-colors duration-[0.12s] bg-transparent border-t-0 border-b-0 border-l-0 no-underline hover:bg-surf group"
         onClick={onToggleSidebar}
@@ -62,7 +61,6 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
         </div>
       </button>
 
-      {/* Search */}
       <div className="flex items-center ml-3 border border-panel rounded-lg bg-surf overflow-hidden transition-[border-color,box-shadow] duration-150 focus-within:border-accent focus-within:shadow-[0_0_0_3px_rgba(124,62,237,0.10)]">
         <input
           className="w-[120px] h-8 px-2 border-none bg-transparent font-sans text-[12px] text-vighi outline-none transition-[width] duration-200 placeholder:text-[#bbb] focus:w-[190px]"
@@ -75,7 +73,6 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
         </button>
       </div>
 
-      {/* Actions */}
       <div className="flex items-center gap-0.5 ml-2">
         <Link href="/tareas" className="inline-flex items-center gap-1 h-[30px] px-2.5 border-none rounded-md bg-none font-sans text-[12px] font-medium text-slate no-underline whitespace-nowrap transition-[background,color] duration-[0.12s] hover:bg-surf hover:text-vighi">
           <i className="fa fa-comment-dots"></i> Tareas
@@ -85,10 +82,8 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
         </Link>
       </div>
 
-      {/* Sep */}
       <div className="w-px h-[18px] bg-panel mx-1.5 flex-shrink-0" />
 
-      {/* Mods */}
       <div className="flex items-center gap-px ml-auto pr-3">
         {MODS.map(m => (
           <Link key={m.href} href={m.href}
@@ -97,7 +92,6 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
           </Link>
         ))}
 
-        {/* Agenda dropdown */}
         <div className="relative">
           <button
             className="inline-flex items-center gap-1 h-[30px] px-2.5 rounded-md font-sans text-[12px] font-semibold text-slate whitespace-nowrap transition-[background,color] duration-[0.12s] hover:bg-surf hover:text-vighi"
@@ -127,10 +121,8 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
           <i className="fas fa-life-ring"></i> Soporte
         </Link>
 
-        {/* Sep */}
         <div className="w-px h-[18px] bg-panel mx-1.5 flex-shrink-0" />
 
-        {/* User dropdown */}
         <div className="relative">
           <button
             className="w-[30px] h-[30px] rounded-full bg-accent text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 ml-1.5 tracking-[0.02em] cursor-pointer select-none border-none transition-shadow duration-150 hover:shadow-[0_0_0_3px_rgba(124,62,237,0.25)]"
