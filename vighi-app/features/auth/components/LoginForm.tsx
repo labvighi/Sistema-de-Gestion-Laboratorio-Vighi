@@ -46,7 +46,7 @@ export default function LoginForm() {
 
     setToast({ message: `¡Bienvenido, ${usuario.perfilNombre}!`, type: 'success' });
     login({ mail: usuario.mail, perfilNombre: usuario.perfilNombre });
-    setTimeout(() => router.push('/dashboards'), 400);
+    setTimeout(() => router.push('/dashboards'), 1500);
   }
 
   return (
