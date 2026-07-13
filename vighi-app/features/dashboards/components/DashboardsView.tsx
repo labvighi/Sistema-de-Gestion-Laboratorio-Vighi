@@ -79,7 +79,7 @@ export default function DashboardsView() {
         <div className="font-mono text-[9px] text-slate tracking-[0.08em] pb-1">{timestamp}</div>
       </div>
 
-      <div className="flex items-stretch bg-surf border border-panel rounded-t-[0.75rem] overflow-x-auto">
+      <div className="flex items-stretch bg-surf border border-panel rounded-[0.75rem] overflow-x-auto">
         {TABS.map(t => (
           <button
             key={t.id}
@@ -92,7 +92,7 @@ export default function DashboardsView() {
       </div>
 
       {activeTab === 'gerencial' && (
-        <div className="flex flex-col gap-0 -mt-4">
+        <div className="flex flex-col gap-0">
           <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="bg-white border border-panel border-t-[3px] border-t-accent rounded-[0.75rem] shadow-[0_2px_8px_rgba(41,16,80,0.05)] px-5 py-4">
               <div className="font-mono text-[9px] font-bold text-accent tracking-[0.12em] uppercase mb-2">Hoy</div>
@@ -140,7 +140,7 @@ export default function DashboardsView() {
       )}
 
       {activeTab === 'macro' && (
-        <div className="flex flex-col gap-0 -mt-4">
+        <div className="flex flex-col gap-0">
           <div className={FilterBar}>
             <select className={SEL}><option value="">[ Año: todos ]</option></select>
             <select className={SEL}><option value="">[ Mes: todos ]</option></select>
@@ -153,7 +153,7 @@ export default function DashboardsView() {
       )}
 
       {activeTab === 'validacion' && (
-        <div className="flex flex-col gap-0 -mt-4">
+        <div className="flex flex-col gap-0">
           <div className={FilterBar}>
             <span className="text-[10px] font-bold text-slate uppercase tracking-[0.08em] whitespace-nowrap">Período</span>
             <select className={SEL}><option>2026</option><option>2025</option><option>2024</option></select>
@@ -167,7 +167,7 @@ export default function DashboardsView() {
 
       {Object.entries(WIP_LABELS).map(([id, label]) =>
         activeTab === id ? (
-          <div key={id} className="bg-white border border-panel rounded-[0.75rem] -mt-4">
+          <div key={id} className="bg-white border border-panel rounded-[0.75rem]">
             <WipPane label={label} />
           </div>
         ) : null

@@ -56,7 +56,7 @@ export default function LotesView() {
           <tbody>
             {LOTES_ACTIVOS.map(l => (
               <tr key={l.tipo} className="hover:bg-surf transition-colors border-b border-panel">
-                <td className="px-5 py-2.5 text-[12px] text-[#333] align-middle font-mono text-[10px] font-bold text-slate tracking-[0.08em] bg-surf border-r-2 border-panel w-[90px]">{l.tipo}</td>
+                <td className="px-5 py-2.5 text-[12px] text-[#333] align-middle font-mono text-[10px] font-bold text-slate tracking-[0.08em] bg-surf border-r-2 border-panel w-[110px] whitespace-nowrap">{l.tipo}</td>
                 <td className="px-5 py-2.5 text-[12px] text-[#333] align-middle">
                   <a href="#" className="text-vighi font-semibold no-underline text-[12px] hover:text-accent hover:underline">{l.lote} ({l.cantidad})</a>
                 </td>
@@ -94,13 +94,13 @@ export default function LotesView() {
           <select className="h-[30px] px-2 text-[11px] rounded-md border border-panel bg-white text-vighi font-sans outline-none focus:border-accent focus:ring-2 focus:ring-accent/10" style={{ width: 160 }}><option>[ Actividad: todas ]</option></select>
         </div>
 
-        <div className="px-5 py-2.5 border-b border-panel flex items-center justify-end">
-          {lotes.length > 0 && (
+        {lotes.length > 0 && (
+          <div className="px-5 py-2.5 border-b border-panel flex items-center justify-end">
             <span className="font-mono text-[11px] text-slate bg-[rgba(124,62,237,0.08)] px-2.5 py-0.5 rounded-md">
               {lotes.length} lote{lotes.length !== 1 ? 's' : ''}
             </span>
-          )}
-        </div>
+          </div>
+        )}
 
         <table className="w-full border-collapse font-sans m-0">
           <thead>

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from '@/features/auth/store';
+import Toast, { ToastType } from '@/components/ui/Toast';
 
 // BDD: reemplazar por llamada a API
 const USUARIOS_MOCK = [
@@ -25,11 +26,10 @@ export default function LoginForm() {
   const [mail, setMail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [toast, setToast] = useState<{ message: string; type: ToastType } | null>(null);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setError('');
     setLoading(true);
 
     await new Promise(r => setTimeout(r, 400)); // BDD: fetch real
@@ -39,17 +39,20 @@ export default function LoginForm() {
     );
 
     if (!usuario) {
-      setError('Credenciales incorrectas. Verificá tu e-mail y contraseña.');
+      setToast({ message: 'Credenciales incorrectas. Verificá tu e-mail y contraseña.', type: 'error' });
       setLoading(false);
       return;
     }
 
+    setToast({ message: `¡Bienvenido, ${usuario.perfilNombre}!`, type: 'success' });
     login({ mail: usuario.mail, perfilNombre: usuario.perfilNombre });
-    router.push('/recepcion');
+    setTimeout(() => router.push('/dashboards'), 400);
   }
 
   return (
     <div className="flex min-h-screen">
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
+
       <div className="flex-[0_0_440px] bg-vighi flex flex-col justify-between py-[52px] px-12 relative overflow-hidden max-md:hidden">
         <svg className="absolute inset-0 pointer-events-none" viewBox="0 0 440 800" preserveAspectRatio="xMidYMid slice">
           <circle cx="380" cy="120" r="200" fill="rgba(124,62,237,0.08)" />
@@ -88,9 +91,6 @@ export default function LoginForm() {
             Ingresá con tu cuenta institucional para continuar.
           </div>
           <form onSubmit={handleSubmit} noValidate>
-            {error && (
-              <div className="text-[13px] rounded-lg px-3.5 py-2.5 mb-4 bg-[#fff0f0] border border-[#fcc] text-[#c0392b]">{error}</div>
-            )}
             <div className="mb-[18px]">
               <label htmlFor="mail" className="block text-[12px] font-semibold text-vighi mb-1.5 tracking-[0.01em]">E-mail</label>
               <input
