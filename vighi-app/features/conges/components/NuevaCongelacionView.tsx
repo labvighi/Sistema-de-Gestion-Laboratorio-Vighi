@@ -1,10 +1,31 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 const INPUT = "w-full h-[34px] px-2.5 text-[12px] rounded-[7px] border border-panel text-vighi font-sans outline-none focus:border-accent focus:ring-2 focus:ring-accent/10";
+const SELECT = `${INPUT} pr-6`;
+
+function turnoDeHora(horaStr: string) {
+  const [h, m] = horaStr.split(':').map(Number);
+  const mins = h * 60 + m;
+  if (mins <= 12 * 60) return 'Mañana';
+  if (mins <= 16 * 60) return 'Mediodía';
+  if (mins <= 20 * 60) return 'Tarde';
+  return 'Noche';
+}
+
+function generarHoras() {
+  const horas: string[] = [];
+  for (let h = 6; h <= 23; h++) {
+    horas.push(`${String(h).padStart(2, '0')}:00`);
+    horas.push(`${String(h).padStart(2, '0')}:30`);
+  }
+  return horas;
+}
+
+const HORAS = generarHoras();
 
 function Toggle({ options, value, onChange }: { options: { valor: string; label: string; icon: string }[]; value: string; onChange: (v: string) => void }) {
   return (
@@ -13,10 +34,10 @@ function Toggle({ options, value, onChange }: { options: { valor: string; label:
         <button
           key={o.valor}
           type="button"
-          className={`inline-flex items-center gap-1.5 h-8 px-3.5 rounded-lg text-[12px] font-semibold border transition-colors duration-[0.12s] ${value === o.valor ? 'bg-accent text-white border-accent' : 'bg-white text-slate border-panel hover:border-accent hover:text-accent'}`}
+          className={`inline-flex items-center justify-center gap-1.5 h-8 px-3.5 rounded-lg text-[12px] font-semibold border transition-colors duration-[0.12s] ${value === o.valor ? 'bg-accent text-white border-accent' : 'bg-white text-slate border-panel hover:border-accent hover:text-accent'}`}
           onClick={() => onChange(o.valor)}
         >
-          <i className={o.icon}></i> {o.label}
+          {o.icon && <i className={o.icon}></i>} {o.label}
         </button>
       ))}
     </div>
@@ -25,10 +46,13 @@ function Toggle({ options, value, onChange }: { options: { valor: string; label:
 
 export default function NuevaCongelacionView() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const fechaParam = searchParams.get('fecha');
   const [estado, setEstado] = useState('Agendada');
   const [tipo, setTipo] = useState('GI');
   const [ubicacion, setUbicacion] = useState('');
-  const [hora, setHora] = useState('');
+  const [hora, setHora] = useState(HORAS[0]);
+  const turno = turnoDeHora(hora);
   const [patologo, setPatologo] = useState('');
   const [medico, setMedico] = useState('');
   const [material, setMaterial] = useState('');
@@ -36,7 +60,8 @@ export default function NuevaCongelacionView() {
   const [dni, setDni] = useState('');
   const [guardando, setGuardando] = useState(false);
 
-  const fechaTexto = new Date().toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const fecha = fechaParam ? new Date(`${fechaParam}T00:00:00`) : new Date();
+  const fechaTexto = fecha.toLocaleDateString('es-AR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
   function handleAsignar() {
     setGuardando(true);
@@ -90,25 +115,25 @@ export default function NuevaCongelacionView() {
           </div>
 
           <div className="flex gap-3 flex-wrap">
-            <div className="flex flex-col gap-1 flex-1 min-w-[160px]">
+            <div className="flex flex-col gap-1 flex-1 min-w-[220px]">
               <label className="text-[10px] font-bold text-slate uppercase tracking-[0.07em]">Ubicación</label>
-              <select className={INPUT} value={ubicacion} onChange={e => setUbicacion(e.target.value)}>
+              <select className={SELECT} value={ubicacion} onChange={e => setUbicacion(e.target.value)}>
                 <option value="">Seleccioná una ubicación...</option>
               </select>
             </div>
             <div className="flex flex-col gap-1" style={{ width: 110 }}>
               <label className="text-[10px] font-bold text-slate uppercase tracking-[0.07em]">Turno</label>
-              <div className={`${INPUT} flex items-center bg-surf text-slate`}>Mañana</div>
+              <div className={`${INPUT} flex items-center bg-surf text-slate`}>{turno}</div>
             </div>
             <div className="flex flex-col gap-1" style={{ width: 110 }}>
               <label className="text-[10px] font-bold text-slate uppercase tracking-[0.07em]">Hora</label>
-              <select className={INPUT} value={hora} onChange={e => setHora(e.target.value)}>
-                <option value="">--:--</option>
+              <select className={SELECT} value={hora} onChange={e => setHora(e.target.value)}>
+                {HORAS.map(h => <option key={h} value={h}>{h}</option>)}
               </select>
             </div>
             <div className="flex flex-col gap-1 flex-[1.5] min-w-[200px]">
               <label className="text-[10px] font-bold text-slate uppercase tracking-[0.07em]">Patólogo</label>
-              <select className={INPUT} value={patologo} onChange={e => setPatologo(e.target.value)}>
+              <select className={SELECT} value={patologo} onChange={e => setPatologo(e.target.value)}>
                 <option value="">[ Seleccionar ]</option>
                 <option>VEGA, Patricia</option>
               </select>
@@ -133,7 +158,7 @@ export default function NuevaCongelacionView() {
 
           <div>
             <label className="block text-[10px] font-bold text-slate uppercase tracking-[0.07em] mb-1.5">Cobertura</label>
-            <select className={INPUT} style={{ maxWidth: 260 }} value={cobertura} onChange={e => setCobertura(e.target.value)}>
+            <select className={SELECT} style={{ maxWidth: 260 }} value={cobertura} onChange={e => setCobertura(e.target.value)}>
               <option value="particular">[ particular ]</option>
             </select>
           </div>

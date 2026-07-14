@@ -121,6 +121,10 @@ export default function Navbar({ onToggleSidebar }: NavbarProps) {
           <i className="fas fa-life-ring"></i> Soporte
         </Link>
 
+        <Link href="/configuraciones" className={`inline-flex items-center justify-center w-[30px] h-[30px] rounded-md font-sans text-[13px] no-underline transition-[background,color] duration-[0.12s] ${pathname.startsWith('/configuraciones') ? 'bg-surf text-accent' : 'text-slate hover:bg-surf hover:text-vighi'}`} title="Configuraciones">
+          <i className="fas fa-gear"></i>
+        </Link>
+
         <div className="w-px h-[18px] bg-panel mx-1.5 flex-shrink-0" />
 
         <div className="relative">
