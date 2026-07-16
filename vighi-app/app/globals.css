@@ -95,3 +95,15 @@
   }
   .btn-primary:hover { background: var(--blue); }
 }
+
+@media print {
+  html, body, .app-main {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+}
+
+@page {
+  size: 210mm auto;
+  margin: 0;
+}

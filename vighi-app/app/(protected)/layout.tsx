@@ -10,9 +10,11 @@ export default function ProtectedLayout({ children }: { children: React.ReactNod
 
   return (
     <AuthGuard>
-      <Navbar onToggleSidebar={() => setSidebarOpen(o => !o)} />
-      <SideNavbar open={sidebarOpen} />
-      <main className={`app-main${sidebarOpen ? ' sb-open' : ''}`}>
+      <div className="print:hidden">
+        <Navbar onToggleSidebar={() => setSidebarOpen(o => !o)} />
+        <SideNavbar open={sidebarOpen} />
+      </div>
+      <main className={`app-main print:m-0 print:p-0 print:min-h-0${sidebarOpen ? ' sb-open' : ''}`}>
         {children}
       </main>
     </AuthGuard>

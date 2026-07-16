@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import PageHeader from '@/components/ui/PageHeader';
 
 interface Item {
   label: string;
   icon: string;
+  href?: string;
 }
 
 interface Grupo {
@@ -28,7 +30,7 @@ const USUARIOS: Grupo = {
 const INSUMOS: Grupo = {
   titulo: 'Insumos',
   icon: 'fas fa-flask',
-  items: [{ label: 'Insumos', icon: 'fas fa-flask' }],
+  items: [{ label: 'Insumos', icon: 'fas fa-flask', href: '/insumos' }],
 };
 
 const RECORRIDOS: Grupo = {
@@ -62,15 +64,6 @@ const TEMPLATES: Grupo = {
   ],
 };
 
-const INTEGRACIONES: Grupo = {
-  titulo: 'Integraciones',
-  icon: 'fas fa-plug',
-  items: [
-    { label: 'IADT', icon: 'fas fa-wifi' },
-    { label: 'Reporte ejecutivo', icon: 'fas fa-download' },
-  ],
-};
-
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const ANIOS = ['2024', '2025', '2026'];
 const SEL = "h-8 px-2 pr-5 text-[11px] rounded-md border border-panel bg-white text-vighi font-sans outline-none focus:border-accent focus:ring-2 focus:ring-accent/10";
@@ -87,16 +80,21 @@ function GrupoCard({ grupo }: { grupo: Grupo }) {
         <div className="text-[14px] font-bold text-vighi tracking-[-0.01em]">{grupo.titulo}</div>
       </div>
       <div className="flex flex-col gap-0.5 px-3 pb-3">
-        {grupo.items.map(item => (
-          <button
-            key={item.label}
-            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12.5px] font-medium text-vighi transition-colors duration-[0.12s] hover:bg-surf hover:text-accent text-left"
-          >
-            <i className={`${item.icon} text-[11px] text-slate w-[14px] text-center`}></i>
-            <span className="flex-1">{item.label}</span>
-            <i className="fas fa-chevron-right text-[9px] text-panel"></i>
-          </button>
-        ))}
+        {grupo.items.map(item => {
+          const className = "flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12.5px] font-medium text-vighi no-underline transition-colors duration-[0.12s] hover:bg-surf hover:text-accent text-left";
+          const content = (
+            <>
+              <i className={`${item.icon} text-[11px] text-slate w-[14px] text-center`}></i>
+              <span className="flex-1">{item.label}</span>
+              <i className="fas fa-chevron-right text-[9px] text-panel"></i>
+            </>
+          );
+          return item.href ? (
+            <Link key={item.label} href={item.href} className={className}>{content}</Link>
+          ) : (
+            <button key={item.label} className={className}>{content}</button>
+          );
+        })}
       </div>
     </div>
   );
@@ -109,7 +107,7 @@ export default function ConfiguracionesView() {
 
   return (
     <div className="flex flex-col gap-4 p-7 pb-18">
-      <PageHeader eyebrow="Sistema" title="Configuraciones" icon="fas fa-gear" subtitle="Datos maestros, reportes e integraciones del sistema." />
+      <PageHeader eyebrow="Sistema" title="Configuraciones" icon="fas fa-gear" subtitle="Datos maestros y reportes del sistema." />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
         <GrupoCard grupo={USUARIOS} />
@@ -142,11 +140,10 @@ export default function ConfiguracionesView() {
           </div>
         </div>
 
-        <GrupoCard grupo={RECORRIDOS} />
         <GrupoCard grupo={COBERTURAS} />
+        <GrupoCard grupo={RECORRIDOS} />
         <GrupoCard grupo={INSUMOS} />
         <GrupoCard grupo={TEMPLATES} />
-        <GrupoCard grupo={INTEGRACIONES} />
       </div>
     </div>
   );
